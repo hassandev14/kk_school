@@ -2,29 +2,33 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\TeacherRequest;
 use Illuminate\Http\Request;
-use App\Models\Teacher;
+use App\Models\Student;
 
-class teacherController extends Controller
+class studentController extends Controller
 {
-    protected  $redirect_page='teachers';
-  public function index()
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function index()
+    {
+     $data = Student::all();
+     return view('students',array('data'=> $data));
+    }
+
+    public function add_student()
    {
-    $data = Teacher::all();
-    return view('teacher',array('data'=> $data));
+    return view('add_student');
    }
-  public function add_teacher()
-   {
-    return view('add_teacher');
-   }
-   public function edit_teacher(Request $request)
+   public function edit_student(Request $request)
    {
      $id = $request->id;
-     $data = Teacher::where('id',$id)->first();
-     return view('update_teacher', ['data' => $data]);
+     $data = Student::where('id',$id)->first();
+     return view('update_student', ['data' => $data]);
    }
-  public function insert(TeacherRequest $request)
+  public function insert(Request $request)
    {
         
       $file = $request->file('image_name');
@@ -40,21 +44,21 @@ class teacherController extends Controller
       $file_mime_type = $file->getMimeType();
 
        //Move Uploaded File
-       $destinationPath = 'teachers_images';
+       $destinationPath = 'students_images';
        $record =  $file->move($destinationPath,$file->getClientOriginalName());
       // dd($record);
  
-         Teacher::create([
-        'teacher_name'=>$request->teacher_name,
+         Student::create([
+        'roll_no'=>$request->roll_no,
+        'student_name'=>$request->student_name,
         'father_name'=>$request->father_name,
         'phone'=>$request->phone,
         'address'=>$request->address,
-        'salary'=>$request->salary,
         "image_name" =>$file_name
        ]);
-       return redirect($this->redirect_page);
+       return redirect('students');
    }
-   public function update(TeacherRequest $request)
+   public function update(Request $request)
    {
     $file_name = $request->old_image_name;
     $file = $request->file('image_name');
@@ -72,25 +76,25 @@ class teacherController extends Controller
     $file_mime_type = $file->getMimeType();
 
      //Move Uploaded File
-     $destinationPath = 'teachers_images';
+     $destinationPath = 'students_images';
      $record =  $file->move($destinationPath,$file->getClientOriginalName());
     }
       $id = $request->id;
-      Teacher::where('id',$id)->update([
-        'teacher_name'=>$request->teacher_name,
+      Student::where('id',$id)->update([
+        'roll_no'=>$request->roll_no,
+        'student_name'=>$request->student_name,
         'father_name'=>$request->father_name,
         'phone'=>$request->phone,
         'address'=>$request->address,
-        'salary'=>$request->salary,
         'image_name'=>$file_name,
       ]);
-      return redirect($this->redirect_page);
+      return redirect('students');
    }
    public function delete(Request $request)
    {
     $id = $request->id;
-    $teacher = Teacher::find($id);
-    $teacher->delete();
-    return redirect($this->redirect_page);
+    $student = Student::find($id);
+    $student->delete();
+    return redirect('students');
    }
 }

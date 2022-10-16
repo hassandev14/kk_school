@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class MigrateTeachersTable extends Migration
+class MakeCreateCategoryTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,14 +13,9 @@ class MigrateTeachersTable extends Migration
      */
     public function up()
     {
-        Schema::create('teachers', function (Blueprint $table) {
+        Schema::create('category', function (Blueprint $table) {
         $table->increments('id')->unsigned();
-        $table->string('teacher_name',255);
-        $table->string('father_name',255);
-        $table->string('phone',255);
-        $table->string('address',255)->nullable();
-        $table->string('salary',255);
-        $table->string('image_name',255)->nullable();
+        $table->string('name',255);
         $table->timestamps();
     });
     }
@@ -32,6 +27,6 @@ class MigrateTeachersTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('teachers');
+        Schema::dropIfExists('category');
     }
 }

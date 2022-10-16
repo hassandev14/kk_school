@@ -11,14 +11,14 @@
 
         <title>Appzia - Responsive Admin Dashboard Template</title>
 
-        <link rel="shortcut icon" href="assets/images/favicon.ico">
+        <link rel="shortcut icon" href="{{url('/')}}/assets/images/favicon.ico">
 
         <!--Morris Chart CSS -->
-        <link rel="stylesheet" href="assets/plugins/morris/morris.css">
+        <link rel="stylesheet" href="{{url('/')}}/assets/plugins/morris/morris.css">
 
-        <link href="assets/css/bootstrap.min.css" rel="stylesheet" type="text/css">
-        <link href="assets/css/icons.css" rel="stylesheet" type="text/css">
-        <link href="assets/css/style.css" rel="stylesheet" type="text/css">
+        <link href="{{url('/')}}/assets/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+        <link href="{{url('/')}}/assets/css/icons.css" rel="stylesheet" type="text/css">
+        <link href="{{url('/')}}/assets/css/style.css" rel="stylesheet" type="text/css">
 
     </head>
 

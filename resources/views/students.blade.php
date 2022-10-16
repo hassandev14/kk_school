@@ -7,7 +7,7 @@
 
                     <div class="">
                         <div class="page-header-title">
-                            <h4 class="page-title">Teachers Data</h4>
+                            <h4 class="page-title">Students</h4>
                         </div>
                     </div>
 
@@ -20,17 +20,17 @@
                                 <div class="col-lg-12">
                                     <div class="card">
                                         <div class="card-body">
-                                            <h4 class="m-b-30 m-t-0">Buttons Example</h4>
+                                            <h4 class="m-b-30 m-t-0">Students Data</h4>
 
                                             <div class="table-responsive">
                                                 <table id="datatable-buttons" class="table table-striped table-bordered dt-responsive nowrap" cellspacing="0" width="100%">
                                                     <thead>
                                                     <tr>
-                                                        <th>Teacher Name</th>
+                                                        <th>Roll No</th>
+                                                        <th>Student Name</th>
                                                         <th>Father name</th>
                                                         <th>Phone</th>
                                                         <th>Address</th>
-                                                        <th>Salary</th>
                                                         <th>Image</th>
                                                         <th>Action</th>
                                                     </tr>
@@ -40,15 +40,15 @@
                                                     <tbody>
                                                         @foreach($data as $dat)
                                                     <tr>
-                                                        <td>{{$dat->teacher_name}}</td>
+                                                        <td>{{$dat->Roll_no}}</td>
+                                                        <td>{{$dat->student_name}}</td>
                                                         <td>{{$dat->father_name}}</td>
                                                         <td>{{$dat->phone}}</td>
                                                         <td>{{$dat->address}}</td>
-                                                        <td>{{$dat->salary}}</td>
-                                                        <td><img src="teachers_images/{{$dat->image_name}}" width="80" height="50"></td>
+                                                        <td><img src="students_images/{{$dat->image_name}}" width="80" height="50"></td>
                                                         <td>
-                                                      <a href="edit_teacher/{{$dat->id}}"><i class= "fas fa-edit"></i></a> 
-                                                      <a href="delete_teacher/{{$dat->id}}"><i class="fas fa-trash"></i></a> 
+                                                      <a href="edit_student/{{$dat->id}}"><i class= "fas fa-edit"></i></a> 
+                                                      <a href="delete_student/{{$dat->id}}"><i class="fas fa-trash"></i></a> 
                                                     </td>
                                                     </tr>
                                                     @endforeach
