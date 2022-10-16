@@ -3,29 +3,30 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Clas;
+use App\Models\My_classes;
 
-class classController extends Controller
+class myClassController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
-     $data = Clas::all();
+     
+     $data = My_classes::with('subject')->get();
      return view('class',array('data'=> $data));
     }
     public function add_class()
    {
-    $class = Clas::all();
+    $class = My_classes::all();
     return view('add_class' ,['class'=>$class]);
    }
    public function edit_class(Request $request)
    {
      $id = $request->id;
-     $data = Clas::where('id',$id)->first();
+     $data = My_classes::where('id',$id)->first();
      return view('update_class', ['data' => $data]);
    }
   public function insert(Request $request)
    {
-         Clas::create([
+         My_classes::create([
         'class_name'=>$request->class_name,
        ]);
        return redirect('class');
@@ -33,7 +34,7 @@ class classController extends Controller
    public function update(Request $request)
    {
           $id = $request->id;
-         Clas::where('id',$id)->update([
+         My_classes::where('id',$id)->update([
         'class_name'=>$request->class_name,
       ]);
       return redirect('class');
@@ -41,7 +42,7 @@ class classController extends Controller
    public function delete(Request $request)
    {
     $id = $request->id;
-    $class = Clas::find($id);
+    $class = My_classes::find($id);
     $class->delete();
     return redirect('class');
    }

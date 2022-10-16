@@ -39,7 +39,7 @@
                                                     <tr>
                                                         <td>{{$dat->id}}</td>
                                                         <td>{{$dat->subject_name}}</td>
-                                                        <td>{{$dat->class->class_name}}</td>
+                                                        <td>{{$dat->subject_name}}</td>
                                                         <td>
                                                       <a href="edit_subject/{{$dat->id}}"><i class= "fas fa-edit"></i></a> 
                                                       <a href="delete_subject/{{$dat->id}}"><i class="fas fa-trash"></i></a> 

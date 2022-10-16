@@ -32,7 +32,7 @@
                                                 <div class="form-group row">
                                                     <label class="col-sm-2 control-label">Class</label>
                                                     <div class="col-sm-10">
-                                                        <select class="form-control" name='category_id' >
+                                                        <select class="form-control" name='my_classes_id' >
                                                         <option>Select Class</option>
                                                         @php
                                                             foreach($class as $cal)

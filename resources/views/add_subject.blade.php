@@ -33,7 +33,7 @@
                                                 <div class="form-group row">
                                                     <label class="col-sm-2 control-label">Class Id</label>
                                                     <div class="col-sm-10">
-                                                        <select class="form-control" name='class_id' >
+                                                        <select class="form-control" name='my_classes_id' >
                                                         <option>Select Class</option>
                                                             @foreach($class as $cal)
                                                             <option value="{{$cal->id}}">{{$cal->class_name}}</option>
@@ -41,9 +41,9 @@
                                                         </select>
                                                     </div>
                                                 </div>
-                                                <div class="form-group row">
-                                                    <div class="col-sm-10">
-                                                    <input type="submit" value="submit" name="add_recored"> 
+                                                <div class="form-group row d-flex flex-row-reverse">
+                                                    <div class="col-sm-10 p-2">
+                                                    <input type="submit" value="submit" name="add_recored" class='btn btn-primary '> 
                                                     </div>
                                                 </div>
                                             </form>

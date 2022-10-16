@@ -13,7 +13,7 @@ class CreateClassTable extends Migration
      */
     public function up()
     {
-        Schema::create('class', function (Blueprint $table) {
+        Schema::create('my_classes', function (Blueprint $table) {
             $table->increments('id')->unsigned();
             $table->string('class_name');
             $table->timestamps();
@@ -27,6 +27,6 @@ class CreateClassTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('class');
+        Schema::dropIfExists('my_classes');
     }
 }

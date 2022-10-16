@@ -8,7 +8,7 @@ use App\Http\Controllers\categoryController;
 use App\Http\Controllers\expenseController;
 use App\Http\Controllers\employeController;
 use App\Http\Controllers\subjectController;
-use App\Http\Controllers\classController;
+use App\Http\Controllers\myClassController;
 
 /*
 |--------------------------------------------------------------------------
@@ -83,9 +83,9 @@ Route::get('delete_subject/{id}', [subjectController::class,'delete']);
 
 ///////////////////////////////////////////////////////Class Routning//////////////////////////////////////////////////////
 
-Route::get('class', [classController::class,'index']);
-Route::get('add_class', [classController::class,'add_class']);
-Route::post('add_class', [classController::class,'insert']);
-Route::get('edit_class/{id}', [classController::class,'edit_class']);
-Route::post('update_class', [classController::class,'update']);
-Route::get('delete_class/{id}', [classController::class,'delete']);
+Route::get('class', [myClassController::class,'index']);
+Route::get('add_class', [myClassController::class,'add_class']);
+Route::post('add_class', [myClassController::class,'insert']);
+Route::get('edit_class/{id}', [myClassController::class,'edit_class']);
+Route::post('update_class', [myClassController::class,'update']);
+Route::get('delete_class/{id}', [myClassController::class,'delete']);

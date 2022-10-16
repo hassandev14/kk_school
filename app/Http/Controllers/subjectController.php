@@ -4,33 +4,40 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Subject;
-use App\Models\Clas;
+use App\Models\My_classes;
 
 class subjectController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
-     $data = Subject::all();
-     $class = Clas::all();
-     return view('subject',array('data'=> $data,'class'=>$class));
+    
+      if(isset($request->my_classes_id))
+      {
+        $my_classes_id = $request->my_classes_id;
+        $data = Subject::with('my_classes')->where(array('my_classes_id'=>$my_classes_id))->get();
+      }else
+      {
+        $data = Subject::with('my_classes')->get();
+      }
+     return view('subject',array('data'=> $data));
     }
     public function add_subject()
    {
-    $class = Clas::all();
+    $class = My_classes::all();
     return view('add_subject' ,['class'=>$class]);
    }
    public function edit_subject(Request $request)
    {
      $id = $request->id;
      $data = Subject::where('id',$id)->first();
-     $class = Clas::all();
+     $class = My_classes::all();
      return view('update_subject', ['data' => $data,'class'=>$class]);
    }
   public function insert(Request $request)
    {
          Subject::create([
         'subject_name'=>$request->subject_name,
-        'class_id'=>$request->class_id
+        'my_classes_id'=>$request->my_classes_id
        ]);
        return redirect('subject');
    }
@@ -39,7 +46,7 @@ class subjectController extends Controller
           $id = $request->id;
          Subject::where('id',$id)->update([
         'subject_name'=>$request->subject_name,
-        'class_id'=>$request->class_id
+        'my_classes_id'=>$request->my_classes_id
       ]);
       return redirect('subject');
    }

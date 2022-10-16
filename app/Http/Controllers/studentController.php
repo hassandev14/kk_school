@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Student;
+use App\Models\Student_classes;
 
 class studentController extends Controller
 {
@@ -14,7 +15,9 @@ class studentController extends Controller
      */
     public function index()
     {
-     $data = Student::all();
+     $data = Student::with('student_classes')->get();
+    echo count($data[0]->student_classes);
+    dd($data[0]->student_classes[0]->student_class_id);
      return view('students',array('data'=> $data));
     }
 
