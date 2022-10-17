@@ -13,8 +13,9 @@ class studentClassesController extends Controller
     public $redirect = "student_classes";
     public function index()
     {
-     $data = Student_classes::with('my_classes')->with('student')->get();
-    // dd($data);
+     //$data = Student_classes::with('my_classes')->get();
+	 $data =Student_classes::with('my_classes')->with('student')->get();
+     //dd($data);
      return view('student_classes',array('data'=> $data));
     }
     public function add_student_classes()

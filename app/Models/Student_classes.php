@@ -10,10 +10,10 @@ class Student_classes extends Model
    protected $fillable = ['student_id','student_class_id','fee'];
     public function student()
     {
-       return $this->belongsTo('App\Models\Student');
+       return $this->belongsTo('App\Models\Student','student_id');
     }
     public function my_classes()
     {
-       return $this->belongsTo('App\Models\My_classes');
+       return $this->belongsTo('App\Models\My_classes', 'student_class_id')->with('App\Models\Student');
     }
 }

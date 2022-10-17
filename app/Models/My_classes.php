@@ -19,4 +19,9 @@ class My_classes extends Model
     {
          return $this->hasMany('App\Models\Student_classes');
     }
+	
+	/*public function std()
+    {
+        return $this->belongsToMany('App\Models\Student')->using('App\Models\Student_classes');
+    }*/
 }
