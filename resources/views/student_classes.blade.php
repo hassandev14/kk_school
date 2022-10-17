@@ -1,6 +1,7 @@
 @extends('layouts.default')
 
 @section('content')
+@dd($data[0])
 <div class="content-page">
                 <!-- Start content -->
                 <div class="content">
@@ -26,36 +27,25 @@
                                                 <table id="datatable-buttons" class="table table-striped table-bordered dt-responsive nowrap" cellspacing="0" width="100%">
                                                     <thead>
                                                     <tr>
-                                                        <th>Roll No</th>
                                                         <th>Student Name</th>
-                                                        <th>Father name</th>
-                                                        <th>Phone</th>
-                                                        <th>Address</th>
-                                                        <th>Class</th>
-                                                        <th>Gender</th>
-                                                        <th>Image</th>
+                                                        <th>Student Class</th>
+                                                        <th>Fee</th>
                                                         <th>Action</th>
                                                     </tr>
                                                     </thead>
 
 
                                                     <tbody>
+                                                        
                                                         @foreach($data as $dat)
                                                         
-                                                     @php $current_class = $dat->student_classes->keys()->last() @endphp
                                                     <tr>
-                                                        <td>{{$dat->Roll_no}}</td>
-                                                        <td>{{$dat->student_name}}</td>
-                                                        <td>{{$dat->father_name}}</td>
-                                                        <td>{{$dat->phone}}</td>
-                                                        <td>{{$dat->address}}</td>
-                                                        <td></td>
-                                                        <td></td>
-                                                        <td><img src="students_images/{{$dat->image_name}}" width="80" height="50"></td>
+                                                        <td>{{$dat->student->student_name}}</td>
+                                                        <td>{{$dat->my_classes->class_name}}</td>
+                                                        <td>{{$dat->fee}}</td>
                                                         <td>
-                                                      <a href="edit_student/{{$dat->id}}"><i class= "fas fa-edit"></i></a> 
-                                                      <a href="delete_student/{{$dat->id}}"><i class="fas fa-trash"></i></a> 
-                                                      <a href="subject?my_classes_id={{$dat->student_classes[$current_class]->student_class_id}}">See Subjects</a>
+                                                      <a href="edit_student_classes/{{$dat->id}}"><i class= "fas fa-edit"></i></a> 
+                                                      <a href="delete_student_classes/{{$dat->id}}"><i class="fas fa-trash"></i></a> 
                                                     </td>
                                                     </tr>
                                                     @endforeach

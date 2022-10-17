@@ -13,4 +13,8 @@ class Student extends Model
     {
          return $this->hasMany('App\Models\Student_classes');
     }
+    public function get_class()
+    {
+         return $this->hasMany('App\Models\My_classes');
+    }
 }

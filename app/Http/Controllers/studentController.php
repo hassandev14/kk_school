@@ -16,8 +16,9 @@ class studentController extends Controller
     public function index()
     {
      $data = Student::with('student_classes')->get();
-    echo count($data[0]->student_classes);
-    dd($data[0]->student_classes[0]->student_class_id);
+    // $data = Student::get_class()->has('student_classes')->with('student_classes')->get();
+    dd($data[0]->student_classes);
+    //($data[0]->student_classes[0]->student_class_id);
      return view('students',array('data'=> $data));
     }
 

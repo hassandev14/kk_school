@@ -9,6 +9,7 @@ use App\Http\Controllers\expenseController;
 use App\Http\Controllers\employeController;
 use App\Http\Controllers\subjectController;
 use App\Http\Controllers\myClassController;
+use App\Http\Controllers\studentClassesController;
 
 /*
 |--------------------------------------------------------------------------
@@ -89,3 +90,12 @@ Route::post('add_class', [myClassController::class,'insert']);
 Route::get('edit_class/{id}', [myClassController::class,'edit_class']);
 Route::post('update_class', [myClassController::class,'update']);
 Route::get('delete_class/{id}', [myClassController::class,'delete']);
+
+///////////////////////////////////////////////////////Student Routning//////////////////////////////////////////////////////
+
+Route::get('student_classes', [studentClassesController::class,'index']);
+Route::get('add_student_classes', [studentClassesController::class,'add_student_classes']);
+Route::post('add_student_classes', [studentClassesController::class,'insert']);
+Route::get('edit_student_classes/{id}', [studentClassesController::class,'edit_student_classes']);
+Route::post('update_student_classes', [studentClassesController::class,'update']);
+Route::get('delete_student_classes/{id}', [studentClassesController::class,'delete']);

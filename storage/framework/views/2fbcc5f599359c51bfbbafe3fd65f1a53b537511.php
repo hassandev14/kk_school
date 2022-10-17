@@ -1,6 +1,7 @@
-@extends('layouts.default')
 
-@section('content')
+
+<?php $__env->startSection('content'); ?>
+<?php dd($data[0]); ?>
 <div class="content-page">
                 <!-- Start content -->
                 <div class="content">
@@ -12,9 +13,9 @@
                     </div>
 
                     <div class="page-content-wrapper ">
- @if($errors->any())
-<h4>{{$errors->first()}}</h4>
-@endif
+ <?php if($errors->any()): ?>
+<h4><?php echo e($errors->first()); ?></h4>
+<?php endif; ?>
                         <div class="container-fluid">
                         <div class="row">
                                 <div class="col-lg-12">
@@ -26,39 +27,28 @@
                                                 <table id="datatable-buttons" class="table table-striped table-bordered dt-responsive nowrap" cellspacing="0" width="100%">
                                                     <thead>
                                                     <tr>
-                                                        <th>Roll No</th>
                                                         <th>Student Name</th>
-                                                        <th>Father name</th>
-                                                        <th>Phone</th>
-                                                        <th>Address</th>
-                                                        <th>Class</th>
-                                                        <th>Gender</th>
-                                                        <th>Image</th>
+                                                        <th>Student Class</th>
+                                                        <th>Fee</th>
                                                         <th>Action</th>
                                                     </tr>
                                                     </thead>
 
 
                                                     <tbody>
-                                                        @foreach($data as $dat)
                                                         
-                                                     @php $current_class = $dat->student_classes->keys()->last() @endphp
+                                                        <?php $__currentLoopData = $data; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $dat): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                                        
                                                     <tr>
-                                                        <td>{{$dat->Roll_no}}</td>
-                                                        <td>{{$dat->student_name}}</td>
-                                                        <td>{{$dat->father_name}}</td>
-                                                        <td>{{$dat->phone}}</td>
-                                                        <td>{{$dat->address}}</td>
-                                                        <td></td>
-                                                        <td></td>
-                                                        <td><img src="students_images/{{$dat->image_name}}" width="80" height="50"></td>
+                                                        <td><?php echo e($dat->student->student_name); ?></td>
+                                                        <td><?php echo e($dat->my_classes->class_name); ?></td>
+                                                        <td><?php echo e($dat->fee); ?></td>
                                                         <td>
-                                                      <a href="edit_student/{{$dat->id}}"><i class= "fas fa-edit"></i></a> 
-                                                      <a href="delete_student/{{$dat->id}}"><i class="fas fa-trash"></i></a> 
-                                                      <a href="subject?my_classes_id={{$dat->student_classes[$current_class]->student_class_id}}">See Subjects</a>
+                                                      <a href="edit_student_classes/<?php echo e($dat->id); ?>"><i class= "fas fa-edit"></i></a> 
+                                                      <a href="delete_student_classes/<?php echo e($dat->id); ?>"><i class="fas fa-trash"></i></a> 
                                                     </td>
                                                     </tr>
-                                                    @endforeach
+                                                    <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                                                     </tbody>
                                                 </table>
                                             </div>
@@ -82,5 +72,7 @@
 
             </div>
             <!-- End Right content here -->
-@stop
+<?php $__env->stopSection(); ?>
 
+
+<?php echo $__env->make('layouts.default', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH D:\wamp\www\kk_school\resources\views/student_classes.blade.php ENDPATH**/ ?>

@@ -80,6 +80,13 @@
                                     <li><a href="add_class">Add Class</a></li>
                                 </ul>
                             </li> 
+                            <li class="has_sub">
+                                <a href="javascript:void(0);" class="waves-effect"><i class="mdi mdi-album"></i> <span>Student Class </span> <span class="float-right"><i class="mdi mdi-plus"></i></span></a>
+                                <ul class="list-unstyled">
+                                    <li><a href="student_classes">See Student Class</a></li>
+                                    <li><a href="add_student_classes">Add Student Class</a></li>
+                                </ul>
+                            </li> 
                                 </ul>
                             </li>
                         </ul>
