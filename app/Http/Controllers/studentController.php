@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Student;
 use App\Models\Student_classes;
+use App\Models\My_classes;
 
 class studentController extends Controller
 {
@@ -15,9 +16,9 @@ class studentController extends Controller
      */
     public function index()
     {
-     $data = Student::with('student_classes')->get();
+     $data = Expense::with('student_classes')->with('my_classes')->get();
     // $data = Student::get_class()->has('student_classes')->with('student_classes')->get();
-    dd($data[0]->student_classes);
+    dd($data[0]->my_classes);
     //($data[0]->student_classes[0]->student_class_id);
      return view('students',array('data'=> $data));
     }
