@@ -14,9 +14,21 @@ use App\Quotation;
 
 class adminController extends Controller
 {
-    function index()
+    function index(Request $request)
     {
-        return view('login');
+        ss( $request->session()->get('admin_name'));
+       
+        if ($request->session()->has('admin_name')) {
+            return Redirect('teachers');
+        }
+        else{
+            return view('login');
+        }
+    }
+    function logout(Request $request)
+    {
+        $request->session()->flush();
+        return Redirect('login');
     }
     function signup()
     {
@@ -24,24 +36,33 @@ class adminController extends Controller
     }
     function login(AdminLoginRequest $request)
     {
+        if ($request->session()->has('admin_name')) {
+            return Redirect('teachers');
+        }
         $validated = $request->validated();
         $email =$request->input('email');
-       echo $password = md5($request->input('password'));
+        $password = md5($request->input('password'));
 
         $user_data = array(
         'email' => $email,
         'password' => $password
         );
+       
+       // dd($admin);
         if(Admin::where($user_data)->exists())
-        {
-            return Redirect('home')->withErrors(['msg' => 'Login Succesful']);
+        { 
+            $admin = Admin::where($user_data)->first();
+            s(Session::all());
+            Session::push('my_session',['admin_name'=> $admin->admin_name , 'admin_email'=> $admin->email]);
+           // Session::push('admin_email', $admin->email);
+          //  $request->session()->put('admin_name', $admin->admin_name);
+          //  $request->session()->put('admin_email', $admin->email);
+            $data = $request->session()->all();
+            ss(Session::all());
+            return Redirect('teachers')->withErrors(['msg' => 'Login Succesful']);
         }else{
-            echo "false";
+            return Redirect('login')->withErrors(['msg' => 'Email OR Password is invalid!']);
         }
-
-    //    $exist = Admin::firstOrFail()->where('email', $email);
-    //    echo "<pre>";
-    //    print_r($exist);
     }
 
     public function insert(AdminSignupRequest $request)
@@ -52,7 +73,8 @@ class adminController extends Controller
         'email'=>$request->email,
         'password'=> md5($request->password)
        ]);
+       //dd('in');
  
-   
+       return Redirect('login');
         }
 }

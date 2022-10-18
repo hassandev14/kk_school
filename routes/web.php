@@ -22,14 +22,15 @@ use App\Http\Controllers\studentClassesController;
 |
 */
 ////////////////Auth Routing ////////////////////////////////////////
+Route::get('/', [adminController::class,'index']);
+Route::get('login', [adminController::class,'index']);
 Route::post('login', [adminController::class,'login']);
-Route::get('login', [adminController::class,'login']);
+Route::get('logout', [adminController::class,'logout']);
 Route::get('signup', [adminController::class,'signup']);
 Route::post('insert', [adminController::class,'insert']);
 
 ////////////////Teacher Routing//////////////////////////////
 
-Route::get('/', [adminController::class,'index']);
 Route::get('teachers', [teacherController::class,'index']);
 Route::get('add_teacher', [teacherController::class,'add_teacher']);
 Route::post('add_teacher', [teacherController::class,'insert']);
