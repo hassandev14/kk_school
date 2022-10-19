@@ -16,7 +16,7 @@ class studentController extends Controller
      */
     public function index()
     {
-     $data =Student::with('student_classes')->get();
+     $data =Student::with('get_cl')->get();
     //$data =Student::with('get_cl')->get();
     dd($data);
     //($data[0]->student_classes[0]->student_class_id);

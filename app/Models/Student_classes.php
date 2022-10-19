@@ -14,6 +14,6 @@ class Student_classes extends Model
     }
     public function my_classes()
     {
-       return $this->belongsTo('App\Models\My_classes', 'student_class_id')->with('App\Models\Student');
+       return $this->belongsTo('App\Models\My_classes', 'student_class_id');
     }
 }

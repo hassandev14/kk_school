@@ -8,14 +8,21 @@ use App\Http\Requests\AdminSignupRequest;
 use App\Http\Requests\AdminLoginRequest;
 use Illuminate\Http\Request;
 
-use Illuminate\Support\Facades\Session;
+
 use App\Models\Admin;
 use App\Quotation;
-
+use Session;
 class adminController extends Controller
 {
-    function index()
+    function index(Request $request)
     {
+		if($request->session()->has('admin_name'))
+		{
+			return Redirect('teachers');
+		}else{
+			return view('login');
+			
+		}
         return view('login');
     }
     function signup()
@@ -24,7 +31,7 @@ class adminController extends Controller
     }
     function login(AdminLoginRequest $request)
     {
-        $validated = $request->validated();
+		 $validated = $request->validated();
         $email =$request->input('email');
        echo $password = md5($request->input('password'));
 
@@ -34,14 +41,14 @@ class adminController extends Controller
         );
         if(Admin::where($user_data)->exists())
         {
-            return Redirect('home')->withErrors(['msg' => 'Login Succesful']);
-        }else{
-            echo "false";
+			$user = Admin::where($user_data)->first();
+			$request->session()->put('admin_name',$user->admin_name);
+			$request->session()->put('admin_eamail',$user->email);
+			$request->session()->save();
+			
+            return Redirect('teachers')->withErrors(['msg' => 'Login Succesful']);
         }
 
-    //    $exist = Admin::firstOrFail()->where('email', $email);
-    //    echo "<pre>";
-    //    print_r($exist);
     }
 
     public function insert(AdminSignupRequest $request)
@@ -53,6 +60,13 @@ class adminController extends Controller
         'password'=> md5($request->password)
        ]);
  
+   
+        }
+		public function logout(Request $request)
+    {
+        $request->session()->flush();
+		Session::flash('message', "Logout Succesful");
+ 		 return view('login');
    
         }
 }
