@@ -16,6 +16,7 @@ class adminController extends Controller
 {
     function index(Request $request)
     {
+		dd($request->session()->all());
 		if($request->session()->has('admin_name'))
 		{
 			return Redirect('teachers');
@@ -45,8 +46,7 @@ class adminController extends Controller
 			$request->session()->put('admin_name',$user->admin_name);
 			$request->session()->put('admin_eamail',$user->email);
 			$request->session()->save();
-			
-            return Redirect('teachers')->withErrors(['msg' => 'Login Succesful']);
+			return Redirect('teachers')->withErrors(['msg' => 'Login Succesful']);
         }
 
     }
@@ -64,9 +64,9 @@ class adminController extends Controller
         }
 		public function logout(Request $request)
     {
-        $request->session()->flush();
-		Session::flash('message', "Logout Succesful");
- 		 return view('login');
+          $request->session()->flush();
+		  $request->session()->regenerate();
+ 		  return redirect('/');
    
         }
 }
