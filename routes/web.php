@@ -25,9 +25,9 @@ use App\Http\Controllers\studentClassesController;
 Route::get('/', [adminController::class,'index']);
 Route::get('login', [adminController::class,'index']);
 Route::post('login', [adminController::class,'login']);
-Route::get('logout', [adminController::class,'logout']);
 Route::get('signup', [adminController::class,'signup']);
 Route::post('insert', [adminController::class,'insert']);
+Route::get('logout', [adminController::class,'logout']);
 
 ////////////////Teacher Routing//////////////////////////////
 

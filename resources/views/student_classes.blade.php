@@ -1,7 +1,6 @@
 @extends('layouts.default')
 
 @section('content')
-@dd($data[0])
 <div class="content-page">
                 <!-- Start content -->
                 <div class="content">

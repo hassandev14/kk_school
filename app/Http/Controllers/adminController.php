@@ -8,27 +8,22 @@ use App\Http\Requests\AdminSignupRequest;
 use App\Http\Requests\AdminLoginRequest;
 use Illuminate\Http\Request;
 
-use Illuminate\Support\Facades\Session;
+
 use App\Models\Admin;
 use App\Quotation;
-
+use Session;
 class adminController extends Controller
 {
     function index(Request $request)
     {
-      //  ss( $request->session()->get('admin_name'));
-       
-        if ($request->session()->has('admin_name')) {
-            return Redirect('teachers');
-        }
-        else{
-            return view('login');
-        }
-    }
-    function logout(Request $request)
-    {
-        $request->session()->flush();
-        return Redirect('login');
+		if($request->session()->has('admin_name'))
+		{
+			return Redirect('teachers');
+		}else{
+			return view('login');
+			
+		}
+        return view('login');
     }
     function signup()
     {
@@ -36,10 +31,7 @@ class adminController extends Controller
     }
     function login(AdminLoginRequest $request)
     {
-        if ($request->session()->has('admin_name')) {
-            return Redirect('teachers');
-        }
-        $validated = $request->validated();
+		 $validated = $request->validated();
         $email =$request->input('email');
         $password = md5($request->input('password'));
 
@@ -50,19 +42,15 @@ class adminController extends Controller
        
        // dd($admin);
         if(Admin::where($user_data)->exists())
-        { 
-            $admin = Admin::where($user_data)->first();
-            s(Session::all());
-            Session::push('my_session',['admin_name'=> $admin->admin_name , 'admin_email'=> $admin->email]);
-           // Session::push('admin_email', $admin->email);
-          //  $request->session()->put('admin_name', $admin->admin_name);
-          //  $request->session()->put('admin_email', $admin->email);
-            $data = $request->session()->all();
-            ss(Session::all());
+        {
+			$user = Admin::where($user_data)->first();
+			$request->session()->put('admin_name',$user->admin_name);
+			$request->session()->put('admin_eamail',$user->email);
+			$request->session()->save();
+			
             return Redirect('teachers')->withErrors(['msg' => 'Login Succesful']);
-        }else{
-            return Redirect('login')->withErrors(['msg' => 'Email OR Password is invalid!']);
         }
+
     }
 
     public function insert(AdminSignupRequest $request)
@@ -76,5 +64,12 @@ class adminController extends Controller
        //dd('in');
  
        return Redirect('login');
+        }
+		public function logout(Request $request)
+    {
+        $request->session()->flush();
+		Session::flash('message', "Logout Succesful");
+ 		 return view('login');
+   
         }
 }
