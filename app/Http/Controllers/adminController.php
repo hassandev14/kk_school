@@ -69,7 +69,7 @@ class adminController extends Controller
     {
         $request->session()->flush();
 		Session::flash('message', "Logout Succesful");
- 		 return view('login');
+        return redirect()->action([adminController::class,'logout']);
    
         }
 }
