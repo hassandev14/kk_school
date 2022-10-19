@@ -16,7 +16,7 @@ class adminController extends Controller
 {
     function index(Request $request)
     {
-        ss( $request->session()->get('admin_name'));
+      //  ss( $request->session()->get('admin_name'));
        
         if ($request->session()->has('admin_name')) {
             return Redirect('teachers');
