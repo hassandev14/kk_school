@@ -31,7 +31,6 @@ Route::get('logout', [adminController::class,'logout']);
 
 ////////////////Teacher Routing//////////////////////////////
 
-Route::get('/', [adminController::class,'index']);
 Route::get('teachers', [teacherController::class,'index']);
 Route::get('add_teacher', [teacherController::class,'add_teacher']);
 Route::post('add_teacher', [teacherController::class,'insert']);

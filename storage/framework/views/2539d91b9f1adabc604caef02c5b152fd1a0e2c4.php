@@ -26,15 +26,15 @@
         <div class="accountbg"></div>
         <div class="wrapper-page">
             <div class="card">
-            @if ($errors->any())
+            <?php if($errors->any()): ?>
     <div class="alert alert-danger">
         <ul>
-            @foreach ($errors->all() as $error)
-                <li>{{ $error }}</li>
-            @endforeach
+            <?php $__currentLoopData = $errors->all(); $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $error): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                <li><?php echo e($error); ?></li>
+            <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
         </ul>
     </div>
-@endif
+<?php endif; ?>
 
                 <div class="card-body">
                     <h3 class="text-center m-t-0 m-b-15">
@@ -42,20 +42,20 @@
                     </h3>
                     <h4 class="text-muted text-center m-t-0"><b>Sign In</b></h4>
 
-                    <form class="form-horizontal m-t-20" action="{{url('login')}}"  enctype="multipart/form-data" method="POST">
-                    @csrf
+                    <form class="form-horizontal m-t-20" action="<?php echo e(url('login')); ?>"  enctype="multipart/form-data" method="POST">
+                    <?php echo csrf_field(); ?>
 
                         <div class="form-group">
                             <div class="col-12">
-                                <input class="form-control" type="text"  placeholder="Email" name="email" value="a@yahoo.com{{ old('email') }}">
+                                <input class="form-control" type="text"  placeholder="Email" name="email" value="<?php echo e(old('email')); ?>">
                             </div>
                         </div>
 
                         <div class="form-group">
                             <div class="col-12">
-                                <input class="form-control" type="password"  placeholder="Password" value="a" name="password">
+                                <input class="form-control" type="password"  placeholder="Password" name="password">
                             </div
-                        ></div>
+                        </div>
 
                         <div class="form-group">
                             <div class="col-12">
@@ -108,4 +108,4 @@
     </body>
 
 <!-- Mirrored from themesdesign.in/appzia/pages-login.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jan 2022 11:09:33 GMT -->
-</html>
+</html><?php /**PATH D:\wamp\www\kk_school\resources\views/login.blade.php ENDPATH**/ ?>

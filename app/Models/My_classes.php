@@ -17,7 +17,7 @@ class My_classes extends Model
     }
     public function student_classes()
     {
-         return $this->hasMany('App\Models\Student_classes');
+         return $this->hasMany('App\Models\Student_classes'.'student_id');
     }
 	
 	/*public function std()

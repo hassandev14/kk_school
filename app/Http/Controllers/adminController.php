@@ -11,12 +11,10 @@ use Illuminate\Http\Request;
 
 use App\Models\Admin;
 use App\Quotation;
-use Session;
 class adminController extends Controller
 {
     function index(Request $request)
     {
-		dd($request->session()->all());
 		if($request->session()->has('admin_name'))
 		{
 			return Redirect('teachers');
@@ -34,12 +32,14 @@ class adminController extends Controller
     {
 		 $validated = $request->validated();
         $email =$request->input('email');
-       echo $password = md5($request->input('password'));
+        $password = md5($request->input('password'));
 
         $user_data = array(
         'email' => $email,
         'password' => $password
         );
+       
+       // dd($admin);
         if(Admin::where($user_data)->exists())
         {
 			$user = Admin::where($user_data)->first();
@@ -59,11 +59,13 @@ class adminController extends Controller
         'email'=>$request->email,
         'password'=> md5($request->password)
        ]);
+       //dd('in');
  
-   
+       return Redirect('login');
         }
 		public function logout(Request $request)
     {
+
           $request->session()->flush();
 		  $request->session()->regenerate();
  		  return redirect('/');
