@@ -10,7 +10,7 @@ class myClassController extends Controller
     public function index(Request $request)
     {
      
-     $data = My_classes::with('subject')->get();
+     $data = My_classes::withCount('subject')->get();
      return view('class',array('data'=> $data));
     }
     public function add_class()

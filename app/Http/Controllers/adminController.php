@@ -45,6 +45,8 @@ class adminController extends Controller
 			$user = Admin::where($user_data)->first();
 			$request->session()->put('admin_name',$user->admin_name);
 			$request->session()->put('admin_eamail',$user->email);
+            $request->session()->put('admin_image',$user->image_name);
+            $request->session()->put('admin_id',$user->id);
 			$request->session()->save();
 			return Redirect('teachers')->withErrors(['msg' => 'Login Succesful']);
         }
@@ -53,10 +55,28 @@ class adminController extends Controller
 
     public function insert(AdminSignupRequest $request)
     {
+        $file = $request->file('image_name');
+      //Display File Name
+      $file_name = $file->getClientOriginalName();
+       //Display File Extension
+      $file_extension = $file->getClientOriginalExtension();
+        //Display File Real Path
+      $file_path = $file->getRealPath();
+       //Display File Size
+      $file_size = $file->getSize();
+       //Display File Mime Type
+      $file_mime_type = $file->getMimeType();
+
+       //Move Uploaded File
+       $destinationPath = 'admins_images';
+       $record =  $file->move($destinationPath,$file->getClientOriginalName());
+      // dd($record);
+
         $validated = $request->validated();
         Admin::create([
         'admin_name'=>$request->admin_name,
         'email'=>$request->email,
+        "image_name" =>$file_name,
         'password'=> md5($request->password)
        ]);
        //dd('in');
@@ -70,5 +90,55 @@ class adminController extends Controller
 		  $request->session()->regenerate();
  		  return redirect('/');
    
+        }
+
+        public function profile(Request $request)
+        {
+           // ss($request->session()->all());
+         $admin_id = $request->session()->get('admin_id');
+         $data = Admin::find($admin_id);
+         return view('profile',array('data'=> $data));
+        }
+        public function update_admin(Request $request)
+        {
+         $file_name = $request->old_image_name;
+         $file = $request->file('image_name');
+         if($file)
+         {
+          //Display File Name
+          $file_name = $file->getClientOriginalName();
+          //Display File Extension
+         $file_extension = $file->getClientOriginalExtension();
+           //Display File Real Path
+         $file_path = $file->getRealPath();
+          //Display File Size
+         $file_size = $file->getSize();
+          //Display File Mime Type
+         $file_mime_type = $file->getMimeType();
+     
+          //Move Uploaded File
+          $destinationPath = 'admins_images';
+          $record =  $file->move($destinationPath,$file->getClientOriginalName());
+         }
+           $id = $request->id;
+           if($request->password)
+           {
+            $password = md5($request->password);
+            Admin::where('id',$id)->update([
+                'admin_name'=>$request->admin_name,
+                "image_name" =>$file_name,
+                'password'=> $password
+               ]);
+           }else
+           {
+            Admin::where('id',$id)->update([
+                'admin_name'=>$request->admin_name,
+                "image_name" =>$file_name
+               ]);
+           }
+           $request->session()->put('admin_name',$request->admin_name);
+           $request->session()->put('admin_image',$file_name);
+           $request->session()->save();
+           return redirect('profile');
         }
 }

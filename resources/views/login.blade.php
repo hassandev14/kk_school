@@ -47,7 +47,7 @@
 
                         <div class="form-group">
                             <div class="col-12">
-                                <input class="form-control" type="text"  placeholder="Email" name="email" value="a@yahoo.com{{ old('email') }}">
+                                <input class="form-control" type="text"  placeholder="Email" name="email" value="a@gmail.com{{ old('email') }}">
                             </div>
                         </div>
 

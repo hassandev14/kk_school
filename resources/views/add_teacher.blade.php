@@ -68,9 +68,9 @@
                                                         <input type="file" class="form-control" id="image_name" name="image_name">
                                                     </div>
                                                 </div>
-                                                <div class="form-group row">
+                                                <div class="form-group row d-flex flex-row-reverse">
                                                     <div class="col-sm-10">
-                                                    <input type="submit" value="submit" name="add_recored"> 
+                                                    <input type="submit" value="submit" name="add_recored" class='btn btn-primary '> 
                                                     </div>
                                                 </div>
                                             </form>

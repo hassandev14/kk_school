@@ -47,15 +47,15 @@
 
                         <div class="form-group">
                             <div class="col-12">
-                                <input class="form-control" type="text"  placeholder="Email" name="email" value="<?php echo e(old('email')); ?>">
+                                <input class="form-control" type="text"  placeholder="Email" name="email" value="a@gmail.com<?php echo e(old('email')); ?>">
                             </div>
                         </div>
 
                         <div class="form-group">
                             <div class="col-12">
-                                <input class="form-control" type="password"  placeholder="Password" name="password">
+                                <input class="form-control" type="password"  placeholder="Password" value="a" name="password">
                             </div
-                        </div>
+                        ></div>
 
                         <div class="form-group">
                             <div class="col-12">

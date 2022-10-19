@@ -39,7 +39,7 @@
                                                     <tr>
                                                         <td>{{$dat->id}}</td>
                                                         <td>{{$dat->class_name}}</td>
-                                                        <td><a href = "subject?my_classes_id={{$dat->id}}">@php echo count($dat->subject); @endphp</a></td>
+                                                        <td><a href = "subject?my_classes_id={{$dat->id}}">{{$dat->subject_count}}</a></td>
                                                         <td>
                                                       <a href="edit_class/{{$dat->id}}"><i class= "fas fa-edit"></i></a> 
                                                       <a href="delete_class/{{$dat->id}}"><i class="fas fa-trash"></i></a> 
