@@ -43,7 +43,6 @@
 
                     <form class="form-horizontal m-t-20" action="insert"  enctype="multipart/form-data" method="POST">
                     <?php echo csrf_field(); ?>
-
                         <div class="form-group">
                             <div class="col-12">
                                 <input class="form-control" type="text"  placeholder="Name" name="admin_name"  value="<?php echo e(old('admin_name')); ?>">
@@ -55,13 +54,17 @@
                                 <input class="form-control" type="text" placeholder="email" name="email" value="<?php echo e(old('email')); ?>">
                             </div>
                         </div>
-
                         <div class="form-group">
                             <div class="col-12">
                                 <input class="form-control" type="password" placeholder="Password" name="password" >
                             </div>
                         </div>
-
+                        <div class="form-group row">
+                        <div class="col-12">
+                                                    <div class="col-sm-10">
+                                                        <input type="file" class="form-control" placeholder="email" id="image_name" name="image_name">
+                                                    </div>
+                                                </div>
                         <div class="form-group">
                             <div class="col-12">
                                 <div class="checkbox checkbox-primary">

@@ -1,77 +1,66 @@
-@extends('layouts.default')
 
-@section('content')
+
+<?php $__env->startSection('content'); ?>
+
 <!-- Start right Content here -->
             <div class="content-page">
                 <!-- Start content -->
                 <div class="content">
-                @if ($errors->any())
-    <div class="alert alert-danger">
-        <ul>
-            @foreach ($errors->all() as $error)
-                <li>{{ $error }}</li>
-            @endforeach
-        </ul>
-    </div>
-@endif
 
                     <div class="">
                         <div class="page-header-title">
-                            <h4 class="page-title">Employe </h4>
+                            <h4 class="page-title">Teachers </h4>
                         </div>
                     </div>
 
                     <div class="page-content-wrapper ">
                    
                         <div class="container-fluid">
-                        <form action="add_employe" style="border:1px solid #ccc" enctype="multipart/form-data" method="POST">
-                        @csrf
+                        <form action="<?php echo e(url('update_admin')); ?>" style="border:1px solid #ccc" enctype="multipart/form-data" method="POST">
+                        <?php echo csrf_field(); ?>
                             <div class="row">
                                 <div class="col-sm-12">
                                     <div class="card">
                                         <div class="card-body">
-                                            <h4 class="m-t-0 m-b-30">Add Employe</h4>
+                                            <h4 class="m-t-0 m-b-30">Update Admin</h4>
 
                                             <form class="form-horizontal" role="form">
                                                 <div class="form-group row">
-                                                    <label class="col-sm-2 control-label" for="Employe Name">Employe Name</label>
+                                                    <label class="col-sm-2 control-label" for="admin_name">Admin Name</label>
                                                     <div class="col-sm-10">
-                                                        <input type="text" class="form-control" value="" id="employe_name" name="employe_name">
+                                                        <input type="text" class="form-control" value="<?php echo e($data->admin_name); ?> <?php echo e(old('admin_name')); ?>" id="admin_name" name="admin_name">                                                    </div>
+                                                </div>
+                                                <div class="form-group row">
+                                                    <label class="col-sm-2 control-label" for="password">Email</label>
+                                                    <div class="col-sm-10">
+                                                        <input type="email" class="form-control" id="email" name="email" value="<?php echo e($data->email); ?> <?php echo e(old('email')); ?>" readonly>
                                                     </div>
                                                 </div>
                                                 <div class="form-group row">
-                                                    <label class="col-sm-2 control-label">Father Name</label>
+                                                    <label class="col-sm-2 control-label" for="password">password</label>
                                                     <div class="col-sm-10">
-                                                        <input type="text" id="father_name" name="father_name" class="form-control" >
-                                                    </div>
-                                                </div>
-                                                <div class="form-group row">
-                                                    <label class="col-sm-2 control-label" for="Phone">Phone</label>
-                                                    <div class="col-sm-10">
-                                                        <input type="number" class="form-control" id="phone" name="phone">
-                                                    </div>
-                                                </div>
-                                                <div class="form-group row">
-                                                    <label class="col-sm-2 control-label" for="Address">Address</label>
-                                                    <div class="col-sm-10">
-                                                        <input type="text" class="form-control" value="" id="address" name="address">
-                                                    </div>
-                                                </div>
-                                                <div class="form-group row">
-                                                    <label class="col-sm-2 control-label">Salary</label>
-                                                    <div class="col-sm-10">
-                                                        <input type="number" id="salary" name="salary" class="form-control" >
+                                                        <input type="text" class="form-control" id="phone" name="password" value="">
                                                     </div>
                                                 </div>
                                                 <div class="form-group row">
                                                     <label class="col-sm-2 control-label" for="image">image</label>
                                                     <div class="col-sm-10">
                                                         <input type="file" class="form-control" id="image_name" name="image_name">
+                                                        <?php
+                                                         if($data->image_name!='')
+                                                         {?>
+                                                        <div><img src="admins_images/<?php echo e($data->image_name); ?>" width="40" height="50"></div>
+                                                        <?php }
+                                                        ?>
                                                     </div>
                                                 </div>
+
                                                 <div class="form-group row d-flex flex-row-reverse">
-                                                    <div class="col-sm-10">
-                                                    <input type="submit" value="submit" name="add_recored" class='btn btn-primary '> 
+                                                    <div class="col-sm-10 ">
+                                                    <input type="submit" value="submit" name="update_admin" class='btn btn-primary '> 
+                                                    <input type="hidden" value="<?php echo e($data->id); ?>" name="id"> 
+                                                    <input type="hidden" value="<?php echo e($data->image_name); ?>" name="old_image_name"> 
+                                                    
                                                     </div>
                                                 </div>
                                             </form>
@@ -95,4 +84,5 @@
 
             </div>
             <!-- End Right content here -->
-            @stop      
+            <?php $__env->stopSection(); ?>      
+<?php echo $__env->make('layouts.default', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH D:\wamp\www\kk_school\resources\views/profile.blade.php ENDPATH**/ ?>

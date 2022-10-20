@@ -28,18 +28,20 @@ Route::post('login', [adminController::class,'login']);
 Route::get('signup', [adminController::class,'signup']);
 Route::post('insert', [adminController::class,'insert']);
 Route::get('logout', [adminController::class,'logout']);
+Route::get('profile', [adminController::class,'profile']);
+Route::post('update_admin', [adminController::class,'update_admin']);
 
 ////////////////Teacher Routing//////////////////////////////
 
-Route::get('teachers', [teacherController::class,'index']);
-Route::get('add_teacher', [teacherController::class,'add_teacher']);
-Route::post('add_teacher', [teacherController::class,'insert']);
-Route::get('edit_teacher/{id}', [teacherController::class,'edit_teacher']);
-Route::post('update_teacher', [teacherController::class,'update']);
-Route::get('delete_teacher/{id}', [teacherController::class,'delete']);
+Route::group(['middleware'=>'LoginMiddleware'],function(){
+    Route::get('teachers', [teacherController::class,'index']);
+    Route::get('add_teacher', [teacherController::class,'add_teacher']);
+    Route::post('add_teacher', [teacherController::class,'insert']);
+    Route::get('edit_teacher/{id}', [teacherController::class,'edit_teacher']);
+    Route::post('update_teacher', [teacherController::class,'update']);
+    Route::get('delete_teacher/{id}', [teacherController::class,'delete']);
 
-///////////////////////////////////////Students Routing /////////////////////////////////////////////////
-
+///////////////////////////////////////Students Routing ////////////////////////////////////////////////////////////
 Route::get('students', [studentController::class,'index']);
 Route::get('add_student', [studentController::class,'add_student']);
 Route::post('add_recored', [studentController::class,'insert']);
@@ -67,7 +69,7 @@ Route::get('delete_expense/{id}', [expenseController::class,'delete']);
 
 ///////////////////////////////////////////////////////Employe Routning//////////////////////////////////////////////////////
 
-Route::get('employe', [employeController::class,'index']);
+Route::get('employe', [employeController::class,'index'])->middleware(['LoginMiddleware']);
 Route::get('add_employe', [employeController::class,'add_employe']);
 Route::post('add_employe', [employeController::class,'insert']);
 Route::get('edit_employe/{id}', [employeController::class,'edit_employe']);
@@ -100,3 +102,4 @@ Route::post('add_student_classes', [studentClassesController::class,'insert']);
 Route::get('edit_student_classes/{id}', [studentClassesController::class,'edit_student_classes']);
 Route::post('update_student_classes', [studentClassesController::class,'update']);
 Route::get('delete_student_classes/{id}', [studentClassesController::class,'delete']);
+});

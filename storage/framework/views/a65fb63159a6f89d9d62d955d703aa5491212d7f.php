@@ -78,10 +78,10 @@
                             
                             <li class="dropdown">
                                 <a href="#" class="dropdown-toggle profile waves-effect waves-light" data-toggle="dropdown" aria-expanded="true">
-                                    <img src="assets/images/users/avatar-1.jpg" alt="user-img" class="rounded-circle">
+                                    <img src="admins_images/<?php echo e(Session::get('admin_image')); ?>"  alt="user-img" class="rounded-circle">
                                 </a>
                                 <ul class="dropdown-menu dropdown-menu-right">
-                                    <li><a href="javascript:void(0)" class="dropdown-item"> Profile</a></li>
+                                    <li><a href="<?php echo e(url('profile')); ?>" class="dropdown-item"> Profile</a></li>
                                     <li><a href="javascript:void(0)" class="dropdown-item"><span class="badge badge-success float-right">5</span> Settings </a></li>
                                     <li><a href="javascript:void(0)" class="dropdown-item"> Lock screen</a></li>
                                     <li class="dropdown-divider"></li>
