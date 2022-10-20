@@ -17,9 +17,15 @@ class studentController extends Controller
     public function index()
     {
 
-     $data = Student::with('student_classes')->with('get_class')->get();
-    dd($data);
-
+     //$data = Student::with('student_classes_last')->get();
+	$data = Student::select('students.*','my_classes.id as class_id','my_classes.class_name')
+    ->join('student_classes', 'student_classes.student_id', '=', 'students.id')
+	 ->join('my_classes', 'my_classes.id', '=', 'student_classes.student_class_id')
+    ->groupBy('student_classes.student_id')
+    ->orderByRaw('students.id desc')
+    ->get();
+    
+	//dd($data);
     //($data[0]->student_classes[0]->student_class_id);
      return view('students',array('data'=> $data));
     }

@@ -47,7 +47,10 @@ class adminController extends Controller
 			$request->session()->put('admin_eamail',$user->email);
 			$request->session()->save();
 			return Redirect('teachers')->withErrors(['msg' => 'Login Succesful']);
-        }
+        }else{
+			
+			return Redirect('/')->withErrors(['msg' => 'Not Login']);
+			}
 
     }
 
