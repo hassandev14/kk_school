@@ -7,41 +7,44 @@ use App\Models\Category;
 
 class categoryController extends Controller
 {
+	public $model_name = 'App\Models\Category';
+	public $redirect_page = 'category';
+	public $module_name = 'category';
     public function index()
     {
-     $data = Category::all();
-     return view('category',array('data'=> $data));
+     $data = $this->model_name::all();
+     return view($this->module_name,array('data'=> $data));
     }
     public function add_category()
    {
-    return view('add_category');
+    return view('add_'.$this->module_name);
    }
    public function edit_category(Request $request)
    {
      $id = $request->id;
-     $data = Category::where('id',$id)->first();
-     return view('update_category', ['data' => $data]);
+     $data = $this->model_name::where('id',$id)->first();
+     return view('update_'.$this->module_name, ['data' => $data]);
    }
   public function insert(Request $request)
    {
-         Category::create([
+         $this->model_name::create([
         'name'=>$request->name
        ]);
-       return redirect('category');
+       return redirect($this->redirect_page);
    }
    public function update(Request $request)
    {
           $id = $request->id;
-         Category::where('id',$id)->update([
+         $this->model_name::where('id',$id)->update([
         'name'=>$request->name
       ]);
-      return redirect('category');
+      return redirect($this->redirect_page);
    }
    public function delete(Request $request)
    {
     $id = $request->id;
-    $category = Category::find($id);
+    $category = $this->model_name::find($id);
     $category->delete();
-    return redirect('category');
+    return redirect($this->redirect_page);
    }
 }

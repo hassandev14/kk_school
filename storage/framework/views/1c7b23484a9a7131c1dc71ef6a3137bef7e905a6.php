@@ -1,6 +1,6 @@
-@extends('layouts.default')
 
-@section('content')
+
+<?php $__env->startSection('content'); ?>
 
 <!-- Start right Content here -->
             <div class="content-page">
@@ -17,7 +17,7 @@
                    
                         <div class="container-fluid">
                         <form action="/update_student" style="border:1px solid #ccc" enctype="multipart/form-data" method="POST">
-                        @csrf
+                        <?php echo csrf_field(); ?>
                             <div class="row">
                                 <div class="col-sm-12">
                                     <div class="card">
@@ -63,8 +63,8 @@
                                                 <div class="form-group row">
                                                     <div class="col-sm-10">
                                                     <input type="submit" value="submit" name="add_recored"> 
-                                                    <input type="hidden" value="{{$data->id}}" name="id"> 
-                                                    <input type="hidden" value="{{$data->image_name}}" name="old_image_name"> 
+                                                    <input type="hidden" value="<?php echo e($data->id); ?>" name="id"> 
+                                                    <input type="hidden" value="<?php echo e($data->image_name); ?>" name="old_image_name"> 
                                                     
                                                     </div>
                                                 </div>
@@ -89,4 +89,5 @@
 
             </div>
             <!-- End Right content here -->
-            @stop      
+            <?php $__env->stopSection(); ?>      
+<?php echo $__env->make('layouts.default', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH D:\wamp\www\hassan_school\resources\views/update_student.blade.php ENDPATH**/ ?>
