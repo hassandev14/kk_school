@@ -26,7 +26,7 @@ class AddDateTimeCoulmn extends Migration
     public function down()
     {
         Schema::table('teachers', function (Blueprint $table) {
-            //
+            $table->dropColumn('joining_date');
         });
     }
 }
