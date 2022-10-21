@@ -16,6 +16,11 @@
         <!--Morris Chart CSS -->
         <link rel="stylesheet" href="<?php echo e(url('/')); ?>/assets/plugins/morris/morris.css">
 
+        <link href="<?php echo e(url('/')); ?>/assets/plugins/timepicker/bootstrap-timepicker.min.css" rel="stylesheet">
+        <link href="<?php echo e(url('/')); ?>/assets/plugins/bootstrap-colorpicker/css/bootstrap-colorpicker.min.css" rel="stylesheet">
+        <link href="<?php echo e(url('/')); ?>/assets/plugins/bootstrap-datepicker/css/bootstrap-datepicker.min.css" rel="stylesheet">
+        <link href="<?php echo e(url('/')); ?>/assets/plugins/bootstrap-touchspin/css/jquery.bootstrap-touchspin.min.css" rel="stylesheet" />
+
         <link href="<?php echo e(url('/')); ?>/assets/css/bootstrap.min.css" rel="stylesheet" type="text/css">
         <link href="<?php echo e(url('/')); ?>/assets/css/icons.css" rel="stylesheet" type="text/css">
         <link href="<?php echo e(url('/')); ?>/assets/css/style.css" rel="stylesheet" type="text/css">

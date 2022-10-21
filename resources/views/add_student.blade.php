@@ -55,6 +55,13 @@
                                                     </div>
                                                 </div>
                                                 <div class="form-group row">
+                                                <label class="col-sm-2 control-label" for="Address">Admission Date</label>
+                                                <div class="col-sm-10">
+                                                <input type="text" class="form-control" placeholder="mm/dd/yyyy" id="datepicker-autoclose" name="admission_date">
+                                                                <span class="input-group-addon bg-custom b-0"><i class="mdi mdi-calendar"></i></span>
+                                                        </div>
+                                                </div>
+                                                <div class="form-group row">
                                                     <label class="col-sm-2 control-label" for="image">image</label>
                                                     <div class="col-sm-10">
                                                         <input type="file" class="form-control" id="image_name" name="image_name">

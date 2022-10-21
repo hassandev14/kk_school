@@ -50,6 +50,7 @@ class teacherController extends Controller
         'phone'=>$request->phone,
         'address'=>$request->address,
         'salary'=>$request->salary,
+        'joining_date'=>$request->joining_date,
         "image_name" =>$file_name
        ]);
        return redirect($this->redirect_page);
@@ -82,7 +83,8 @@ class teacherController extends Controller
         'phone'=>$request->phone,
         'address'=>$request->address,
         'salary'=>$request->salary,
-        'image_name'=>$file_name,
+        'joining_date'=>$request->joining_date,
+        'image_name'=>$file_name
       ]);
       return redirect($this->redirect_page);
    }

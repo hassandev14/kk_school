@@ -60,6 +60,7 @@ class studentController extends Controller
         'father_name'=>$request->father_name,
         'phone'=>$request->phone,
         'address'=>$request->address,
+        'admission_date'=>$request->admission_date,
         "image_name" =>$file_name
        ]);
        return redirect('students');
@@ -92,6 +93,7 @@ class studentController extends Controller
         'father_name'=>$request->father_name,
         'phone'=>$request->phone,
         'address'=>$request->address,
+        'admission_date'=>$request->admission_date,
         'image_name'=>$file_name,
       ]);
       return redirect('students');

@@ -57,6 +57,13 @@
                                                     </div>
                                                 </div>
                                                 <div class="form-group row">
+                                                <label class="col-sm-2 control-label" for="Address">Joining Date</label>
+                                                <div class="col-sm-10">
+                                                <input type="text" class="form-control" placeholder="mm/dd/yyyy" id="datepicker-autoclose" name="joining_date">
+                                                                <span class="input-group-addon bg-custom b-0"><i class="mdi mdi-calendar"></i></span>
+                                                        </div>
+                                                </div>
+                                                <div class="form-group row">
                                                     <label class="col-sm-2 control-label">Salary</label>
                                                     <div class="col-sm-10">
                                                         <input type="text" id="salary" name="salary" class="form-control" >
@@ -95,3 +102,4 @@
             </div>
             <!-- End Right content here -->
             @stop      
+           
