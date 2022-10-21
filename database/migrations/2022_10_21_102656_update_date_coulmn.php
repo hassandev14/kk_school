@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class AddDateTimeCoulmn extends Migration
+class UpdateDateCoulmn extends Migration
 {
     /**
      * Run the migrations.
@@ -13,8 +13,8 @@ class AddDateTimeCoulmn extends Migration
      */
     public function up()
     {
-        Schema::table('teachers', function (Blueprint $table) {
-            $table->timestamp('joining_date')->useCurrent();
+        Schema::table('students', function (Blueprint $table) {
+            $table->date('admission_date');
         });
     }
 
@@ -25,8 +25,8 @@ class AddDateTimeCoulmn extends Migration
      */
     public function down()
     {
-        Schema::table('teachers', function (Blueprint $table) {
-            $table->dropColumn('joining_date');
+        Schema::table('students', function (Blueprint $table) {
+            $table->dropColumn('admission_date');
         });
     }
 }

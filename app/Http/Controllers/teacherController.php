@@ -51,12 +51,13 @@ class teacherController extends Controller
         'address'=>$request->address,
         'salary'=>$request->salary,
         'joining_date'=>$request->joining_date,
+        'gender'=>$request->gender,
         "image_name" =>$file_name
        ]);
        return redirect($this->redirect_page);
    }
    public function update(TeacherRequest $request)
-   {
+   { 
     $file_name = $request->old_image_name;
     $file = $request->file('image_name');
     if($file)
@@ -84,6 +85,7 @@ class teacherController extends Controller
         'address'=>$request->address,
         'salary'=>$request->salary,
         'joining_date'=>$request->joining_date,
+        'gender'=>$request->gender,
         'image_name'=>$file_name
       ]);
       return redirect($this->redirect_page);

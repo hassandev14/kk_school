@@ -26,9 +26,9 @@
 
                                             <form class="form-horizontal" role="form">
                                                 <div class="form-group row">
-                                                    <label class="col-sm-2 control-label" for="student_name">Teacher Name</label>
+                                                    <label class="col-sm-2 control-label" for="student_name">Student Name</label>
                                                     <div class="col-sm-10">
-                                                        <input type="text" class="form-control" value="{{$data->student_name}} {{old('student_name')}}" id="teacher_name" name="student_name">                                                    </div>
+                                                        <input type="text" class="form-control" id="teacher_name" name="student_name" value="{{$data->student_name}} {{old('student_name')}}">                                                    </div>
                                                 </div>
                                                 <div class="form-group row">
                                                     <label class="col-sm-2 control-label">Father Name</label>
@@ -49,17 +49,27 @@
                                                     </div>
                                                 </div>
                                                 <div class="form-group row">
-                                                    <label class="col-sm-2 control-label">Salary</label>
+                                                    <label class="col-sm-2 control-label">Roll No</label>
                                                     <div class="col-sm-10">
-                                                        <input type="text" id="roll_no" name="roll_no" class="form-control" value="{{$data->roll_no}} {{old('roll_no')}}">
+                                                        <input type="text" id="roll_no" name="roll_no" class="form-control"value="{{$data->roll_no}} {{old('roll_no')}}">
                                                     </div>
                                                 </div>
                                                 <div class="form-group row">
                                                 <label class="col-sm-2 control-label" for="Address">Joining Date</label>
                                                 <div class="col-sm-10">
-                                                <input type="text" class="form-control" placeholder="mm/dd/yyyy" id="datepicker-autoclose" name="admission_date">
+                                                <input type="text" class="form-control" placeholder="mm/dd/yyyy" id="datepicker-autoclose" name="admission_date" value="{{$data->admission_date}} {{old('admission_date')}}">
                                                                 <span class="input-group-addon bg-custom b-0"><i class="mdi mdi-calendar"></i></span>
                                                         </div>
+                                                </div>
+                                                <div class="form-group row">
+                                                    <label class="col-sm-2 control-label">Gender</label>
+                                                    <div class="col-sm-10">
+                                                        <select class="form-control" name='gender' >
+                                                        <option>Select Gender</option>
+                                                            <option value="male">Men</option>
+                                                            <option value="women">Women</option>
+                                                        </select>
+                                                    </div>
                                                 </div>
                                                 <div class="form-group row">
                                                     <label class="col-sm-2 control-label" for="image">image</label>

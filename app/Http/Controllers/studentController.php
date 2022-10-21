@@ -17,9 +17,15 @@ class studentController extends Controller
     public function index()
     {
 
-     $data = Student::with('student_classes')->with('get_class')->get();
-    dd($data);
-
+     //$data = Student::with('student_classes_last')->get();
+	$data = Student::select('students.*','my_classes.id as class_id','my_classes.class_name',Student::raw('MAX(student_classes.student_class_id) AS student_class_id') )
+    ->leftJoin('student_classes', 'student_classes.student_id', '=', 'students.id')
+	  ->leftJoin('my_classes', 'my_classes.id', '=', 'student_classes.student_class_id')
+    ->groupBy('student_classes.student_id')
+    ->orderByRaw('students.id desc','student_classes.id desc')
+    ->get();
+    
+	//dd($data);
     //($data[0]->student_classes[0]->student_class_id);
      return view('students',array('data'=> $data));
     }
@@ -61,6 +67,7 @@ class studentController extends Controller
         'phone'=>$request->phone,
         'address'=>$request->address,
         'admission_date'=>$request->admission_date,
+        'gender'=>$request->gender,
         "image_name" =>$file_name
        ]);
        return redirect('students');
@@ -94,6 +101,7 @@ class studentController extends Controller
         'phone'=>$request->phone,
         'address'=>$request->address,
         'admission_date'=>$request->admission_date,
+        'gender'=>$request->gender,
         'image_name'=>$file_name,
       ]);
       return redirect('students');
@@ -104,5 +112,9 @@ class studentController extends Controller
     $student = Student::find($id);
     $student->delete();
     return redirect('students');
+   }
+   public function get_students(Request $request)
+   {
+      echo "in";
    }
 }

@@ -10,6 +10,7 @@ use App\Http\Controllers\employeController;
 use App\Http\Controllers\subjectController;
 use App\Http\Controllers\myClassController;
 use App\Http\Controllers\studentClassesController;
+use App\Http\Controllers\attendenceContoller;
 
 /*
 |--------------------------------------------------------------------------
@@ -48,6 +49,7 @@ Route::post('add_recored', [studentController::class,'insert']);
 Route::get('edit_student/{id}', [studentController::class,'edit_student']);
 Route::post('update_student', [studentController::class,'update']);
 Route::get('delete_student/{id}', [studentController::class,'delete']);
+Route::post('get_students', [studentController::class,'get_students']);
 
 //////////////////////////////////////////////////////////Category Routing//////////////////////////////////////////////////
 
@@ -102,4 +104,10 @@ Route::post('add_student_classes', [studentClassesController::class,'insert']);
 Route::get('edit_student_classes/{id}', [studentClassesController::class,'edit_student_classes']);
 Route::post('update_student_classes', [studentClassesController::class,'update']);
 Route::get('delete_student_classes/{id}', [studentClassesController::class,'delete']);
+
+
+///////////////////////////////////////////////////////Attendence Routning//////////////////////////////////////////////////////
+
+Route::get('attendence', [attendenceContoller::class,'index']);
+Route::post('attendence', [attendenceContoller::class,'index']);
 });

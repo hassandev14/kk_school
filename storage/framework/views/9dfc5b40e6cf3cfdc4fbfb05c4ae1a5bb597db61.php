@@ -1,33 +1,41 @@
-@extends('layouts.default')
 
-@section('content')
+
+<?php $__env->startSection('content'); ?>
 <!-- Start right Content here -->
             <div class="content-page">
                 <!-- Start content -->
                 <div class="content">
-
+                <?php if($errors->any()): ?>
+    <div class="alert alert-danger">
+        <ul>
+            <?php $__currentLoopData = $errors->all(); $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $error): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                <li><?php echo e($error); ?></li>
+            <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+        </ul>
+    </div>
+<?php endif; ?>
                     <div class="">
                         <div class="page-header-title">
-                            <h4 class="page-title">Students </h4>
+                            <h4 class="page-title">Teachers </h4>
                         </div>
                     </div>
 
                     <div class="page-content-wrapper ">
                    
                         <div class="container-fluid">
-                        <form action="add_recored" style="border:1px solid #ccc" enctype="multipart/form-data" method="POST">
-                        @csrf
+                        <form action="add_teacher" style="border:1px solid #ccc" enctype="multipart/form-data" method="POST">
+                        <?php echo csrf_field(); ?>
                             <div class="row">
                                 <div class="col-sm-12">
                                     <div class="card">
                                         <div class="card-body">
-                                            <h4 class="m-t-0 m-b-30">Add Student</h4>
+                                            <h4 class="m-t-0 m-b-30">Add Teachers</h4>
 
                                             <form class="form-horizontal" role="form">
                                                 <div class="form-group row">
-                                                    <label class="col-sm-2 control-label" for="teacher_name">Student Name</label>
+                                                    <label class="col-sm-2 control-label" for="teacher_name">Teacher Name</label>
                                                     <div class="col-sm-10">
-                                                        <input type="text" class="form-control" value="" id="student_name" name="student_name">
+                                                        <input type="text" class="form-control" value="" id="teacher_name" name="teacher_name">
                                                     </div>
                                                 </div>
                                                 <div class="form-group row">
@@ -49,26 +57,9 @@
                                                     </div>
                                                 </div>
                                                 <div class="form-group row">
-                                                    <label class="col-sm-2 control-label">Roll no</label>
+                                                    <label class="col-sm-2 control-label">Salary</label>
                                                     <div class="col-sm-10">
-                                                        <input type="text" id="roll_no" name="roll_no" class="form-control" >
-                                                    </div>
-                                                </div>
-                                                <div class="form-group row">
-                                                <label class="col-sm-2 control-label" for="Address">Admission Date</label>
-                                                <div class="col-sm-10">
-                                                <input type="text" class="form-control" placeholder="mm/dd/yyyy" id="datepicker-autoclose" name="admission_date">
-                                                                <span class="input-group-addon bg-custom b-0"><i class="mdi mdi-calendar"></i></span>
-                                                        </div>
-                                                </div>
-                                                <div class="form-group row">
-                                                    <label class="col-sm-2 control-label">Gender</label>
-                                                    <div class="col-sm-10">
-                                                        <select class="form-control" name='gender' >
-                                                        <option>Select Gender</option>
-                                                            <option value="male">Men</option>
-                                                            <option value="women">Women</option>
-                                                        </select>
+                                                        <input type="text" id="salary" name="salary" class="form-control" >
                                                     </div>
                                                 </div>
                                                 <div class="form-group row">
@@ -103,4 +94,5 @@
 
             </div>
             <!-- End Right content here -->
-            @stop      
+            <?php $__env->stopSection(); ?>      
+<?php echo $__env->make('layouts.default', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH D:\wamp\www\hassan_school\resources\views/add_teacher.blade.php ENDPATH**/ ?>

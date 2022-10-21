@@ -47,11 +47,7 @@
 
                         <div class="form-group">
                             <div class="col-12">
-<<<<<<< HEAD
                                 <input class="form-control" type="text"  placeholder="Email" name="email" value="<?php echo e(old('email')); ?>">
-=======
-                                <input class="form-control" type="text"  placeholder="Email" name="email" value="a@gmail.com<?php echo e(old('email')); ?>">
->>>>>>> 8c8f4136c9b90f4a9e5a9a496582e2df0edb5dfa
                             </div>
                         </div>
 
@@ -112,4 +108,4 @@
     </body>
 
 <!-- Mirrored from themesdesign.in/appzia/pages-login.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jan 2022 11:09:33 GMT -->
-</html><?php /**PATH D:\wamp\www\kk_school\resources\views/login.blade.php ENDPATH**/ ?>
+</html><?php /**PATH D:\wamp\www\hassan_school\resources\views/login.blade.php ENDPATH**/ ?>

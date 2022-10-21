@@ -49,7 +49,10 @@ class adminController extends Controller
             $request->session()->put('admin_id',$user->id);
 			$request->session()->save();
 			return Redirect('teachers')->withErrors(['msg' => 'Login Succesful']);
-        }
+        }else{
+			
+			return Redirect('/')->withErrors(['msg' => 'Not Login']);
+			}
 
     }
 

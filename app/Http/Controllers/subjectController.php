@@ -57,4 +57,5 @@ class subjectController extends Controller
     $subject->delete();
     return redirect('subject');
    }
+
 }

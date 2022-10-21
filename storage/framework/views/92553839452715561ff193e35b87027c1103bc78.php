@@ -1,6 +1,6 @@
-@extends('layouts.default')
 
-@section('content')
+
+<?php $__env->startSection('content'); ?>
 <!-- Start right Content here -->
             <div class="content-page">
                 <!-- Start content -->
@@ -16,7 +16,7 @@
                    
                         <div class="container-fluid">
                         <form action="add_recored" style="border:1px solid #ccc" enctype="multipart/form-data" method="POST">
-                        @csrf
+                        <?php echo csrf_field(); ?>
                             <div class="row">
                                 <div class="col-sm-12">
                                     <div class="card">
@@ -55,23 +55,6 @@
                                                     </div>
                                                 </div>
                                                 <div class="form-group row">
-                                                <label class="col-sm-2 control-label" for="Address">Admission Date</label>
-                                                <div class="col-sm-10">
-                                                <input type="text" class="form-control" placeholder="mm/dd/yyyy" id="datepicker-autoclose" name="admission_date">
-                                                                <span class="input-group-addon bg-custom b-0"><i class="mdi mdi-calendar"></i></span>
-                                                        </div>
-                                                </div>
-                                                <div class="form-group row">
-                                                    <label class="col-sm-2 control-label">Gender</label>
-                                                    <div class="col-sm-10">
-                                                        <select class="form-control" name='gender' >
-                                                        <option>Select Gender</option>
-                                                            <option value="male">Men</option>
-                                                            <option value="women">Women</option>
-                                                        </select>
-                                                    </div>
-                                                </div>
-                                                <div class="form-group row">
                                                     <label class="col-sm-2 control-label" for="image">image</label>
                                                     <div class="col-sm-10">
                                                         <input type="file" class="form-control" id="image_name" name="image_name">
@@ -103,4 +86,5 @@
 
             </div>
             <!-- End Right content here -->
-            @stop      
+            <?php $__env->stopSection(); ?>      
+<?php echo $__env->make('layouts.default', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH D:\wamp\www\hassan_school\resources\views/add_student.blade.php ENDPATH**/ ?>

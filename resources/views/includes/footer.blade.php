@@ -23,6 +23,7 @@
         <script src="{{url('/')}}/assets/pages/dashborad.js"></script>
 
         <script src="{{url('/')}}/assets/js/app.js"></script>
+        <script src="{{url('/')}}/assets/js/custom.js"></script>
 
          <!-- Plugins js -->
          <script src="{{url('/')}}/assets/plugins/timepicker/bootstrap-timepicker.js"></script>
