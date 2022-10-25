@@ -49,7 +49,7 @@ Route::post('add_recored', [studentController::class,'insert']);
 Route::get('edit_student/{id}', [studentController::class,'edit_student']);
 Route::post('update_student', [studentController::class,'update']);
 Route::get('delete_student/{id}', [studentController::class,'delete']);
-Route::post('get_students', [studentController::class,'get_students']);
+Route::get('get_students', [studentController::class,'get_students']);
 
 //////////////////////////////////////////////////////////Category Routing//////////////////////////////////////////////////
 
@@ -108,6 +108,7 @@ Route::get('delete_student_classes/{id}', [studentClassesController::class,'dele
 
 ///////////////////////////////////////////////////////Attendence Routning//////////////////////////////////////////////////////
 
-Route::get('attendence', [attendenceContoller::class,'index']);
-Route::post('attendence', [attendenceContoller::class,'index']);
+Route::get('see_attendence', [attendenceContoller::class,'see_attendence']);
+Route::get('add_attendence', [attendenceContoller::class,'add_attendence']);
+Route::post('attendence_save', [attendenceContoller::class,'attendence_save']);
 });

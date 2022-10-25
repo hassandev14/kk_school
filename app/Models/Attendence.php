@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Attendence extends Model
 {
-    protected $fillable = ['taday_attendence','date','class_id']; 
+    protected $fillable = ['today_attendence','today_date','class_id']; 
     protected $table = 'attendence';
 
     public function classess()

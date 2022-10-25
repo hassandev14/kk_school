@@ -43,7 +43,7 @@
                                                 </div>
                                                 <div class="form-group row d-flex flex-row-reverse">
                                                     <div class="col-sm-10 ">
-                                                    <input type="button" value="Chek Student"  class='btn btn-primary' onClick="get_students('<?php echo e($cal->id); ?>')"> 
+                                                    <input type="button" value="Get Student"  class='btn btn-primary' onClick="get_students('<?php echo e($cal->id); ?>')"> 
                                                     </div>
                                                 </div>
                                                 <div class="form-group row d-flex flex-row-reverse">
@@ -73,4 +73,4 @@
             </div>
             <!-- End Right content here -->
             <?php $__env->stopSection(); ?>      
-<?php echo $__env->make('layouts.default', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH D:\wamp\www\kk_school\resources\views/attendence.blade.php ENDPATH**/ ?>
+<?php echo $__env->make('layouts.default', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH D:\wamp\www\kk_school\resources\views/add_attendence.blade.php ENDPATH**/ ?>

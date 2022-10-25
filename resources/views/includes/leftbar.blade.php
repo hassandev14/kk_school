@@ -67,6 +67,13 @@
                                 </ul>
                             </li> 
                             <li class="has_sub">
+                                <a href="javascript:void(0);" class="waves-effect"><i class="mdi mdi-album"></i> <span> Attendence </span> <span class="float-right"><i class="mdi mdi-plus"></i></span></a>
+                                <ul class="list-unstyled">
+                                    <li><a href="see_attendence">See Attendence</a></li>
+                                    <li><a href="add_attendence">Add Attendence</a></li>
+                                </ul>
+                            </li> 
+                            <li class="has_sub">
                                 <a href="javascript:void(0);" class="waves-effect"><i class="mdi mdi-album"></i> <span> Subject </span> <span class="float-right"><i class="mdi mdi-plus"></i></span></a>
                                 <ul class="list-unstyled">
                                     <li><a href="subject">See Subject</a></li>

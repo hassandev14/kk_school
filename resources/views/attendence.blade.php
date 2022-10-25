@@ -15,19 +15,18 @@
                     <div class="page-content-wrapper ">
                    
                         <div class="container-fluid">
-                        <form action="{{url('get_students')}}" style="border:1px solid #ccc" enctype="multipart/form-data" method="POST">
-                        @csrf
                             <div class="row">
                                 <div class="col-sm-12">
                                     <div class="card">
                                         <div class="card-body">
                                             <h4 class="m-t-0 m-b-30">Student Attendence</h4>
 
-                                            <form class="form-horizontal" role="form">
+                                            <form action="{{url('attendence_save')}}" class="form-horizontal" role="form" method="POST">
+                                            @csrf
                                             <div class="form-group row">
                                                 <label class="col-sm-2 control-label" for="Address">Date</label>
                                                 <div class="col-sm-10">
-                                                <input type="text" class="form-control" placeholder="mm/dd/yyyy" id="datepicker-autoclose" name="date">
+                                                <input type="text" class="form-control" placeholder="mm/dd/yyyy" id="datepicker-autoclose" name="today_date">
                                                                 <span class="input-group-addon bg-custom b-0"><i class="mdi mdi-calendar"></i></span>
                                                         </div>
                                                 </div>
@@ -44,16 +43,20 @@
                                                 </div>
                                                 <div class="form-group row d-flex flex-row-reverse">
                                                     <div class="col-sm-10 ">
-                                                    <input type="button" value="Get Student" name="get_students" class='btn btn-primary' onClick="get_students()"> 
-                                                    
+                                                    <input type="button" value="Chek Student"  class='btn btn-primary' onClick="get_students('{{$cal->id}}')"> 
                                                     </div>
                                                 </div>
+                                                <div class="form-group row d-flex flex-row-reverse">
+                                                    <div class="col-sm-10 ">
+                                                <div id="std_div"></div>
+                                                </div>
+                                                </div> 
+                                                
                                             </form>
                                         </div> <!-- card-body -->
                                     </div> <!-- card -->
                                 </div> <!-- col -->
                             </div> 
-                          </form><!-- End row -->
 
 
 
