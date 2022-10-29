@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Student;
 use App\Models\Student_classes;
 use App\Models\My_classes;
+use DB;
 
 class studentController extends Controller
 {
@@ -102,7 +103,7 @@ class studentController extends Controller
         'address'=>$request->address,
         'admission_date'=>$request->admission_date,
         'gender'=>$request->gender,
-        'image_name'=>$file_name,
+        'image_name'=>$file_name
       ]);
       return redirect('students');
    }
@@ -118,26 +119,19 @@ class studentController extends Controller
       $class_id = $request->class_id;
       $all_classes = My_classes::where(array("id"=>$class_id))->get();
           //$data = Student::with('student_classes_last')->get();
-	$data = Student::select('students.id','students.student_name',Student::raw('MAX(student_classes.student_class_id) AS student_class_id') )
-  ->leftJoin('student_classes', 'student_classes.student_id', '=', 'students.id')
-  ->havingRaw("MAX(student_classes.student_class_id)=$class_id")
- 
-  ->orderByRaw('student_classes.student_class_id desc')
-  ->limit(1)
-  ->get();
-  //$data = Student::all();
-  
-  $content ='<table>';
-  $content.='<th><td>Student Name </td></th>';
+	$data = DB::select("SELECT  st.id,st.student_name, sc.student_class_id   FROM students st  LEFT JOIN student_classes sc ON sc.student_id=st.id   WHERE sc.student_class_id=( SELECT MAX(scc.student_class_id) FROM student_classes scc WHERE student_id=st.id)
+  AND sc.student_class_id=$class_id");
+  $content ='<table class="table table-striped table-bordered dt-responsive nowrap">';
+  $content.='<tr><th>Student Name </th><th>Action</th></tr>';
       //dd($data);
       foreach($data as $dat)
       { 
         $pres = "pres_".$dat->id;
         $abs = "abs_".$dat->id;
       $content.="<tr>";
-      $content.="<td><input type='hidden' value='$dat->id' name='student_id[]'><input type='text' value='$dat->student_name' name='student_name[]' readonly></td>";
-      $content.="<td><input type='radio' id='$pres' name='$pres' value='1'>Present</td>";
-      $content.="<td><input type='radio' id='$abs' name='$pres' value='0' checked>Absent</td>";
+      $content.="<td><input type='hidden' value='$dat->id' name='student_id[]'>$dat->student_name<input type='hidden' value='$dat->student_name' name='student_name[]'></td>";
+      $content.="<td><input type='radio' id='$pres' name='$pres' value='1'> Present  ";
+      $content.="<input type='radio' id='$abs' name='$pres' value='0' checked> Absent</td>";
       $content.="</tr>";
       }
       $content.='</table>';

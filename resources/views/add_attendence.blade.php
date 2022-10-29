@@ -18,8 +18,18 @@
                             <div class="row">
                                 <div class="col-sm-12">
                                     <div class="card">
+                                    @if ($errors->any())
+    <div class="alert alert-danger">
+        <ul>
+            @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
+@endif
+
                                         <div class="card-body">
-                                            <h4 class="m-t-0 m-b-30">Student Attendence</h4>
+                                            <h4 class="m-t-0 m-b-30">Add Attendence</h4>
 
                                             <form action="{{url('attendence_save')}}" class="form-horizontal" role="form" method="POST">
                                             @csrf
@@ -33,7 +43,7 @@
                                                 <div class="form-group row">
                                                     <label class="col-sm-2 control-label">Class</label>
                                                     <div class="col-sm-10">
-                                                        <select class="form-control" name='class_id' >
+                                                        <select class="form-control" name='class_id' id="class_id" >
                                                         <option>Select Class</option>
                                                             @foreach($classes as $cal)
                                                             <option value="{{$cal->id}}">{{$cal->class_name}}</option>
@@ -43,7 +53,7 @@
                                                 </div>
                                                 <div class="form-group row d-flex flex-row-reverse">
                                                     <div class="col-sm-10 ">
-                                                    <input type="button" value="Get Student"  class='btn btn-primary' onClick="get_students('{{$cal->id}}')"> 
+                                                    <input type="button" value="Get Student"  class='btn btn-primary' onClick="get_students()"> 
                                                     </div>
                                                 </div>
                                                 <div class="form-group row d-flex flex-row-reverse">

@@ -28,7 +28,7 @@
                         <ul>
                             <li class="menu-title">Menu</li>
                             <li>
-                                <a href="index.html" class="waves-effect"><i class="mdi mdi-home"></i><span> Dashboard <span class="badge badge-pill badge-primary float-right">1</span></span></a>
+                                <a href="dashboard" class="waves-effect"><i class="mdi mdi-home" ></i><span> Dashboard <span class="badge badge-pill badge-primary float-right"></span></span></a>
                             </li>
 
                             <li class="has_sub">
@@ -43,6 +43,13 @@
                                 <ul class="list-unstyled">
                                     <li><a href="students">See Students</a></li>
                                     <li><a href="add_student">Add Student</a></li>
+                                </ul>
+                            </li> 
+                            <li class="has_sub">
+                                <a href="javascript:void(0);" class="waves-effect"><i class="mdi mdi-album"></i> <span> Exams </span> <span class="float-right"><i class="mdi mdi-plus"></i></span></a>
+                                <ul class="list-unstyled">
+                                    <li><a href="exams">See Exams</a></li>
+                                    <li><a href="add_exam">Add Exams</a></li>
                                 </ul>
                             </li> 
                             <li class="has_sub">
@@ -69,7 +76,7 @@
                             <li class="has_sub">
                                 <a href="javascript:void(0);" class="waves-effect"><i class="mdi mdi-album"></i> <span> Attendence </span> <span class="float-right"><i class="mdi mdi-plus"></i></span></a>
                                 <ul class="list-unstyled">
-                                    <li><a href="see_attendence">See Attendence</a></li>
+                                    <li><a href="attendence">See Attendence</a></li>
                                     <li><a href="add_attendence">Add Attendence</a></li>
                                 </ul>
                             </li> 

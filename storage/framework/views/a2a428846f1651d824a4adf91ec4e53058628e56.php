@@ -1,4 +1,4 @@
-
+ 
 
 <?php $__env->startSection('content'); ?>
 <!-- Start right Content here -->
@@ -54,6 +54,16 @@
                                                     <label class="col-sm-2 control-label" for="Address">Address</label>
                                                     <div class="col-sm-10">
                                                         <input type="text" class="form-control" value="" id="address" name="address">
+                                                    </div>
+                                                </div>
+                                                <div class="form-group row">
+                                                    <label class="col-sm-2 control-label">Gender</label>
+                                                    <div class="col-sm-10">
+                                                        <select class="form-control" name='gender' >
+                                                        <option>Select Gender</option>
+                                                            <option value="male">Men</option>
+                                                            <option value="women">Women</option>
+                                                        </select>
                                                     </div>
                                                 </div>
                                                 <div class="form-group row">

@@ -40,7 +40,7 @@
 
 
                                                     <tbody>
-                                                        @foreach($data as $dat))
+                                                        @foreach($data as $dat)
                                                     <tr>
                                                         <td>{{$dat->teacher_name}}</td>
                                                         <td>{{$dat->father_name}}</td>

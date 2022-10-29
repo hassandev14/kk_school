@@ -48,7 +48,7 @@ class adminController extends Controller
             $request->session()->put('admin_image',$user->image_name);
             $request->session()->put('admin_id',$user->id);
 			$request->session()->save();
-			return Redirect('teachers')->withErrors(['msg' => 'Login Succesful']);
+			return Redirect('dashboard')->withErrors(['msg' => 'Login Succesful']);
         }else{
 			
 			return Redirect('/')->withErrors(['msg' => 'Not Login']);

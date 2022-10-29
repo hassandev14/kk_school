@@ -79,4 +79,4 @@
             </div>
             <!-- End Right content here -->
             <?php $__env->stopSection(); ?>      
-<?php echo $__env->make('layouts.default', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH D:\wamp\www\hassan_school\resources\views/add_student_classes.blade.php ENDPATH**/ ?>
+<?php echo $__env->make('layouts.default', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH D:\wamp\www\kk_school\resources\views/add_student_classes.blade.php ENDPATH**/ ?>

@@ -18,8 +18,18 @@
                             <div class="row">
                                 <div class="col-sm-12">
                                     <div class="card">
+                                    <?php if($errors->any()): ?>
+    <div class="alert alert-danger">
+        <ul>
+            <?php $__currentLoopData = $errors->all(); $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $error): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                <li><?php echo e($error); ?></li>
+            <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+        </ul>
+    </div>
+<?php endif; ?>
+
                                         <div class="card-body">
-                                            <h4 class="m-t-0 m-b-30">Student Attendence</h4>
+                                            <h4 class="m-t-0 m-b-30">Add Attendence</h4>
 
                                             <form action="<?php echo e(url('attendence_save')); ?>" class="form-horizontal" role="form" method="POST">
                                             <?php echo csrf_field(); ?>
@@ -33,7 +43,7 @@
                                                 <div class="form-group row">
                                                     <label class="col-sm-2 control-label">Class</label>
                                                     <div class="col-sm-10">
-                                                        <select class="form-control" name='class_id' >
+                                                        <select class="form-control" name='class_id' id="class_id" >
                                                         <option>Select Class</option>
                                                             <?php $__currentLoopData = $classes; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $cal): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                                                             <option value="<?php echo e($cal->id); ?>"><?php echo e($cal->class_name); ?></option>
@@ -43,7 +53,7 @@
                                                 </div>
                                                 <div class="form-group row d-flex flex-row-reverse">
                                                     <div class="col-sm-10 ">
-                                                    <input type="button" value="Get Student"  class='btn btn-primary' onClick="get_students('<?php echo e($cal->id); ?>')"> 
+                                                    <input type="button" value="Get Student"  class='btn btn-primary' onClick="get_students()"> 
                                                     </div>
                                                 </div>
                                                 <div class="form-group row d-flex flex-row-reverse">

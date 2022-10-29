@@ -11,6 +11,8 @@ use App\Http\Controllers\subjectController;
 use App\Http\Controllers\myClassController;
 use App\Http\Controllers\studentClassesController;
 use App\Http\Controllers\attendenceContoller;
+use App\Http\Controllers\examController;
+use App\Http\Controllers\dashboardController;
 
 /*
 |--------------------------------------------------------------------------
@@ -22,6 +24,9 @@ use App\Http\Controllers\attendenceContoller;
 | contains the "web" middleware group. Now create something great!
 |
 */
+////////////////Auth Routing ////////////////////////////////////////
+Route::get('dashboard', [dashboardController::class,'index']);
+
 ////////////////Auth Routing ////////////////////////////////////////
 Route::get('/', [adminController::class,'index']);
 Route::get('login', [adminController::class,'index']);
@@ -108,7 +113,18 @@ Route::get('delete_student_classes/{id}', [studentClassesController::class,'dele
 
 ///////////////////////////////////////////////////////Attendence Routning//////////////////////////////////////////////////////
 
-Route::get('see_attendence', [attendenceContoller::class,'see_attendence']);
+Route::get('attendence', [attendenceContoller::class,'index']);
 Route::get('add_attendence', [attendenceContoller::class,'add_attendence']);
 Route::post('attendence_save', [attendenceContoller::class,'attendence_save']);
+Route::post('attendence_update', [attendenceContoller::class,'attendence_update']);
+Route::get('see_attendence', [attendenceContoller::class,'see_attendence']);
+
+///////////////////////////////////////////////////////Exam Routning//////////////////////////////////////////////////////
+
+Route::get('exams', [examController::class,'index']);
+Route::get('add_exam', [examController::class,'add_exam']);
+Route::post('add_exam', [examController::class,'insert']);
+Route::get('edit_exam/{id}', [examController::class,'edit_exam']);
+Route::post('update_exam', [examController::class,'update']);
+Route::get('delete_exam/{id}', [examController::class,'delete']);
 });
