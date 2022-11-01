@@ -24,7 +24,7 @@ class EmployeRequest extends FormRequest
     public function rules()
     {
         return [
-            'emplye_name' => 'required',
+            'employe_name' => 'required',
             'father_name' => 'required',
             'phone' => 'required|integer|max:11',
             'address' => 'required',
@@ -35,7 +35,7 @@ class EmployeRequest extends FormRequest
     public function messages()
     {
         return [
-            'emplye_name.required' => 'Employe Name is required!',
+            'employe_name.required' => 'Employe Name is required!',
             'father_name.required' => 'Father name is required!',
             'address.required' => 'Address is required!',
             'phone.integer' => 'Phone number must be integer!',

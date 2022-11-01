@@ -19,7 +19,7 @@ class studentController extends Controller
     {
 
      //$data = Student::with('student_classes_last')->get();
-	$data = Student::select('students.*','my_classes.id as class_id','my_classes.class_name',Student::raw('MAX(student_classes.student_class_id) AS student_class_id') )
+	   $data = Student::select('students.*','my_classes.id as class_id','my_classes.class_name',Student::raw('MAX(student_classes.student_class_id) AS student_class_id') )
     ->leftJoin('student_classes', 'student_classes.student_id', '=', 'students.id')
 	  ->leftJoin('my_classes', 'my_classes.id', '=', 'student_classes.student_class_id')
     ->groupBy('student_classes.student_id')
@@ -136,6 +136,36 @@ class studentController extends Controller
       }
       $content.='</table>';
       $content.='<div class="form-group row d-flex flex-row-reverse">
+      <div class="col-sm-10">
+      <input type="submit" value="submit" class="btn btn-primary "> 
+      </div>
+  </div>';
+      return $content;
+   }
+
+   public function get_students_for_fee(Request $request)
+   {
+      $class_id = $request->class_id;
+      $all_classes = My_classes::where(array("id"=>$class_id))->get();
+          //$data = Student::with('student_classes_last')->get();
+	$data = DB::select("SELECT  st.id,st.student_name, sc.student_class_id ,sc.fee  FROM students st  LEFT JOIN student_classes sc ON sc.student_id=st.id   WHERE sc.student_class_id=( SELECT MAX(scc.student_class_id) FROM student_classes scc WHERE student_id=st.id)
+  AND sc.student_class_id=$class_id");
+  $content ='<table class="table table-striped table-bordered dt-responsive nowrap">';
+  $content.='<tr><th>Student Name </th><th>Fee</th><th>Action</th></tr>';
+      //dd($data);
+      foreach($data as $dat)
+      { 
+        $paid = "paid_".$dat->id;
+        $unpaid = "unpaid_".$dat->id;
+      $content.="<tr>";
+      $content.="<td><input type='hidden' value='$dat->id' name='student_id[]'>$dat->student_name<input type='hidden' value='$dat->student_name' name='student_name[]'></td>";
+      $content.="<td>$dat->fee<input type='hidden' value='$dat->fee' name='fee[]'></td>";
+      $content.="<td><input type='radio' id='$paid' name='$paid' value='1'> Paid  ";
+      $content.="<input type='radio' id='$unpaid' name='$paid' value='0' checked> Unpaid</td>";
+      $content.="</tr>";
+      }
+      $content.='</table>';
+      $content.='<div class="form-group row ">
       <div class="col-sm-10">
       <input type="submit" value="submit" class="btn btn-primary "> 
       </div>

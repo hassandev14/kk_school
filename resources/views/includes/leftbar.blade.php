@@ -53,6 +53,13 @@
                                 </ul>
                             </li> 
                             <li class="has_sub">
+                                <a href="javascript:void(0);" class="waves-effect"><i class="mdi mdi-album"></i> <span> Teachers Salary</span> <span class="float-right"><i class="mdi mdi-plus"></i></span></a>
+                                <ul class="list-unstyled">
+                                    <li><a href="teacher_salary">See Teacher Salary</a></li>
+                                    <li><a href="add_teacher_salary">Add Teacher Salary</a></li>
+                                </ul>
+                            </li> 
+                            <li class="has_sub">
                                 <a href="javascript:void(0);" class="waves-effect"><i class="mdi mdi-album"></i> <span> Exams </span> <span class="float-right"><i class="mdi mdi-plus"></i></span></a>
                                 <ul class="list-unstyled">
                                     <li><a href="exams">See Exams</a></li>

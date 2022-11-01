@@ -46,6 +46,20 @@
                                 </ul>
                             </li> 
                             <li class="has_sub">
+                                <a href="javascript:void(0);" class="waves-effect"><i class="mdi mdi-album"></i> <span> Students Fees</span> <span class="float-right"><i class="mdi mdi-plus"></i></span></a>
+                                <ul class="list-unstyled">
+                                    <li><a href="student_fee">See Students Fess</a></li>
+                                    <li><a href="add_students_fee">Add Student Fee</a></li>
+                                </ul>
+                            </li> 
+                            <li class="has_sub">
+                                <a href="javascript:void(0);" class="waves-effect"><i class="mdi mdi-album"></i> <span> Teachers Salary</span> <span class="float-right"><i class="mdi mdi-plus"></i></span></a>
+                                <ul class="list-unstyled">
+                                    <li><a href="teacher_salary">See Teacher Salary</a></li>
+                                    <li><a href="add_teacher_salary">Add Teacher Salary</a></li>
+                                </ul>
+                            </li> 
+                            <li class="has_sub">
                                 <a href="javascript:void(0);" class="waves-effect"><i class="mdi mdi-album"></i> <span> Exams </span> <span class="float-right"><i class="mdi mdi-plus"></i></span></a>
                                 <ul class="list-unstyled">
                                     <li><a href="exams">See Exams</a></li>

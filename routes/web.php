@@ -11,8 +11,9 @@ use App\Http\Controllers\subjectController;
 use App\Http\Controllers\myClassController;
 use App\Http\Controllers\studentClassesController;
 use App\Http\Controllers\attendenceContoller;
-use App\Http\Controllers\examController;
+use App\Http\Controllers\studentsFeeController;
 use App\Http\Controllers\dashboardController;
+use App\Http\Controllers\teacherSalaryController;
 
 /*
 |--------------------------------------------------------------------------
@@ -55,6 +56,7 @@ Route::get('edit_student/{id}', [studentController::class,'edit_student']);
 Route::post('update_student', [studentController::class,'update']);
 Route::get('delete_student/{id}', [studentController::class,'delete']);
 Route::get('get_students', [studentController::class,'get_students']);
+Route::get('get_students_for_fee', [studentController::class,'get_students_for_fee']);
 
 //////////////////////////////////////////////////////////Category Routing//////////////////////////////////////////////////
 
@@ -110,7 +112,6 @@ Route::get('edit_student_classes/{id}', [studentClassesController::class,'edit_s
 Route::post('update_student_classes', [studentClassesController::class,'update']);
 Route::get('delete_student_classes/{id}', [studentClassesController::class,'delete']);
 
-
 ///////////////////////////////////////////////////////Attendence Routning//////////////////////////////////////////////////////
 
 Route::get('attendence', [attendenceContoller::class,'index']);
@@ -119,12 +120,18 @@ Route::post('attendence_save', [attendenceContoller::class,'attendence_save']);
 Route::post('attendence_update', [attendenceContoller::class,'attendence_update']);
 Route::get('see_attendence', [attendenceContoller::class,'see_attendence']);
 
-///////////////////////////////////////////////////////Exam Routning//////////////////////////////////////////////////////
+///////////////////////////////////////////////////////Student Fees Routning//////////////////////////////////////////////////////
+Route::get('student_fee', [studentsFeeController::class,'index']);
+Route::get('see_students_fee', [studentsFeeController::class,'see_students_fee']);
+Route::get('add_students_fee', [studentsFeeController::class,'add_students_fee']);
+Route::post('student_fee_save', [studentsFeeController::class,'student_fee_save']);
+Route::post('student_fee_update', [studentsFeeController::class,'student_fee_update']);
 
-Route::get('exams', [examController::class,'index']);
-Route::get('add_exam', [examController::class,'add_exam']);
-Route::post('add_exam', [examController::class,'insert']);
-Route::get('edit_exam/{id}', [examController::class,'edit_exam']);
-Route::post('update_exam', [examController::class,'update']);
-Route::get('delete_exam/{id}', [examController::class,'delete']);
+///////////////////////////////////////////////////////////////Teacher Salary Routing///////////////////////////////////////////////
+Route::get('teacher_salary', [teacherSalaryController::class,'index']);
+Route::post('add_teacher_salary', [teacherSalaryController::class,'insert']);
+Route::get('add_teacher_salary', [teacherSalaryController::class,'add_teacher_salary']);
+Route::get('edit_teacher_salary/{id}', [teacherSalaryController::class,'edit_teacher_salary']);
+Route::post('update_teacher_salary', [teacherSalaryController::class,'update']);
+Route::get('delete_teacher_salary/{id}', [teacherSalaryController::class,'delete']);
 });

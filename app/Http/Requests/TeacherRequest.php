@@ -26,9 +26,8 @@ class TeacherRequest extends FormRequest
         return [
             'teacher_name' => 'required',
             'father_name' => 'required',
-            'phone' => 'required|integer|max:11',
+            'phone' => 'required|integer',
             'address' => 'required',
-            'salary' => 'required|integer',
         ];
     }
     public function messages()

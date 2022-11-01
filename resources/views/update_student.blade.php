@@ -28,7 +28,7 @@
                                                 <div class="form-group row">
                                                     <label class="col-sm-2 control-label" for="student_name">Student Name</label>
                                                     <div class="col-sm-10">
-                                                        <input type="text" class="form-control" id="teacher_name" name="student_name" value="{{$data->student_name}} {{old('student_name')}}">                                                    </div>
+                                                        <input type="text" class="form-control" id="student_name" name="student_name" value="{{$data->student_name}} {{old('student_name')}}">                                                    </div>
                                                 </div>
                                                 <div class="form-group row">
                                                     <label class="col-sm-2 control-label">Father Name</label>

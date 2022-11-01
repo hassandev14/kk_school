@@ -62,7 +62,7 @@
                                                         <select class="form-control" name='gender' >
                                                         <option>Select Gender</option>
                                                             <option value="male">Men</option>
-                                                            <option value="women">Women</option>
+                                                            <option value="women">female</option>
                                                         </select>
                                                     </div>
                                                 </div>
@@ -74,15 +74,15 @@
                                                         </div>
                                                 </div>
                                                 <div class="form-group row">
-                                                    <label class="col-sm-2 control-label">Salary</label>
-                                                    <div class="col-sm-10">
-                                                        <input type="text" id="salary" name="salary" class="form-control" >
-                                                    </div>
-                                                </div>
-                                                <div class="form-group row">
                                                     <label class="col-sm-2 control-label" for="image">image</label>
                                                     <div class="col-sm-10">
                                                         <input type="file" class="form-control" id="image_name" name="image_name">
+                                                    </div>
+                                                </div>
+                                                <div class="form-group row">
+                                                    <label class="col-sm-2 control-label" for="is_active">Is Active</label>
+                                                    <div class="col-sm-10">
+                                                        <input type="hidden" class="form-control" id="is_active" name="is_active" value="1">
                                                     </div>
                                                 </div>
                                                 <div class="form-group row d-flex flex-row-reverse">

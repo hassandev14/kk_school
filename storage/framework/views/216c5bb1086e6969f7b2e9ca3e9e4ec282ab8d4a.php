@@ -20,7 +20,7 @@
                                             <h4 class="card-title text-muted mb-0">Total Teacher</h4>
                                         </div>
                                         <div class="card-body p-t-10">
-                                            <h2 class="m-t-0 m-b-15"><i ></i><b><?php echo e($teacher); ?></b></h2>
+                                            <h2 class="m-t-0 m-b-15"><i ></i><b><?php echo e($teacher); ?> Teacher</b></h2>
                                             <p class="text-muted m-b-0 m-t-20"><b>48%</b> From Last 24 Hours</p>
                                         </div>
                                     </div>
@@ -32,7 +32,7 @@
                                             <h4 class="card-title text-muted mb-0">Total Student</h4>
                                         </div>
                                         <div class="card-body p-t-10">
-                                            <h2 class="m-t-0 m-b-15"><i ></i><b><?php echo e($student); ?></b></h2>
+                                            <h2 class="m-t-0 m-b-15"><i ></i><b><?php echo e($student); ?> Student</b></h2>
                                             <p class="text-muted m-b-0 m-t-20"><b>42%</b> Orders in Last 10 months</p>
                                         </div>
                                     </div>
@@ -44,7 +44,7 @@
                                             <h4 class="card-title text-muted mb-0">Total Employe</h4>
                                         </div>
                                         <div class="card-body p-t-10">
-                                            <h2 class="m-t-0 m-b-15"><i ></i><b><?php echo e($employe); ?></b></h2>
+                                            <h2 class="m-t-0 m-b-15"><i ></i><b><?php echo e($employe); ?> Employe</b></h2>
                                             <p class="text-muted m-b-0 m-t-20"><b>22%</b> From Last 24 Hours</p>
                                         </div>
                                     </div>
@@ -64,27 +64,79 @@
                             </div>
 
                             <div class="row">
+                                <div class="col-sm-6 col-lg-3">
+                                    <div class="card text-center">
+                                        <div class="card-heading">
+                                            <h4 class="card-title text-muted mb-0"><?php echo e($all_fee->count_paid); ?> Students Paid</h4>
+                                        </div>
+                                        <div class="card-body p-t-10">
+                                            <h2 class="m-t-0 m-b-15"><i ></i><b>Amount : <?php echo e($all_fee->total_paid); ?></b></h2>
+                                            <p class="text-muted m-b-0 m-t-20"><b></b> For Month OF <?php echo e($all_fee->month); ?> <?php echo e($all_fee->year); ?></p>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-sm-6 col-lg-3">
+                                <div class="card text-center">
+                                        <div class="card-heading">
+                                            <h4 class="card-title text-muted mb-0"><?php echo e($all_fee->count_unpaid); ?> Students Unpaid</h4>
+                                        </div>
+                                        <div class="card-body p-t-10">
+                                            <h2 class="m-t-0 m-b-15"><i ></i><b>Amount : <?php echo e($all_fee->total_unpaid); ?></b></h2>
+                                            <p class="text-muted m-b-0 m-t-20"><b></b> For Month OF <?php echo e($all_fee->month); ?> <?php echo e($all_fee->year); ?></p>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-sm-6 col-lg-3">
+                                    <div class="card text-center">
+                                        <div class="card-heading">
+                                            <h4 class="card-title text-muted mb-0"><?php echo e($all_pay_salary->count_paid); ?> Salaray Paid</h4>
+                                        </div>
+                                        <div class="card-body p-t-10">
+                                            <h2 class="m-t-0 m-b-15"><i ></i><b>Amount : <?php echo e($all_pay_salary->total_paid); ?></b></h2>
+                                            <p class="text-muted m-b-0 m-t-20"><b></b>For Month OF <?php echo e($all_pay_salary->month); ?> <?php echo e($all_pay_salary->year); ?></p>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-sm-6 col-lg-3">
+                                    <div class="card text-center">
+                                        <div class="card-heading">
+                                            <h4 class="card-title text-muted mb-0"><?php echo e($all_un_pay_salary->count_unpaid); ?> Un Paid Salary</h4>
+                                        </div>
+                                        <div class="card-body p-t-10">
+                                            <h2 class="m-t-0 m-b-15"><i></i><b>Amount : <?php echo e($all_un_pay_salary->total_unpaid); ?></b></h2>
+                                            <p class="text-muted m-b-0 m-t-20"><b></b>For Month OF <?php echo e($all_un_pay_salary->month); ?> <?php echo e($all_un_pay_salary->year); ?></p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
 
                                 <div class="col-lg-4">
                                     <div class="card">
                                         <div class="card-body">
-                                            <h4 class="m-t-0">Email Sent</h4>
+                                            <h4 class="m-t-0">Revenue</h4>
 
                                             <ul class="list-inline widget-chart m-t-20 text-center">
                                                 <li>
-                                                    <h4 class=""><b>3654</b></h4>
-                                                    <p class="text-muted m-b-0">Marketplace</p>
+                                                    <h4 class=""><b><?php echo e($all_expenses->exp_amount); ?></b></h4>
+                                                    <p class="text-muted m-b-0">Expenses</p>
                                                 </li>
                                                 <li>
                                                     <h4 class=""><b>954</b></h4>
-                                                    <p class="text-muted m-b-0">Last week</p>
+                                                    <p class="text-muted m-b-0">Salaries</p>
                                                 </li>
                                                 <li>
                                                     <h4 class=""><b>8462</b></h4>
-                                                    <p class="text-muted m-b-0">Last Month</p>
+                                                    <p class="text-muted m-b-0">Total Fee</p>
                                                 </li>
                                             </ul>
-
+                                                <script>
+                                                     const donutData ={'exp':<?php echo e($all_expenses->exp_amount); ?>,'salaries':34,'fee':67}   
+                                                     console.log(donutData);
+                                                </script>    
                                             <div id="morris-donut-example" style="height: 300px"></div>
                                         </div>
                                     </div>

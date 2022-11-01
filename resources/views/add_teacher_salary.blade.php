@@ -16,73 +16,65 @@
 @endif
                     <div class="">
                         <div class="page-header-title">
-                            <h4 class="page-title">Teachers </h4>
+                            <h4 class="page-title">Teachers Salary</h4>
                         </div>
                     </div>
 
                     <div class="page-content-wrapper ">
                    
                         <div class="container-fluid">
-                        <form action="add_teacher" style="border:1px solid #ccc" enctype="multipart/form-data" method="POST">
+                        <form action="add_teacher_salary" style="border:1px solid #ccc" enctype="multipart/form-data" method="POST">
                         @csrf
                             <div class="row">
                                 <div class="col-sm-12">
                                     <div class="card">
                                         <div class="card-body">
-                                            <h4 class="m-t-0 m-b-30">Add Teachers</h4>
+                                            <h4 class="m-t-0 m-b-30">Add Teachers Salary</h4>
 
                                             <form class="form-horizontal" role="form">
-                                                <div class="form-group row">
-                                                    <label class="col-sm-2 control-label" for="teacher_name">Teacher Name</label>
+                                            <div class="form-group row">
+                                                    <label class="col-sm-2 control-label">Select Teacher</label>
                                                     <div class="col-sm-10">
-                                                        <input type="text" class="form-control" value="" id="teacher_name" name="teacher_name">
-                                                    </div>
-                                                </div>
-                                                <div class="form-group row">
-                                                    <label class="col-sm-2 control-label">Father Name</label>
-                                                    <div class="col-sm-10">
-                                                        <input type="text" id="father_name" name="father_name" class="form-control" >
-                                                    </div>
-                                                </div>
-                                                <div class="form-group row">
-                                                    <label class="col-sm-2 control-label" for="Phone">Phone</label>
-                                                    <div class="col-sm-10">
-                                                        <input type="text" class="form-control" id="phone" name="phone">
-                                                    </div>
-                                                </div>
-                                                <div class="form-group row">
-                                                    <label class="col-sm-2 control-label" for="Address">Address</label>
-                                                    <div class="col-sm-10">
-                                                        <input type="text" class="form-control" value="" id="address" name="address">
-                                                    </div>
-                                                </div>
-                                                <div class="form-group row">
-                                                    <label class="col-sm-2 control-label">Gender</label>
-                                                    <div class="col-sm-10">
-                                                        <select class="form-control" name='gender' >
-                                                        <option>Select Gender</option>
-                                                            <option value="male">Men</option>
-                                                            <option value="women">female</option>
+                                                        <select class="form-control" name='teacher_id' >
+                                                        <option>Select Teacher</option>
+                                                            @foreach($teacher as $teach)
+                                                            <option value="{{$teach->id}}">{{$teach->teacher_name}}</option>
+                                                            @endforeach
                                                         </select>
                                                     </div>
                                                 </div>
                                                 <div class="form-group row">
-                                                <label class="col-sm-2 control-label" for="Address">Joining Date</label>
+                                                    <label class="col-sm-2 control-label">Method</label>
+                                                    <div class="col-sm-10">
+                                                        <select class="form-control" name='method' >
+                                                        <option>Select Method</option>
+                                                            <option value="cash">Cash</option>
+                                                            <option value="cheque">Cheque</option>
+                                                            <option value="deposit">deposit</option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group row">
+                                                <label class="col-sm-2 control-label" for="Address">Pay Date</label>
                                                 <div class="col-sm-10">
-                                                <input type="text" class="form-control" placeholder="mm/dd/yyyy" id="datepicker-autoclose" name="joining_date">
+                                                <input type="text" class="form-control" placeholder="mm/dd/yyyy" id="datepicker-autoclose" name="pay_date">
                                                                 <span class="input-group-addon bg-custom b-0"><i class="mdi mdi-calendar"></i></span>
                                                         </div>
+                                                </div>
+                                                <div class="form-group row">
+                                                    <label class="col-sm-2 control-label">Status</label>
+                                                    <div class="col-sm-10">
+                                                        <select class="form-control" name='status' >
+                                                        <option>Select Status</option>
+                                                            <option value="paid">Paid</option>
+                                                            <option value="unpaid">Unpaid</option>
+                                                        </select>
+                                                    </div>
                                                 </div>
                                                 <div class="form-group row">
                                                     <label class="col-sm-2 control-label" for="image">image</label>
                                                     <div class="col-sm-10">
                                                         <input type="file" class="form-control" id="image_name" name="image_name">
-                                                    </div>
-                                                </div>
-                                                <div class="form-group row">
-                                                    <label class="col-sm-2 control-label" for="is_active">Is Active</label>
-                                                    <div class="col-sm-10">
-                                                        <input type="hidden" class="form-control" id="is_active" name="is_active" value="1">
                                                     </div>
                                                 </div>
                                                 <div class="form-group row d-flex flex-row-reverse">

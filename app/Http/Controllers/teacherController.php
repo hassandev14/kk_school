@@ -42,16 +42,16 @@ class teacherController extends Controller
        //Move Uploaded File
        $destinationPath = 'teachers_images';
        $record =  $file->move($destinationPath,$file->getClientOriginalName());
-      // dd($record);
+       //dd($request->all());
  
          Teacher::create([
         'teacher_name'=>$request->teacher_name,
         'father_name'=>$request->father_name,
         'phone'=>$request->phone,
         'address'=>$request->address,
-        'salary'=>$request->salary,
         'joining_date'=>$request->joining_date,
         'gender'=>$request->gender,
+        'is_active'=>$request->is_active,
         "image_name" =>$file_name
        ]);
        return redirect($this->redirect_page);
