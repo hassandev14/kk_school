@@ -13,7 +13,63 @@
 
                         <div class="container-fluid">
 
-                            <div class="row">
+                        <form action="<?php echo e(url('dashboard')); ?>" class="form-horizontal" role="form" method="POST">
+                        <?php echo csrf_field(); ?>
+                        <div class="form-group row">
+                            <label class="col-sm-1 control-label" for="Address">Select Date</label>
+                            <input type="text" required value="<?php echo e($date_filter); ?>" class="form-control col-sm-3 control-label" placeholder="mm/dd/yyyy" id="datepicker-autoclose" name="date_filter">
+                                            <span class="input-group-addon bg-custom b-0"><i class="mdi mdi-calendar"></i></span>
+
+                                            <input type="submit" value="Filter"  class='btn btn-primary'>
+                                        </div>
+                                </form>
+                                <form action="<?php echo e(url('dashboard')); ?>" class="form-horizontal" role="form" method="POST">
+                        <?php echo csrf_field(); ?>
+                        <div class="form-group row">
+                            <label class="col-sm-1 control-label" for="Address">Select Duration</label>
+                           <select name='duration' class="form-control col-sm-3" required>
+                            <option value="">Select Duration</option>
+                            <option value="0" <?php                                                                                                  
+                                                                                       if($duration == "0")
+                                                                                   {
+                                                                                      echo 'selected=selected';
+                                                                                   }
+                                                                                  
+                                                                                                                 ?>>Current Month</option>
+                            <option value="3"  <?php                                                                                                  
+                                                                                       if($duration == "3")
+                                                                                   {
+                                                                                      echo 'selected=selected';
+                                                                                   }
+                                                                                  
+                                                                                                                 ?>>Last 3 Months</option>
+                            <option value="6"  <?php                                                                                                  
+                                                                                       if($duration == "6")
+                                                                                   {
+                                                                                      echo 'selected=selected';
+                                                                                   }
+                                                                                  
+                                                                                                                 ?>>Las 6 Months</option>
+                            <option value="12"  <?php                                                                                                  
+                                                                                       if($duration == "12")
+                                                                                   {
+                                                                                      echo 'selected=selected';
+                                                                                   }
+                                                                                  
+                                                                                                                 ?>>This Year</option>
+                            <option value="all"  <?php                                                                                                  
+                                                                                       if($duration == "all")
+                                                                                   {
+                                                                                      echo 'selected=selected';
+                                                                                   }
+                                                                                  
+                                                                                                                 ?>>All</option>
+</select>
+                                            <input type="submit" value="Filter"  class='btn btn-primary'>
+                                        </div>
+                                </form>
+                                   <h1 style="text-align:center">Data for : <?php echo e($for); ?></h1>      
+                                <div class="row">
                                 <div class="col-sm-6 col-lg-3">
                                     <div class="card text-center">
                                         <div class="card-heading">
@@ -71,7 +127,7 @@
                                         </div>
                                         <div class="card-body p-t-10">
                                             <h2 class="m-t-0 m-b-15"><i ></i><b>Amount : <?php echo e($all_fee->total_paid); ?></b></h2>
-                                            <p class="text-muted m-b-0 m-t-20"><b></b> For Month OF <?php echo e($all_fee->month); ?> <?php echo e($all_fee->year); ?></p>
+                                            <p class="text-muted m-b-0 m-t-20"><b></b> For</p>
                                         </div>
                                     </div>
                                 </div>
@@ -83,7 +139,7 @@
                                         </div>
                                         <div class="card-body p-t-10">
                                             <h2 class="m-t-0 m-b-15"><i ></i><b>Amount : <?php echo e($all_fee->total_unpaid); ?></b></h2>
-                                            <p class="text-muted m-b-0 m-t-20"><b></b> For Month OF <?php echo e($all_fee->month); ?> <?php echo e($all_fee->year); ?></p>
+                                            <p class="text-muted m-b-0 m-t-20"><b></b> For </p>
                                         </div>
                                     </div>
                                 </div>
@@ -95,7 +151,7 @@
                                         </div>
                                         <div class="card-body p-t-10">
                                             <h2 class="m-t-0 m-b-15"><i ></i><b>Amount : <?php echo e($all_pay_salary->total_paid); ?></b></h2>
-                                            <p class="text-muted m-b-0 m-t-20"><b></b>For Month OF <?php echo e($all_pay_salary->month); ?> <?php echo e($all_pay_salary->year); ?></p>
+                                            <p class="text-muted m-b-0 m-t-20"><b></b>For</p>
                                         </div>
                                     </div>
                                 </div>
@@ -107,7 +163,7 @@
                                         </div>
                                         <div class="card-body p-t-10">
                                             <h2 class="m-t-0 m-b-15"><i></i><b>Amount : <?php echo e($all_un_pay_salary->total_unpaid); ?></b></h2>
-                                            <p class="text-muted m-b-0 m-t-20"><b></b>For Month OF <?php echo e($all_un_pay_salary->month); ?> <?php echo e($all_un_pay_salary->year); ?></p>
+                                            <p class="text-muted m-b-0 m-t-20"><b></b>For </p>
                                         </div>
                                     </div>
                                 </div>
@@ -134,7 +190,7 @@
                                                 </li>
                                             </ul>
                                                 <script>
-                                                     const donutData ={'exp':<?php echo e($all_expenses->exp_amount); ?>,'salaries':34,'fee':67}   
+                                                     const donutData ={'exp':<?php echo e($all_expenses->exp_amount); ?>,'salaries':<?php echo e($all_pay_salary->total_paid); ?>,'fee':<?php echo e($all_fee->total_paid); ?> }   
                                                      console.log(donutData);
                                                 </script>    
                                             <div id="morris-donut-example" style="height: 300px"></div>
@@ -145,7 +201,7 @@
                                 <div class="col-lg-4">
                                     <div class="card">
                                         <div class="card-body">
-                                            <h4 class="m-t-0">Revenue</h4>
+                                            <h4 class="m-t-0">Yearly Income</h4>
 
                                             <ul class="list-inline widget-chart m-t-20 text-center">
                                                 <li>

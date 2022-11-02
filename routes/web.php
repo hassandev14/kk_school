@@ -27,6 +27,7 @@ use App\Http\Controllers\teacherSalaryController;
 */
 ////////////////Auth Routing ////////////////////////////////////////
 Route::get('dashboard', [dashboardController::class,'index']);
+Route::post('dashboard', [dashboardController::class,'index']);
 
 ////////////////Auth Routing ////////////////////////////////////////
 Route::get('/', [adminController::class,'index']);

@@ -107,7 +107,7 @@
             y: "2016",
             a: 90,
             b: 75
-        }], "y", ["a", "b"], ["Series A", "Series B"], ["#04a2b3", "#00a3ff"]);
+        }], "y", ["a", "b"], ["Income", "Expenses"], ["#04a2b3", "#00a3ff"]);
         this.createDonutChart("morris-donut-example", [{
             label: "Expenses",
             value: donutData.exp
