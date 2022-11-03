@@ -193,7 +193,7 @@
                                             </ul>
                                                 <script>
                                                      const donutData ={'exp':{{$all_expenses->exp_amount}},'salaries':{{$all_pay_salary->total_paid}},'fee':{{$all_fee->total_paid}} }   
-                                                     console.log(donutData);
+                                                     //console.log(donutData);
                                                 </script>    
                                             <div id="morris-donut-example" style="height: 300px"></div>
                                         </div>
@@ -204,23 +204,68 @@
                                     <div class="card">
                                         <div class="card-body">
                                             <h4 class="m-t-0">Yearly Income</h4>
+                                               @php
+                                               $total_expenses = 0;
+                                               $total_year = count($five_year);
+                                               for($i=0 ; $i<$total_year ; $i++)
+                                               {
+                                                    $current_year = $five_year[$i]['year'];
 
+                                                    foreach($five_years_expenses_amount as $expp)
+                                                    {
+                                                        if($expp->year==$current_year)
+                                                        {
+                                                            $five_year[$i]['total_expenses']+= $expp->amount;
+                                                        }
+                                                    }
+                                                    foreach($five_years_emp_salary_amount as $expp)
+                                                    {
+                                                        if($expp->year==$current_year)
+                                                        {
+                                                            $five_year[$i]['total_expenses']+= $expp->amount;
+                                                        }
+                                                    }
+                                                    foreach($five_years_teachers_salary_amount as $expp)
+                                                    {
+                                                        if($expp->year==$current_year)
+                                                        {
+                                                            $five_year[$i]['total_expenses']+= $expp->amount;
+                                                        }
+                                                    }
+                                                    foreach($five_years_student_fee_amount as $expp)
+                                                    {
+                                                        if($expp->year==$current_year)
+                                                        {
+                                                            $five_year[$i]['total_earning']+= $expp->total_paid;
+                                                        }
+                                                    }
+                                               }
+                                               $json_five_year = json_encode($five_year);
+                                               @endphp                                         
                                             <ul class="list-inline widget-chart m-t-20 text-center">
-                                                <li>
-                                                    <h4 class=""><b>5248</b></h4>
-                                                    <p class="text-muted m-b-0">Marketplace</p>
+                                                @php
+                                                $num=0;
+                                                 foreach($five_year  as $fiv){
+                                                    if($num < 3){
+                                                 @endphp
+                                                 <li>
+                                                    <h4 class="" style="font-size:11px;"><b> @php echo 'Inc :'. $fiv['total_earning']. ' Exp : '.$fiv['total_expenses']; @endphp</b></h4>
+                                                    <p class="text-muted m-b-0">@php echo  $fiv['year']; @endphp</p>
                                                 </li>
-                                                <li>
-                                                    <h4 class=""><b>321</b></h4>
-                                                    <p class="text-muted m-b-0">Last week</p>
-                                                </li>
-                                                <li>
-                                                    <h4 class=""><b>964</b></h4>
-                                                    <p class="text-muted m-b-0">Last Month</p>
-                                                </li>
+                                                @php 
+                                            $num++;
+                                            }}
+                                                @endphp
+                                                
                                             </ul>
 
                                             <div id="morris-bar-example" style="height: 300px"></div>
+                                            <script>
+                                                     const barData = @php echo $json_five_year; @endphp
+
+                                                   
+                                                     console.log(barData);
+                                                </script> 
                                         </div>
                                     </div>
                                 </div>

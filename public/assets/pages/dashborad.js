@@ -43,71 +43,47 @@
         })
     }, a.prototype.init = function() {
         this.createAreaChart("morris-area-example", 0, 0, [{
-            y: "2009",
-            a: 10,
+            y: barData[0].year,
+            a: 1,
             b: 20
         }, {
-            y: "2010",
+            y:  barData[1].year,
             a: 75,
             b: 65
         }, {
-            y: "2011",
+            y:  barData[2].year,
             a: 50,
             b: 40
         }, {
-            y: "2012",
+            y: barData[3].year,
             a: 75,
             b: 65
         }, {
-            y: "2013",
+            y: barData[4].year,
             a: 50,
             b: 40
-        }, {
-            y: "2014",
-            a: 75,
-            b: 65
-        }, {
-            y: "2015",
-            a: 90,
-            b: 60
-        }, {
-            y: "2016",
-            a: 90,
-            b: 75
         }], "y", ["a", "b"], ["Series A", "Series B"], ["#00a3ff", "#04a2b3"]);
         this.createBarChart("morris-bar-example", [{
-            y: "2009",
-            a: 100,
-            b: 90
+            y: barData[0].year,
+            a: barData[0].total_earning,
+            b: barData[0].total_expenses
         }, {
-            y: "2010",
-            a: 75,
-            b: 65
+            y:  barData[1].year,
+            a: barData[1].total_earning,
+            b: barData[1].total_expenses
         }, {
-            y: "2011",
-            a: 50,
-            b: 40
+            y:  barData[2].year,
+           a: barData[2].total_earning,
+            b: barData[2].total_expenses
         }, {
-            y: "2012",
-            a: 75,
-            b: 65
+            y: barData[3].year,
+            a: barData[3].total_earning,
+            b: barData[3].total_expenses
         }, {
-            y: "2013",
-            a: 50,
-            b: 40
-        }, {
-            y: "2014",
-            a: 75,
-            b: 65
-        }, {
-            y: "2015",
-            a: 100,
-            b: 90
-        }, {
-            y: "2016",
-            a: 90,
-            b: 75
-        }], "y", ["a", "b"], ["Income", "Expenses"], ["#04a2b3", "#00a3ff"]);
+            y: barData[4].year,
+            a: barData[4].total_earning,
+            b: barData[4].total_expenses
+        }], "y", ["a", "b"], ["Income", "Expenses"], ["#04a2b3", "#F00"]);
         this.createDonutChart("morris-donut-example", [{
             label: "Expenses",
             value: donutData.exp

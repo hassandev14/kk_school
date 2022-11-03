@@ -1,4 +1,4 @@
- @extends('layouts.default')
+     @extends('layouts.default')
 
 @section('content')
 <!-- Start right Content here -->

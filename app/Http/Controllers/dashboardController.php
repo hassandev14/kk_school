@@ -110,9 +110,54 @@ class dashboardController extends Controller
           $all_un_pay_salary[0]=(object) array("count_paid"=>0,"total_paid"=>0);
         }
 
+        $sql ="SELECT SUM(expense_amount) AS amount,YEAR(pay_date) AS `year`
+        FROM expenses
+        GROUP BY pay_date
+        ORDER BY `year` DESC
+        LIMIT 5";
+        $five_years_expenses_amount = DB::select($sql);
 
+        $sql ="
+        SELECT IFNULL(SUM(salary),0) AS amount,YEAR(pay_date) AS `year`
+        FROM teacher_salary
+        WHERE STATUS = 'paid' 
+        GROUP BY pay_date 
+        ORDER BY `year` DESC
+        LIMIT 5";
+        $five_years_teachers_salary_amount = DB::select($sql);
+        
+
+        $sql ="        
+            SELECT IFNULL(SUM(salary),0) AS amount,YEAR(pay_date) AS `year`
+            FROM employes
+            WHERE STATUS = 'paid' 
+            GROUP BY pay_date 
+            ORDER BY `year` DESC
+            LIMIT 5
+            ";
+        $five_years_emp_salary_amount = DB::select($sql);
+
+        $sql =" SELECT YEAR(submit_date) AS `year`,JSON_LENGTH(JSON_SEARCH(all_class_fee_data,'all','paid'))*fee AS total_paid
+        FROM student_fee
+        GROUP BY submit_date ORDER BY `year` DESC LIMIT 5";
+    $five_years_student_fee_amount = DB::select($sql);
+      //  dd($five_years_student_fee_amount );
+
+      $five_year = array();
+       for($i=0 ; $i<5 ; $i++)
+       {
+          $temp['year'] = $year-$i;
+          $temp['total_expenses'] = 0;
+          $temp['total_earning'] = 0;
+          $temp['total_admission'] = 0;
+          $five_year[] = $temp;
+       } 
+       //dd($five_year);
         return view('dashboard',array('student'=>$student,'teacher'=>$teacher,
         'employe'=>$employe,'all_expenses'=>$all_expenses[0],'all_fee'=>$all_fee[0],
-        'all_pay_salary'=>$all_pay_salary[0],'all_un_pay_salary'=>$all_un_pay_salary[0],'for'=>$for,'duration'=>$duration, 'date_filter' => $date_filter));
+        'all_pay_salary'=>$all_pay_salary[0],'all_un_pay_salary'=>$all_un_pay_salary[0],
+        'for'=>$for,'duration'=>$duration, 'date_filter' => $date_filter,'five_years_expenses_amount'=>$five_years_expenses_amount,
+        'five_years_teachers_salary_amount'=>$five_years_teachers_salary_amount,'five_years_emp_salary_amount'=>$five_years_emp_salary_amount,
+        'five_year'=>$five_year,'five_years_student_fee_amount'=>$five_years_student_fee_amount));
     }
 }
