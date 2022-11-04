@@ -239,22 +239,28 @@
                                                             $five_year[$i]['total_earning']+= $expp->total_paid;
                                                         }
                                                     }
+                                                    foreach($five_years_student_admission as $expp)
+                                                    {
+                                                        if($expp->year==$current_year)
+                                                        {
+                                                            $five_year[$i]['total_admission']+= $expp->total_admission;
+                                                        }
+                                                    }
                                                }
                                                $json_five_year = json_encode($five_year);
                                                @endphp                                         
                                             <ul class="list-inline widget-chart m-t-20 text-center">
-                                                @php
+                                            @php
                                                 $num=0;
-                                                 foreach($five_year  as $fiv){
-                                                    if($num < 3){
+                                                 for($i=2;$i >=0;$i--){
                                                  @endphp
                                                  <li>
-                                                    <h4 class="" style="font-size:11px;"><b> @php echo 'Inc :'. $fiv['total_earning']. ' Exp : '.$fiv['total_expenses']; @endphp</b></h4>
-                                                    <p class="text-muted m-b-0">@php echo  $fiv['year']; @endphp</p>
+                                                    <h4 class="" style="font-size:11px;"><b> @php echo 'Inc :'. $five_year[$i]['total_earning']. ' Exp : '.$five_year[$i]['total_expenses']; @endphp</b></h4>
+                                                    <p class="text-muted m-b-0">@php echo  $five_year[$i]['year']; @endphp</p>
                                                 </li>
                                                 @php 
-                                            $num++;
-                                            }}
+                                            
+                                            }
                                                 @endphp
                                                 
                                             </ul>
@@ -273,24 +279,30 @@
                                 <div class="col-lg-4">
                                     <div class="card">
                                         <div class="card-body">
-                                            <h4 class="m-t-0">Email Sent</h4>
+                                            <h4 class="m-t-0">Yearly Admissions</h4>
 
                                             <ul class="list-inline widget-chart m-t-20 text-center">
+                                            @php
+                                                $num=0;
+                                                 for($i=2;$i >=0;$i--){
+                                                 @endphp
                                                 <li>
-                                                    <h4 class=""><b>3654</b></h4>
-                                                    <p class="text-muted m-b-0">Marketplace</p>
+                                                    <h4 class=""><b>@php echo 'Adm :'. $five_year[$i]['total_admission']; @endphp</b></h4>
+                                                    <p class="text-muted m-b-0">@php echo  $five_year[$i]['year']; @endphp</p>
                                                 </li>
-                                                <li>
-                                                    <h4 class=""><b>954</b></h4>
-                                                    <p class="text-muted m-b-0">Last week</p>
-                                                </li>
-                                                <li>
-                                                    <h4 class=""><b>8462</b></h4>
-                                                    <p class="text-muted m-b-0">Last Month</p>
-                                                </li>
+                                                @php 
+                                            }
+                                                @endphp
+                                                
                                             </ul>
 
                                             <div id="morris-area-example" style="height: 300px"></div>
+                                            <script>
+                                                     const barData1 = @php echo $json_five_year; @endphp
+
+                                                   
+                                                     console.log(barData1);
+                                                </script> 
                                         </div>
                                     </div>
                                 </div>

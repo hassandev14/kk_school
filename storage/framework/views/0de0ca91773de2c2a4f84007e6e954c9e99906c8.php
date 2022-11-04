@@ -1,6 +1,6 @@
-@extends('layouts.default')
 
-@section('content')
+
+<?php $__env->startSection('content'); ?>
 <div class="content-page">
                 <!-- Start content -->
                 <div class="content">
@@ -12,9 +12,9 @@
                     </div>
 
                     <div class="page-content-wrapper ">
- @if($errors->any())
-<h4>{{$errors->first()}}</h4>
-@endif
+ <?php if($errors->any()): ?>
+<h4><?php echo e($errors->first()); ?></h4>
+<?php endif; ?>
                         <div class="container-fluid">
                         <div class="row">
                                 <div class="col-lg-12">
@@ -35,18 +35,18 @@
 
 
                                                     <tbody>
-                                                        @foreach($data as $dat)
+                                                        <?php $__currentLoopData = $data; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $dat): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                                                     <tr>
-                                                        <td>{{$dat->id}}</td>
-                                                        <td>{{$dat->class_name}}</td>
-                                                        <td><a href = "subject?my_classes_id={{$dat->id}}">{{$dat->subject_count}}</a></td>
+                                                        <td><?php echo e($dat->id); ?></td>
+                                                        <td><?php echo e($dat->class_name); ?></td>
+                                                        <td><a href = "subject?my_classes_id=<?php echo e($dat->id); ?>"><?php echo e($dat->subject_count); ?></a></td>
                                                         <td>
-                                                      <a href="edit_class/{{$dat->id}}"><i class= "fas fa-edit"></i></a> 
-                                                      <a href="delete_class/{{$dat->id}}"><i class="fas fa-trash"></i></a> 
-                                                      <a href="add_class_fee/{{$dat->class_name}}"><i></i>Add Class Fee</a> 
+                                                      <a href="edit_class/<?php echo e($dat->id); ?>"><i class= "fas fa-edit"></i></a> 
+                                                      <a href="delete_class/<?php echo e($dat->id); ?>"><i class="fas fa-trash"></i></a> 
+                                                      <a href="add_class_fee/<?php echo e($dat->class_name); ?>"><i></i>Add Class Fee</a> 
                                                     </td>
                                                     </tr>
-                                                    @endforeach
+                                                    <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                                                     </tbody>
                                                 </table>
                                             </div>
@@ -70,5 +70,7 @@
 
             </div>
             <!-- End Right content here -->
-@stop
+<?php $__env->stopSection(); ?>
 
+
+<?php echo $__env->make('layouts.default', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH D:\wamp\www\kk_school\resources\views/class.blade.php ENDPATH**/ ?>

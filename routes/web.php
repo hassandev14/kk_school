@@ -14,6 +14,7 @@ use App\Http\Controllers\attendenceContoller;
 use App\Http\Controllers\studentsFeeController;
 use App\Http\Controllers\dashboardController;
 use App\Http\Controllers\teacherSalaryController;
+use App\Http\Controllers\class_feeController;
 
 /*
 |--------------------------------------------------------------------------
@@ -135,4 +136,7 @@ Route::get('add_teacher_salary', [teacherSalaryController::class,'add_teacher_sa
 Route::get('edit_teacher_salary/{id}', [teacherSalaryController::class,'edit_teacher_salary']);
 Route::post('update_teacher_salary', [teacherSalaryController::class,'update']);
 Route::get('delete_teacher_salary/{id}', [teacherSalaryController::class,'delete']);
+
+///////////////////////////////////////////////////////////////Teacher Salary Routing///////////////////////////////////////////////
+Route::get('add_class_fee/{class_name}', [class_feeController::class,'index']);
 });

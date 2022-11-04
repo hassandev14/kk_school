@@ -140,8 +140,13 @@ class dashboardController extends Controller
         $sql =" SELECT YEAR(submit_date) AS `year`,JSON_LENGTH(JSON_SEARCH(all_class_fee_data,'all','paid'))*fee AS total_paid
         FROM student_fee
         GROUP BY submit_date ORDER BY `year` DESC LIMIT 5";
-    $five_years_student_fee_amount = DB::select($sql);
-      //  dd($five_years_student_fee_amount );
+        $five_years_student_fee_amount = DB::select($sql);
+
+        $sql =" SELECT IFNULL(COUNT(id),0) AS total_admission,YEAR(admission_date) AS `year`  FROM students
+        GROUP BY YEAR(admission_date)
+        ORDER BY `year` DESC
+        LIMIT 5";
+        $five_years_student_admission = DB::select($sql);
 
       $five_year = array();
        for($i=0 ; $i<5 ; $i++)
@@ -158,6 +163,6 @@ class dashboardController extends Controller
         'all_pay_salary'=>$all_pay_salary[0],'all_un_pay_salary'=>$all_un_pay_salary[0],
         'for'=>$for,'duration'=>$duration, 'date_filter' => $date_filter,'five_years_expenses_amount'=>$five_years_expenses_amount,
         'five_years_teachers_salary_amount'=>$five_years_teachers_salary_amount,'five_years_emp_salary_amount'=>$five_years_emp_salary_amount,
-        'five_year'=>$five_year,'five_years_student_fee_amount'=>$five_years_student_fee_amount));
+        'five_year'=>$five_year,'five_years_student_fee_amount'=>$five_years_student_fee_amount,'five_years_student_admission'=>$five_years_student_admission));
     }
 }
