@@ -4,13 +4,19 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\My_classes;
+use App\Models\Class_fee;
+use DB;
 
 class myClassController extends Controller
 {
     public function index(Request $request)
     {
      
-     $data = My_classes::withCount('subject')->get();
+     
+     $sql="SELECT mc.id,class_name,cf.fee,(SELECT COUNT(*) FROM subjects s WHERE s.my_classes_id=mc.id) AS total_subjects
+     FROM my_classes mc
+     LEFT JOIN class_fee cf ON cf.class_id=mc.id WHERE cf.id =(SELECT MAX(cff.id) FROM class_fee cff WHERE class_id=mc.id)";
+     $data = DB::select($sql);
      return view('class',array('data'=> $data));
     }
     public function add_class()

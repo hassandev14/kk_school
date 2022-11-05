@@ -28,6 +28,7 @@
                                                     <tr>
                                                         <th>id</th>
                                                         <th>Class Name</th>
+                                                        <th>Fee</th>
                                                         <th>Total Subject</th>
                                                         <th>Action</th>
                                                     </tr>
@@ -39,11 +40,13 @@
                                                     <tr>
                                                         <td><?php echo e($dat->id); ?></td>
                                                         <td><?php echo e($dat->class_name); ?></td>
-                                                        <td><a href = "subject?my_classes_id=<?php echo e($dat->id); ?>"><?php echo e($dat->subject_count); ?></a></td>
+                                                       
+                                                        <td><?php echo e($dat->fee); ?></td>
+                                                        <td><a href = "subject?my_classes_id=<?php echo e($dat->id); ?>"><?php echo e($dat->total_subjects); ?></a></td>
                                                         <td>
                                                       <a href="edit_class/<?php echo e($dat->id); ?>"><i class= "fas fa-edit"></i></a> 
                                                       <a href="delete_class/<?php echo e($dat->id); ?>"><i class="fas fa-trash"></i></a> 
-                                                      <a href="add_class_fee/<?php echo e($dat->class_name); ?>"><i></i>Add Class Fee</a> 
+                                                      <a href="add_class_fee/<?php echo e($dat->id); ?>"><i></i>Add Class Fee</a> 
                                                     </td>
                                                     </tr>
                                                     <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>

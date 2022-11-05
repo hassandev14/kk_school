@@ -138,5 +138,6 @@ Route::post('update_teacher_salary', [teacherSalaryController::class,'update']);
 Route::get('delete_teacher_salary/{id}', [teacherSalaryController::class,'delete']);
 
 ///////////////////////////////////////////////////////////////Teacher Salary Routing///////////////////////////////////////////////
-Route::get('add_class_fee/{class_name}', [class_feeController::class,'index']);
+Route::get('add_class_fee/{id}', [class_feeController::class,'index']);
+Route::post('add_class_fee/{id}', [class_feeController::class,'insert']);
 });

@@ -28,6 +28,7 @@
                                                     <tr>
                                                         <th>id</th>
                                                         <th>Class Name</th>
+                                                        <th>Fee</th>
                                                         <th>Total Subject</th>
                                                         <th>Action</th>
                                                     </tr>
@@ -39,11 +40,13 @@
                                                     <tr>
                                                         <td>{{$dat->id}}</td>
                                                         <td>{{$dat->class_name}}</td>
-                                                        <td><a href = "subject?my_classes_id={{$dat->id}}">{{$dat->subject_count}}</a></td>
+                                                       
+                                                        <td>{{$dat->fee}}</td>
+                                                        <td><a href = "subject?my_classes_id={{$dat->id}}">{{$dat->total_subjects}}</a></td>
                                                         <td>
                                                       <a href="edit_class/{{$dat->id}}"><i class= "fas fa-edit"></i></a> 
                                                       <a href="delete_class/{{$dat->id}}"><i class="fas fa-trash"></i></a> 
-                                                      <a href="add_class_fee/{{$dat->class_name}}"><i></i>Add Class Fee</a> 
+                                                      <a href="add_class_fee/{{$dat->id}}"><i></i>Add Class Fee</a> 
                                                     </td>
                                                     </tr>
                                                     @endforeach

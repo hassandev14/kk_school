@@ -15,7 +15,7 @@
                     <div class="page-content-wrapper ">
                    
                         <div class="container-fluid">
-                        <form action="add_class" style="border:1px solid #ccc" enctype="multipart/form-data" method="POST">
+                        <form action="add_class_fee" style="border:1px solid #ccc" enctype="multipart/form-data" method="POST">
                         @csrf
                             <div class="row">
                                 <div class="col-sm-12">
@@ -25,13 +25,35 @@
 
                                             <form class="form-horizontal" role="form">
                                             <div class="form-group row">
+                                                @php
+                                                foreach($class_name as $name){
+                                                    @endphp
                                                     <label class="col-sm-2 control-label" for="student_name">Class Name</label>
                                                     <div class="col-sm-10">
-                                                        <input type="text" class="form-control" value="{{$class_name['class_name']}}" id="class_id" name="class_id" readonly>                                                    </div>
+                                                        <input type="text" class="form-control" value="{{$name}}" id="class_id" name="class_id" readonly>                                                    </div>
+                                                </div>
+                                               @php }
+                                               foreach($old_class_fee as $fee){
+                                                @endphp
+                                                <div class="form-group row">
+                                                    <label class="col-sm-2 control-label" for="Name">Fee</label>
+                                                    <div class="col-sm-10">
+                                                        <input type="text" class="form-control" value="{{$fee}}" id="fee" name="fee">
+                                                    </div>
+                                                </div>
+                                                @php }
+                                                @endphp
+                                                <div class="form-group row">
+                                                <label class="col-sm-2 control-label" for="Address">Apply Date</label>
+                                                <div class="col-sm-10">
+                                                <input type="text" class="form-control" placeholder="mm/dd/yyyy" id="datepicker-autoclose" name="apply_date">
+                                                                <span class="input-group-addon bg-custom b-0"><i class="mdi mdi-calendar"></i></span>
+                                                        </div>
                                                 </div>
                                                 <div class="form-group row  d-flex flex-row-reverse">
                                                     <div class="col-sm-10">
-                                                    <input type="submit" value="submit" name="add_recored" class='btn btn-primary '> 
+                                                    <input type="submit" value="submit" name="add_recored" class='btn btn-primary '>
+                                                    <input type="hidden" value="{{$id}}" name="id">  
                                                     </div>
                                                 </div>
                                             </form>
