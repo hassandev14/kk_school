@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\TeacherRequest;
 use Illuminate\Http\Request;
 use App\Models\Teacher;
+use App\Models\Teacher_salary;
 
 class teacherController extends Controller
 {
@@ -12,7 +13,9 @@ class teacherController extends Controller
   public function index()
    {
     $data = Teacher::all();
-    return view('teacher',array('data'=> $data));
+    $teacher_saalry = Teacher_salary::all();
+  //  dd($teacher_saalry);
+    return view('teacher',array('data'=> $data,'teacher_saalry'=>$teacher_saalry));
    }
   public function add_teacher()
    {

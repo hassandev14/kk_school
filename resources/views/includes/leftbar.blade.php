@@ -36,6 +36,8 @@
                                 <ul class="list-unstyled">
                                     <li><a href="teachers">See Teachers</a></li>
                                     <li><a href="add_teacher">Add Teachers</a></li>
+                                    <li><a href="teacher_salary">See Teacher Salary</a></li>
+                                    <li><a href="add_teacher_salary">Add Teacher Salary</a></li>
                                 </ul>
                             </li> 
                             <li class="has_sub">
@@ -43,20 +45,10 @@
                                 <ul class="list-unstyled">
                                     <li><a href="students">See Students</a></li>
                                     <li><a href="add_student">Add Student</a></li>
-                                </ul>
-                            </li> 
-                            <li class="has_sub">
-                                <a href="javascript:void(0);" class="waves-effect"><i class="mdi mdi-album"></i> <span> Students Fees</span> <span class="float-right"><i class="mdi mdi-plus"></i></span></a>
-                                <ul class="list-unstyled">
                                     <li><a href="student_fee">See Students Fess</a></li>
                                     <li><a href="add_students_fee">Add Student Fee</a></li>
-                                </ul>
-                            </li> 
-                            <li class="has_sub">
-                                <a href="javascript:void(0);" class="waves-effect"><i class="mdi mdi-album"></i> <span> Teachers Salary</span> <span class="float-right"><i class="mdi mdi-plus"></i></span></a>
-                                <ul class="list-unstyled">
-                                    <li><a href="teacher_salary">See Teacher Salary</a></li>
-                                    <li><a href="add_teacher_salary">Add Teacher Salary</a></li>
+                                    <li><a href="attendence">See Attendence</a></li>
+                                    <li><a href="add_attendence">Add Attendence</a></li>
                                 </ul>
                             </li> 
                             <li class="has_sub">
@@ -88,13 +80,6 @@
                                 </ul>
                             </li> 
                             <li class="has_sub">
-                                <a href="javascript:void(0);" class="waves-effect"><i class="mdi mdi-album"></i> <span> Attendence </span> <span class="float-right"><i class="mdi mdi-plus"></i></span></a>
-                                <ul class="list-unstyled">
-                                    <li><a href="attendence">See Attendence</a></li>
-                                    <li><a href="add_attendence">Add Attendence</a></li>
-                                </ul>
-                            </li> 
-                            <li class="has_sub">
                                 <a href="javascript:void(0);" class="waves-effect"><i class="mdi mdi-album"></i> <span> Subject </span> <span class="float-right"><i class="mdi mdi-plus"></i></span></a>
                                 <ul class="list-unstyled">
                                     <li><a href="subject">See Subject</a></li>
@@ -106,11 +91,7 @@
                                 <ul class="list-unstyled">
                                     <li><a href="class">See Class</a></li>
                                     <li><a href="add_class">Add Class</a></li>
-                                </ul>
-                            </li> 
-                            <li class="has_sub">
-                                <a href="javascript:void(0);" class="waves-effect"><i class="mdi mdi-album"></i> <span>Student Class </span> <span class="float-right"><i class="mdi mdi-plus"></i></span></a>
-                                <ul class="list-unstyled">
+                                    <li><a href="class_fee_history">See Class Fee</a></li>
                                     <li><a href="student_classes">See Student Class</a></li>
                                     <li><a href="add_student_classes">Add Student Class</a></li>
                                 </ul>

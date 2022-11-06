@@ -8,40 +8,47 @@
 
                     <div class="">
                         <div class="page-header-title">
-                            <h4 class="page-title">Teacher salary</h4>
+                            <h4 class="page-title">Student Fee</h4>
                         </div>
                     </div>
 
                     <div class="page-content-wrapper ">
                    
                         <div class="container-fluid">
-                        <form action="{{url('add_teacher_salary')}}" style="border:1px solid #ccc" enctype="multipart/form-data" method="POST">
+                        <form action="{{url('add_student_fee')}}" style="border:1px solid #ccc" enctype="multipart/form-data" method="POST">
                         @csrf
                             <div class="row">
                                 <div class="col-sm-12">
                                     <div class="card">
                                         <div class="card-body">
-                                            <h4 class="m-t-0 m-b-30">Add Teacher salary</h4>
+                                            <h4 class="m-t-0 m-b-30">Add Student Fee</h4>
 
                                             <form class="form-horizontal" role="form">
                                             <div class="form-group row">
                                                 @php
-                                                foreach($teacher_name[0] as $name){
+                                                foreach($student_name as $name){
                                                     @endphp
-                                                    <label class="col-sm-2 control-label" for="student_name">teacher Name</label>
+                                                    <label class="col-sm-2 control-label" for="student_name">Student Name</label>
                                                     <div class="col-sm-10">
-                                                        <input type="text" class="form-control" value="{{$name}}" name="teacher_id" readonly>                                                    </div>
+                                                        <input type="text" class="form-control" value="{{$name}}" name="student_id" readonly>                                                    </div>
                                                 </div>
                                                @php }
-                                               foreach($old_teacher_salary[0] as $salary){
+                                               foreach($old_student_fee as $fee){
                                                 @endphp
                                                 <div class="form-group row">
-                                                    <label class="col-sm-2 control-label" for="Name">Fee</label>
+                                                    <label class="col-sm-2 control-label" for="Name">Current Fee</label>
                                                     <div class="col-sm-10">
-                                                        <input type="text" class="form-control" value="{{$salary}}" name="salary">
+                                                        <input type="text" class="form-control" value="{{$fee}}" readonly name="fee">
                                                     </div>
                                                 </div>
-                                                
+                                                @php }
+                                                @endphp
+                                                <div class="form-group row">
+                                                    <label class="col-sm-2 control-label" for="Name">New Fee</label>
+                                                    <div class="col-sm-10">
+                                                        <input type="text" class="form-control" value="" name="fee">
+                                                    </div>
+                                                </div>
                                                 <div class="form-group row">
                                                 <label class="col-sm-2 control-label" for="Address">Apply Date</label>
                                                 <div class="col-sm-10">

@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Teacher_salary;
+use App\Models\Teacher_salary_paid;
 use App\Models\Teacher;
 
 class teacherSalaryController extends Controller
@@ -11,7 +11,7 @@ class teacherSalaryController extends Controller
     protected  $redirect_page='teacher_salary';
     public function index()
      {
-      $data = Teacher_salary::all();
+      $data = Teacher_salary_paid::all();
       $teacher = Teacher::all();
       return view('teacher_salary',array('data'=> $data,'teacher'=>$teacher));
      }
@@ -23,7 +23,7 @@ class teacherSalaryController extends Controller
      public function edit_teacher_salary(Request $request)
      {
        $id = $request->id;
-       $data = Teacher_salary::where('id',$id)->first();
+       $data = Teacher_salary_paid::where('id',$id)->first();
        $teacher = Teacher::all();
        return view('update_teacher_salary', ['data' => $data,'teacher'=>$teacher]);
      }
@@ -50,7 +50,7 @@ class teacherSalaryController extends Controller
         $month = date("M",strtotime($pay_date));
         $year = date("Y",strtotime($pay_date));
        // dd($month);
-        Teacher_salary::create([
+       Teacher_salary_paid::create([
           'teacher_id'=>$request->teacher_id,
           'month'=>$month,
           'year'=>$year,
@@ -86,7 +86,7 @@ class teacherSalaryController extends Controller
       $month = date("M",strtotime($pay_date));
       $year = date("Y",strtotime($pay_date));
         $id = $request->id;
-        Teacher_salary::where('id',$id)->update([
+        Teacher_salary_paid::where('id',$id)->update([
             'teacher_id'=>$request->teacher_id,
             'month'=>$month,
             'year'=>$year,
@@ -100,7 +100,7 @@ class teacherSalaryController extends Controller
      public function delete(Request $request)
      {
       $id = $request->id;
-      $teacher_salary = Teacher_salary::find($id);
+      $teacher_salary = Teacher_salary_paid::find($id);
       $teacher_salary->delete();
       return redirect($this->redirect_page);
      }

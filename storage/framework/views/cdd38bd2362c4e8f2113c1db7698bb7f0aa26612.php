@@ -1,6 +1,6 @@
-@extends('layouts.default')
 
-@section('content')
+
+<?php $__env->startSection('content'); ?>
 <div class="content-page">
                 <!-- Start content -->
                 <div class="content">
@@ -12,9 +12,9 @@
                     </div>
 
                     <div class="page-content-wrapper ">
- @if($errors->any())
-<h4>{{$errors->first()}}</h4>
-@endif
+ <?php if($errors->any()): ?>
+<h4><?php echo e($errors->first()); ?></h4>
+<?php endif; ?>
                         <div class="container-fluid">
                         <div class="row">
                                 <div class="col-lg-12">
@@ -42,31 +42,31 @@
 
 
                                                     <tbody>
-                                                        @foreach($data as $dat)
-                                                     @php $current_class = $dat->student_classes->keys()->last() @endphp
+                                                        <?php $__currentLoopData = $data; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $dat): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                                     <?php $current_class = $dat->student_classes->keys()->last() ?>
                                                     <tr>
-                                                        <td>{{$dat->roll_no}}</td>
-                                                        <td>{{$dat->student_name}}</td>
-                                                        <td>{{$dat->father_name}}</td>
-                                                        <td>{{$dat->phone}}</td>
-                                                        <td>{{$dat->address}}</td>
-                                                        <td>{{$dat->gender}}</td>
-                                                        <td>{{$dat->admission_date}}</td>
-                                                        <td><a href = "subject?my_classes_id={{$dat->class_id}}">{{$dat->class_name}}</a></td>
-                                                        <td><img src="students_images/{{$dat->image_name}}" width="80" height="50"></td>
+                                                        <td><?php echo e($dat->roll_no); ?></td>
+                                                        <td><?php echo e($dat->student_name); ?></td>
+                                                        <td><?php echo e($dat->father_name); ?></td>
+                                                        <td><?php echo e($dat->phone); ?></td>
+                                                        <td><?php echo e($dat->address); ?></td>
+                                                        <td><?php echo e($dat->gender); ?></td>
+                                                        <td><?php echo e($dat->admission_date); ?></td>
+                                                        <td><a href = "subject?my_classes_id=<?php echo e($dat->class_id); ?>"><?php echo e($dat->class_name); ?></a></td>
+                                                        <td><img src="students_images/<?php echo e($dat->image_name); ?>" width="80" height="50"></td>
                                                         <td>
-                                                      <a href="edit_student/{{$dat->id}}"><i class= "fas fa-edit"></i></a> 
-                                                      <a href="delete_student/{{$dat->id}}"><i class="fas fa-trash"></i></a> 
-                                                     @if($dat->class_id)
-                                                      <a href="subject?my_classes_id={{$dat->student_class_id}}">See Subjects</a>
-                                                      @endif
+                                                      <a href="edit_student/<?php echo e($dat->id); ?>"><i class= "fas fa-edit"></i></a> 
+                                                      <a href="delete_student/<?php echo e($dat->id); ?>"><i class="fas fa-trash"></i></a> 
+                                                     <?php if($dat->class_id): ?>
+                                                      <a href="subject?my_classes_id=<?php echo e($dat->student_class_id); ?>">See Subjects</a>
+                                                      <?php endif; ?>
                                                     </td>
                                                     <td>
-                                                    <a href="add_student_fee/{{$dat->id}}"><i></i>Add Student Fee</a><br>
-                                                      <a href="student_fee_history/{{$dat->id}}"><i></i>See Student Fee History</a> 
+                                                    <a href="add_student_fee/<?php echo e($dat->id); ?>"><i></i>Add Student Fee</a><br>
+                                                      <a href="student_fee_history/<?php echo e($dat->id); ?>"><i></i>See Student Fee History</a> 
                                                     </td>
                                                     </tr>
-                                                    @endforeach
+                                                    <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                                                     </tbody>
                                                 </table>
                                             </div>
@@ -90,5 +90,7 @@
 
             </div>
             <!-- End Right content here -->
-@stop
+<?php $__env->stopSection(); ?>
 
+
+<?php echo $__env->make('layouts.default', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH D:\wamp\www\kk_school\resources\views/students.blade.php ENDPATH**/ ?>

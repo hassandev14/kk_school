@@ -18,12 +18,12 @@
                         <div class="container-fluid">
                         <div class="row">
                         <div class="form-group row">
-                                                <label class="col-sm-2 control-label" for="Address">Select Date</label>
-                                                <div class="col-sm-10">
-                                                <input type="text" class="form-control" placeholder="mm/dd/yyyy" id="datepicker-autoclose" name="pay_date">
-                                                                <span class="input-group-addon bg-custom b-0"><i class="mdi mdi-calendar"></i></span>
-                                                        </div>
-                                                </div>
+                        <label class="col-sm-2 control-label" for="Address">Select Date</label>
+                        <div class="col-sm-10">
+                        <input type="text" class="form-control" placeholder="mm/dd/yyyy" id="datepicker-autoclose" name="pay_date">
+                                        <span class="input-group-addon bg-custom b-0"><i class="mdi mdi-calendar"></i></span>
+                                </div>
+                        </div>
                                 <div class="col-lg-12">
                                     <div class="card">
                                         <div class="card-body">

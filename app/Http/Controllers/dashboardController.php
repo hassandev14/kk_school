@@ -69,7 +69,7 @@ class dashboardController extends Controller
         JSON_LENGTH(JSON_SEARCH(all_class_fee_data,'all','unpaid'))*fee AS total_unpaid,
         JSON_LENGTH(JSON_SEARCH(all_class_fee_data,'all','paid')) AS count_paid ,
         JSON_LENGTH(JSON_SEARCH(all_class_fee_data,'all','paid'))*fee AS total_paid
-        FROM student_fee WHERE 1=1 and YEAR(submit_date) = $year  AND MONTH(submit_date) $operator $month";
+        FROM student_fee_paid WHERE 1=1 and YEAR(submit_date) = $year  AND MONTH(submit_date) $operator $month";
           $all_fee = DB::select($sql);
           if(empty($all_fee))
           {
@@ -89,7 +89,7 @@ class dashboardController extends Controller
           $all_expenses[0]=(object) array("exp_amount"=>0);
         }
          $sql ="SELECT COUNT(ts.id) AS count_paid,IFNULL((COUNT(ts.id) *  ts.salary),0)AS total_paid
-        FROM teacher_salary ts
+        FROM teacher_salary_paid ts
         INNER JOIN teachers t ON t.id=ts.teacher_id
         WHERE MONTH(pay_date) $operator $month AND  YEAR(pay_date) = $year AND `status`='paid'";
         $all_pay_salary = DB::select($sql);
@@ -99,7 +99,7 @@ class dashboardController extends Controller
           $all_pay_salary[0]=(object) array("count_paid"=>0,"total_paid"=>0);
         }
          $sql ="SELECT COUNT(ts.id)AS count_unpaid,IFNULL((COUNT(ts.id) *  ts.salary),0) AS total_unpaid
-        FROM teacher_salary ts
+        FROM teacher_salary_paid ts
         INNER JOIN teachers t ON t.id=ts.teacher_id
         WHERE MONTH(pay_date) $operator $month AND  YEAR(pay_date) = $year AND `status`='unpaid'";
         $all_un_pay_salary = DB::select($sql);
@@ -119,7 +119,7 @@ class dashboardController extends Controller
 
         $sql ="
         SELECT IFNULL(SUM(salary),0) AS amount,YEAR(pay_date) AS `year`
-        FROM teacher_salary
+        FROM teacher_salary_paid
         WHERE STATUS = 'paid' 
         GROUP BY pay_date 
         ORDER BY `year` DESC
@@ -138,7 +138,7 @@ class dashboardController extends Controller
         $five_years_emp_salary_amount = DB::select($sql);
 
         $sql =" SELECT YEAR(submit_date) AS `year`,JSON_LENGTH(JSON_SEARCH(all_class_fee_data,'all','paid'))*fee AS total_paid
-        FROM student_fee
+        FROM student_fee_paid
         GROUP BY submit_date ORDER BY `year` DESC LIMIT 5";
         $five_years_student_fee_amount = DB::select($sql);
 

@@ -11,10 +11,12 @@ use App\Http\Controllers\subjectController;
 use App\Http\Controllers\myClassController;
 use App\Http\Controllers\studentClassesController;
 use App\Http\Controllers\attendenceContoller;
-use App\Http\Controllers\studentsFeeController;
+use App\Http\Controllers\studentsFeePaidController;
 use App\Http\Controllers\dashboardController;
-use App\Http\Controllers\teacherSalaryController;
+use App\Http\Controllers\teacherSalaryPaidController;
 use App\Http\Controllers\class_feeController;
+use App\Http\Controllers\teachersSalaryCntroller;
+use App\Http\Controllers\studentFeeController;
 
 /*
 |--------------------------------------------------------------------------
@@ -123,21 +125,35 @@ Route::post('attendence_update', [attendenceContoller::class,'attendence_update'
 Route::get('see_attendence', [attendenceContoller::class,'see_attendence']);
 
 ///////////////////////////////////////////////////////Student Fees Routning//////////////////////////////////////////////////////
-Route::get('student_fee', [studentsFeeController::class,'index']);
-Route::get('see_students_fee', [studentsFeeController::class,'see_students_fee']);
-Route::get('add_students_fee', [studentsFeeController::class,'add_students_fee']);
-Route::post('student_fee_save', [studentsFeeController::class,'student_fee_save']);
-Route::post('student_fee_update', [studentsFeeController::class,'student_fee_update']);
+Route::get('student_fee', [studentsFeePaidController::class,'index']);
+Route::get('see_students_fee', [studentsFeePaidController::class,'see_students_fee']);
+Route::get('add_students_fee', [studentsFeePaidController::class,'add_students_fee']);
+Route::post('student_fee_save', [studentsFeePaidController::class,'student_fee_save']);
+Route::post('student_fee_update', [studentsFeePaidController::class,'student_fee_update']);
 
 ///////////////////////////////////////////////////////////////Teacher Salary Routing///////////////////////////////////////////////
-Route::get('teacher_salary', [teacherSalaryController::class,'index']);
-Route::post('add_teacher_salary', [teacherSalaryController::class,'insert']);
-Route::get('add_teacher_salary', [teacherSalaryController::class,'add_teacher_salary']);
-Route::get('edit_teacher_salary/{id}', [teacherSalaryController::class,'edit_teacher_salary']);
-Route::post('update_teacher_salary', [teacherSalaryController::class,'update']);
-Route::get('delete_teacher_salary/{id}', [teacherSalaryController::class,'delete']);
+Route::get('teacher_salary_paid', [teacherSalaryPaidController::class,'index']);
+Route::post('add_teacher_salary_paid', [teacherSalaryPaidController::class,'insert']);
+Route::get('add_teacher_salary_paid', [teacherSalaryPaidController::class,'add_teacher_salary']);
+Route::get('edit_teacher_salary_paid/{id}', [teacherSalaryPaidController::class,'edit_teacher_salary']);
+Route::post('update_teacher_salary_paid', [teacherSalaryPaidController::class,'update']);
+Route::get('delete_teacher_salary_paid/{id}', [teacherSalaryPaidController::class,'delete']);
 
-///////////////////////////////////////////////////////////////Teacher Salary Routing///////////////////////////////////////////////
+///////////////////////////////////////////////////////////////Class Fee Routing///////////////////////////////////////////////
 Route::get('add_class_fee/{id}', [class_feeController::class,'index']);
-Route::post('add_class_fee/{id}', [class_feeController::class,'insert']);
+Route::get('class_fee_history/{id}', [class_feeController::class,'fee_history']);
+Route::post('add_class_fee/{id}', [class_feeController::class,'index']);
+Route::get('class_fee_history', [class_feeController::class,'class_fee']);
+
+///////////////////////////////////////////////////////////////Teacher Salary Routing///////////////////////////////////////////////
+Route::get('add_teacher_salary/{id}', [teachersSalaryCntroller::class,'index']);
+Route::get('teacher_salary_history/{id}', [teachersSalaryCntroller::class,'salary_history']);
+Route::post('add_teacher_salary', [teachersSalaryCntroller::class,'insert']);
+Route::get('teacher_salary_history', [teachersSalaryCntroller::class,'teacher_salary']);
+
+///////////////////////////////////////////////////////////////Teacher Salary Routing///////////////////////////////////////////////
+Route::get('add_student_fee/{id}', [studentFeeController::class,'index']);
+Route::get('student_fee_history/{id}', [studentFeeController::class,'student_fee_history']);
+Route::post('add_student_fee', [studentFeeController::class,'insert']);
+Route::get('student_fee_history', [studentFeeController::class,'all_student_fee']);
 });

@@ -15,7 +15,7 @@
                     <div class="page-content-wrapper ">
                    
                         <div class="container-fluid">
-                        <form action="add_class_fee" style="border:1px solid #ccc" enctype="multipart/form-data" method="POST">
+                        <form action="{{url('add_class_fee')}}" style="border:1px solid #ccc" enctype="multipart/form-data" method="POST">
                         @csrf
                             <div class="row">
                                 <div class="col-sm-12">

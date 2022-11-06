@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Teacher_salary extends Model
 {
-    protected $fillable = ['teacher_id','salary','apply_date'];
-    protected $table = 'teachers_salary';
+    protected $fillable = ['teacher_id','month','year','pay_date','status','image_name','method']; 
+    protected $table = 'teacher_salary';
+    use HasFactory;
 }
