@@ -6,16 +6,21 @@ use App\Http\Requests\TeacherRequest;
 use Illuminate\Http\Request;
 use App\Models\Teacher;
 use App\Models\Teacher_salary;
+use DB;
 
 class teacherController extends Controller
 {
     protected  $redirect_page='teachers';
   public function index()
    {
-    $data = Teacher::all();
-    $teacher_saalry = Teacher_salary::all();
-  //  dd($teacher_saalry);
-    return view('teacher',array('data'=> $data,'teacher_saalry'=>$teacher_saalry));
+    $sql="SELECT t.*,IFNULL((SELECT salary FROM teachers_salary tss WHERE tss.teacher_id=t.id ORDER BY tss.id DESC LIMIT 1),0) salary
+    FROM teachers t
+    LEFT JOIN teachers_salary ts ON t.id=ts.teacher_id
+    GROUP BY t.id";
+    $data = DB::select($sql);
+    //dd($data);
+   
+    return view('teacher',array('data'=> $data));
    }
   public function add_teacher()
    {

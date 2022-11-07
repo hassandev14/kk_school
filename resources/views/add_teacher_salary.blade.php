@@ -25,34 +25,38 @@
 
                                             <form class="form-horizontal" role="form">
                                             <div class="form-group row">
-                                                @php
-                                                foreach($teacher_name[0] as $name){
-                                                    @endphp
+                                               
+                                                    
                                                     <label class="col-sm-2 control-label" for="student_name">teacher Name</label>
                                                     <div class="col-sm-10">
-                                                        <input type="text" class="form-control" value="{{$name}}" name="teacher_id" readonly>                                                    </div>
+                                                        <input type="text" class="form-control" value="{{$data->teacher_name}}" name="teacher_id" readonly>                                                    </div>
                                                 </div>
-                                               @php }
-                                               foreach($old_teacher_salary[0] as $salary){
-                                                @endphp
+                                              
+                                               
                                                 <div class="form-group row">
-                                                    <label class="col-sm-2 control-label" for="Name">Fee</label>
+                                                    <label class="col-sm-2 control-label" for="Name">Old Fee</label>
                                                     <div class="col-sm-10">
-                                                        <input type="text" class="form-control" value="{{$salary}}" name="salary">
+                                                        <input type="text" class="form-control" value="{{$data->salary}}" readonly>
                                                     </div>
                                                 </div>
-                                                
+                                               
+                                                <div class="form-group row">
+                                                    <label class="col-sm-2 control-label" for="Name"> New Fee</label>
+                                                    <div class="col-sm-10">
+                                                        <input type="text" class="form-control" value="" name="salary" required>
+                                                    </div>
+                                                </div>
                                                 <div class="form-group row">
                                                 <label class="col-sm-2 control-label" for="Address">Apply Date</label>
                                                 <div class="col-sm-10">
-                                                <input type="text" class="form-control" placeholder="mm/dd/yyyy" id="datepicker-autoclose" name="apply_date">
+                                                <input type="text" class="form-control" placeholder="mm/dd/yyyy" id="datepicker-autoclose" required name="apply_date">
                                                                 <span class="input-group-addon bg-custom b-0"><i class="mdi mdi-calendar"></i></span>
                                                         </div>
                                                 </div>
                                                 <div class="form-group row  d-flex flex-row-reverse">
                                                     <div class="col-sm-10">
                                                     <input type="submit" value="submit" name="add_recored" class='btn btn-primary '>
-                                                    <input type="hidden" value="{{$id}}" name="id">  
+                                                    <input type="hidden" value="{{$data->id}}" name="id">  
                                                     </div>
                                                 </div>
                                             </form>

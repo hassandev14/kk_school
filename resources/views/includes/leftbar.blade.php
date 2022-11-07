@@ -36,8 +36,8 @@
                                 <ul class="list-unstyled">
                                     <li><a href="teachers">See Teachers</a></li>
                                     <li><a href="add_teacher">Add Teachers</a></li>
-                                    <li><a href="teacher_salary">See Teacher Salary</a></li>
-                                    <li><a href="add_teacher_salary">Add Teacher Salary</a></li>
+                                    <li><a href="teacher_salary_paid">See Teacher Salary Paid</a></li>
+                                    <li><a href="add_teacher_salary_paid">Add Teacher Salary Paid</a></li>
                                 </ul>
                             </li> 
                             <li class="has_sub">
@@ -45,8 +45,8 @@
                                 <ul class="list-unstyled">
                                     <li><a href="students">See Students</a></li>
                                     <li><a href="add_student">Add Student</a></li>
-                                    <li><a href="student_fee">See Students Fess</a></li>
-                                    <li><a href="add_students_fee">Add Student Fee</a></li>
+                                    <li><a href="student_fee_paid">See Students Fess Paid</a></li>
+                                    <li><a href="add_students_fee_paid">Add Student Fee Paid</a></li>
                                     <li><a href="attendence">See Attendence</a></li>
                                     <li><a href="add_attendence">Add Attendence</a></li>
                                 </ul>
@@ -89,7 +89,7 @@
                             <li class="has_sub">
                                 <a href="javascript:void(0);" class="waves-effect"><i class="mdi mdi-album"></i> <span> Class </span> <span class="float-right"><i class="mdi mdi-plus"></i></span></a>
                                 <ul class="list-unstyled">
-                                    <li><a href="class">See Class</a></li>
+                                    <li><a href="our_class">See Class</a></li>
                                     <li><a href="add_class">Add Class</a></li>
                                     <li><a href="class_fee_history">See Class Fee</a></li>
                                     <li><a href="student_classes">See Student Class</a></li>

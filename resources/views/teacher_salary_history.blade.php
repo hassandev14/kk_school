@@ -27,6 +27,7 @@
                                                     <thead>
                                                     <tr>
                                                         <th>Teachr id</th>
+                                                        <th>Teachr Name</th>
                                                         <th>salary</th>
                                                         <th>apply_date</th>
                                                     </tr>
@@ -37,6 +38,7 @@
                                                         @foreach($salary_history as $dat)
                                                     <tr>
                                                         <td>{{$dat->teacher_id}}</td>
+                                                        <td>{{$dat->teachers->teacher_name}}</td>
                                                         <td>{{$dat->salary}}</td>
                                                         <td>{{$dat->apply_date}}</td>
                                                     </tr>

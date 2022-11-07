@@ -67,7 +67,7 @@
                                                                                   
                                                                                                                  @endphp>All</option>
 </select>
-                                            <input type="submit" value="Filter"  class='btn btn-primary'>
+                                            <input type="submit" value="Filter" class='btn btn-primary'>
                                         </div>
                                 </form>
                                    <h1 style="text-align:center">Data for : {{$for}}</h1>      

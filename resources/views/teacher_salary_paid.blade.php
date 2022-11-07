@@ -56,8 +56,8 @@
                                                         <td>{{$dat->status}}</td>
                                                         <td><img src="teacher_salary_images/{{$dat->image_name}}" width="80" height="50"></td>
                                                         <td>
-                                                      <a href="edit_teacher_salary/{{$dat->id}}"><i class= "fas fa-edit"></i></a> 
-                                                      <a href="delete_teacher_salary/{{$dat->id}}"><i class="fas fa-trash"></i></a> 
+                                                      <a href="edit_teacher_salary_paid/{{$dat->id}}"><i class= "fas fa-edit"></i></a> 
+                                                      <a href="delete_teacher_salary_paid/{{$dat->id}}"><i class="fas fa-trash"></i></a> 
                                                     </td>
                                                     </tr>
                                                     @endforeach

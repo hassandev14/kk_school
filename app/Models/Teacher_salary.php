@@ -9,4 +9,10 @@ class Teacher_salary extends Model
 {
     protected $fillable = ['teacher_id','salary','apply_date'];
     protected $table = 'teachers_salary';
+
+    public function teachers()
+    {
+       return $this->belongsTo('App\Models\Teacher', 'teacher_id');
+    }
 }
+

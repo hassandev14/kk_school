@@ -7,7 +7,7 @@
 
                     <div class="">
                         <div class="page-header-title">
-                            <h4 class="page-title">Teachr Salary History</h4>
+                            <h4 class="page-title">Class Data</h4>
                         </div>
                     </div>
 
@@ -20,25 +20,35 @@
                                 <div class="col-lg-12">
                                     <div class="card">
                                         <div class="card-body">
-                                            <h4 class="m-b-30 m-t-0">Teachr Salary Data</h4>
+                                            <h4 class="m-b-30 m-t-0">Class</h4>
 
                                             <div class="table-responsive">
                                                 <table id="datatable-buttons" class="table table-striped table-bordered dt-responsive nowrap" cellspacing="0" width="100%">
                                                     <thead>
                                                     <tr>
-                                                        <th>Teachr id</th>
-                                                        <th>salary</th>
-                                                        <th>apply_date</th>
+                                                        <th>id</th>
+                                                        <th>Class Name</th>
+                                                        <th>Fee</th>
+                                                        <th>Total Subject</th>
+                                                        <th>Action</th>
                                                     </tr>
                                                     </thead>
 
 
                                                     <tbody>
-                                                        <?php $__currentLoopData = $salary_history; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $dat): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                                        <?php $__currentLoopData = $data; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $dat): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                                                     <tr>
-                                                        <td><?php echo e($dat->teacher_id); ?></td>
-                                                        <td><?php echo e($dat->salary); ?></td>
-                                                        <td><?php echo e($dat->apply_date); ?></td>
+                                                        <td><?php echo e($dat->id); ?></td>
+                                                        <td><?php echo e($dat->class_name); ?></td>
+                                                       
+                                                        <td><?php echo e($dat->fee); ?></td>
+                                                        <td><a href = "subject?my_classes_id=<?php echo e($dat->id); ?>"><?php echo e($dat->total_subjects); ?></a></td>
+                                                        <td>
+                                                      <a href="edit_class/<?php echo e($dat->id); ?>"><i class= "fas fa-edit"></i></a> 
+                                                      <a href="delete_class/<?php echo e($dat->id); ?>"><i class="fas fa-trash"></i></a> 
+                                                      <a href="add_class_fee/<?php echo e($dat->id); ?>"><i></i>Add Class Fee</a><br>
+                                                      <a href="class_fee_history/<?php echo e($dat->id); ?>"><i></i>See Class Fee History</a> 
+                                                    </td>
                                                     </tr>
                                                     <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                                                     </tbody>
@@ -67,4 +77,4 @@
 <?php $__env->stopSection(); ?>
 
 
-<?php echo $__env->make('layouts.default', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH D:\wamp\www\kk_school\resources\views/teacher_salary_history.blade.php ENDPATH**/ ?>
+<?php echo $__env->make('layouts.default', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH D:\wamp\www\kk_school\resources\views/class.blade.php ENDPATH**/ ?>

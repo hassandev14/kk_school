@@ -24,4 +24,8 @@ class Student extends Model
 		//return $this->hasManyThrough('App\Models\My_classes', 'App\Models\Student_classes');
 		  return $this->hasManyThrough('App\Models\My_classes', 'App\Models\Student_classes', 'student_class_id', null, 'id');
     }
+    public function students()
+    {
+       return $this->hasMany('App\Models\Student_fee');
+    }
 }

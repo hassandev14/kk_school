@@ -1,19 +1,19 @@
- @extends('layouts.default')
+ 
 
-@section('content')
+<?php $__env->startSection('content'); ?>
 <!-- Start right Content here -->
             <div class="content-page">
                 <!-- Start content -->
                 <div class="content">
-                @if ($errors->any())
+                <?php if($errors->any()): ?>
     <div class="alert alert-danger">
         <ul>
-            @foreach ($errors->all() as $error)
-                <li>{{ $error }}</li>
-            @endforeach
+            <?php $__currentLoopData = $errors->all(); $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $error): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                <li><?php echo e($error); ?></li>
+            <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
         </ul>
     </div>
-@endif
+<?php endif; ?>
                     <div class="">
                         <div class="page-header-title">
                             <h4 class="page-title">Teachers Salary</h4>
@@ -23,8 +23,8 @@
                     <div class="page-content-wrapper ">
                    
                         <div class="container-fluid">
-                        <form action="{{url('add_teacher_salary_paid')}}" style="border:1px solid #ccc" enctype="multipart/form-data" method="POST">
-                        @csrf
+                        <form action="<?php echo e(url('add_teacher_salary_paid')); ?>" style="border:1px solid #ccc" enctype="multipart/form-data" method="POST">
+                        <?php echo csrf_field(); ?>
                             <div class="row">
                                 <div class="col-sm-12">
                                     <div class="card">
@@ -37,9 +37,9 @@
                                                     <div class="col-sm-10">
                                                         <select class="form-control" name='teacher_id' >
                                                         <option>Select Teacher</option>
-                                                            @foreach($teacher as $teach)
-                                                            <option value="{{$teach->id}}">{{$teach->teacher_name}}</option>
-                                                            @endforeach
+                                                            <?php $__currentLoopData = $teacher; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $teach): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                                            <option value="<?php echo e($teach->id); ?>"><?php echo e($teach->teacher_name); ?></option>
+                                                            <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                                                         </select>
                                                     </div>
                                                 </div>
@@ -103,5 +103,6 @@
 
             </div>
             <!-- End Right content here -->
-            @stop      
+            <?php $__env->stopSection(); ?>      
            
+<?php echo $__env->make('layouts.default', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH D:\wamp\www\kk_school\resources\views/add_teacher_salary_paid.blade.php ENDPATH**/ ?>

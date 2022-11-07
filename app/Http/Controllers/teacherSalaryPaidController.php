@@ -6,30 +6,30 @@ use Illuminate\Http\Request;
 use App\Models\Teacher_salary_paid;
 use App\Models\Teacher;
 
-class teacherSalaryController extends Controller
+class teacherSalaryPaidController extends Controller
 {
-    protected  $redirect_page='teacher_salary';
+    protected  $redirect_page='teacher_salary_paid';
     public function index()
      {
       $data = Teacher_salary_paid::all();
       $teacher = Teacher::all();
-      return view('teacher_salary',array('data'=> $data,'teacher'=>$teacher));
+      return view('teacher_salary_paid',array('data'=> $data,'teacher'=>$teacher));
      }
-    public function add_teacher_salary()
+    public function add_teacher_salary_paid()
      {
         $teacher = Teacher::all();
-      return view('add_teacher_salary',['teacher'=>$teacher]);
+      return view('add_teacher_salary_paid',['teacher'=>$teacher]);
      }
-     public function edit_teacher_salary(Request $request)
+     public function edit_teacher_salary_paid(Request $request)
      {
        $id = $request->id;
        $data = Teacher_salary_paid::where('id',$id)->first();
        $teacher = Teacher::all();
-       return view('update_teacher_salary', ['data' => $data,'teacher'=>$teacher]);
+       return view('update_teacher_salary_paid', ['data' => $data,'teacher'=>$teacher]);
      }
     public function insert(Request $request)
      {
-         // dd($request->all());
+       //  dd($request->all());
         $file = $request->file('image_name');
         //Display File Name
         $file_name = $file->getClientOriginalName();

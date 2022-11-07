@@ -27,6 +27,7 @@
                                                     <thead>
                                                     <tr>
                                                         <th>Student id</th>
+                                                        <th>Student name</th>
                                                         <th>Fee</th>
                                                         <th>apply_date</th>
                                                     </tr>
@@ -34,9 +35,10 @@
 
 
                                                     <tbody>
-                                                        @foreach($student_history as $dat)
+                                                        @foreach($data as $dat)
                                                     <tr>
-                                                        <td>{{$dat->student_id}}</td>
+                                                        <td>{{$dat->students->id}}</td>
+                                                        <td>{{$dat->students->student_name}}</td>
                                                         <td>{{$dat->fee}}</td>
                                                         <td>{{$dat->apply_date}}</td>
                                                     </tr>

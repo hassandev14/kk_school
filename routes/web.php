@@ -100,7 +100,7 @@ Route::get('delete_subject/{id}', [subjectController::class,'delete']);
 
 ///////////////////////////////////////////////////////Class Routning//////////////////////////////////////////////////////
 
-Route::get('class', [myClassController::class,'index']);
+Route::get('our_class', [myClassController::class,'index']);
 Route::get('add_class', [myClassController::class,'add_class']);
 Route::post('add_class', [myClassController::class,'insert']);
 Route::get('edit_class/{id}', [myClassController::class,'edit_class']);
@@ -125,17 +125,17 @@ Route::post('attendence_update', [attendenceContoller::class,'attendence_update'
 Route::get('see_attendence', [attendenceContoller::class,'see_attendence']);
 
 ///////////////////////////////////////////////////////Student Fees Routning//////////////////////////////////////////////////////
-Route::get('student_fee', [studentsFeePaidController::class,'index']);
-Route::get('see_students_fee', [studentsFeePaidController::class,'see_students_fee']);
-Route::get('add_students_fee', [studentsFeePaidController::class,'add_students_fee']);
-Route::post('student_fee_save', [studentsFeePaidController::class,'student_fee_save']);
-Route::post('student_fee_update', [studentsFeePaidController::class,'student_fee_update']);
+Route::get('student_fee_paid', [studentsFeePaidController::class,'index']);
+Route::get('see_students_fee_paid', [studentsFeePaidController::class,'see_students_fee_paid']);
+Route::get('add_students_fee_paid', [studentsFeePaidController::class,'add_students_fee_paid']);
+Route::post('student_fee_save_paid', [studentsFeePaidController::class,'student_fee_paid_save']);
+Route::post('student_fee_update_paid', [studentsFeePaidController::class,'student_fee_paid_update']);
 
 ///////////////////////////////////////////////////////////////Teacher Salary Routing///////////////////////////////////////////////
 Route::get('teacher_salary_paid', [teacherSalaryPaidController::class,'index']);
 Route::post('add_teacher_salary_paid', [teacherSalaryPaidController::class,'insert']);
-Route::get('add_teacher_salary_paid', [teacherSalaryPaidController::class,'add_teacher_salary']);
-Route::get('edit_teacher_salary_paid/{id}', [teacherSalaryPaidController::class,'edit_teacher_salary']);
+Route::get('add_teacher_salary_paid', [teacherSalaryPaidController::class,'add_teacher_salary_paid']);
+Route::get('edit_teacher_salary_paid/{id}', [teacherSalaryPaidController::class,'edit_teacher_salary_paid']);
 Route::post('update_teacher_salary_paid', [teacherSalaryPaidController::class,'update']);
 Route::get('delete_teacher_salary_paid/{id}', [teacherSalaryPaidController::class,'delete']);
 

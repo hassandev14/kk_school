@@ -11,17 +11,13 @@ class studentFeeController extends Controller
 {
     public function index(Request $request)
     {
-    // $class_name = Route::current()->parameters();
-       $id = $request->route('id');
-         $sql="SELECT MAX(student_name) FROM students WHERE id = $id";
-         $student_name = DB::select($sql);
-
-         $sql="SELECT sf.fee
-         FROM students s LEFT JOIN student_fee sf ON sf.student_id=s.id
-         WHERE sf.id =(SELECT MAX(sff.id) FROM student_fee sff WHERE student_id=$id)";
-         $old_student_fee = DB::select($sql);
-         //dd($student_name);
-         return view('add_student_fee',array('student_name'=>$student_name[0],'id'=>$id,'old_student_fee'=>$old_student_fee[0]));
+         $student_id = $request->route('id');
+         $sql="SELECT s.*,IFNULL((SELECT fee FROM student_fee sff WHERE sff.student_id=s.id ORDER BY sff.id DESC LIMIT 1),0) fee
+         FROM students s
+         LEFT JOIN student_fee ts ON s.id=ts.student_id
+         WHERE s.id=$student_id";
+         $data = DB::select($sql);
+         return view('add_student_fee',array('data'=>$data[0]));
     }
 
     public function insert(Request $request)
@@ -36,9 +32,9 @@ class studentFeeController extends Controller
     public function student_fee_history(Request $request)
     {
         $student_id = $request->route('id');
-        $sql="SELECT * FROM student_fee sf WHERE student_id = $student_id";
-        $student_history = DB::select($sql);
-        return view('student_fee_history',['student_history'=>$student_history]);
+        $whereData=array("student_id"=>$student_id);
+        $data = Student_fee::with('students')->where($whereData)->get();
+        return view('student_fee_history',['data'=>$data]);
     }
     public function all_student_fee(Request $request)
     {

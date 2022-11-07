@@ -7,7 +7,7 @@ use App\Models\Student;
 use App\Models\My_classes;
 use App\Models\Student_fee;
 
-class studentsFeeController extends Controller
+class studentsFeePaidController extends Controller
 {
     public function index()
     {

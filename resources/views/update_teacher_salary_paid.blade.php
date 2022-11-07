@@ -16,7 +16,7 @@
                     <div class="page-content-wrapper ">
                    
                         <div class="container-fluid">
-                        <form action="/update_teacher_salary" style="border:1px solid #ccc" enctype="multipart/form-data" method="POST">
+                        <form action="/update_teacher_salary_paid" style="border:1px solid #ccc" enctype="multipart/form-data" method="POST">
                         @csrf
                             <div class="row">
                                 <div class="col-sm-12">

@@ -27,6 +27,7 @@
                                                     <thead>
                                                     <tr>
                                                         <th>Student id</th>
+                                                        <th>Student name</th>
                                                         <th>Fee</th>
                                                         <th>apply_date</th>
                                                     </tr>
@@ -34,9 +35,10 @@
 
 
                                                     <tbody>
-                                                        <?php $__currentLoopData = $student_history; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $dat): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                                        <?php $__currentLoopData = $data; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $dat): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                                                     <tr>
-                                                        <td><?php echo e($dat->student_id); ?></td>
+                                                        <td><?php echo e($dat->students->id); ?></td>
+                                                        <td><?php echo e($dat->students->student_name); ?></td>
                                                         <td><?php echo e($dat->fee); ?></td>
                                                         <td><?php echo e($dat->apply_date); ?></td>
                                                     </tr>

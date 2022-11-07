@@ -20,20 +20,21 @@
                                 <div class="col-lg-12">
                                     <div class="card">
                                         <div class="card-body">
-                                            <h4 class="m-b-30 m-t-0">Teachers</h4>
+                                            <h4 class="m-b-30 m-t-0">All Teachers</h4>
 
                                             <div class="table-responsive">
                                                 <table id="datatable-buttons" class="table table-striped table-bordered dt-responsive nowrap" cellspacing="0" width="100%">
                                                     <thead>
                                                     <tr>
+                                                        <th>Teacher Id</th>
                                                         <th>Teacher Name</th>
                                                         <th>Father name</th>
                                                         <th>Phone</th>
                                                         <th>Address</th>
-                                                        <th>Salary</th>
                                                         <th>Gender</th>
                                                         <th>joining Date</th>
                                                         <th>Image</th>
+                                                        <th>Salary</th>
                                                         <th>Action</th>
                                                         <th>More</th>
                                                     </tr>
@@ -43,14 +44,15 @@
                                                     <tbody>
                                                         @foreach($data as $dat)
                                                     <tr>
+                                                        <td>{{$dat->id}}</td>
                                                         <td>{{$dat->teacher_name}}</td>
                                                         <td>{{$dat->father_name}}</td>
                                                         <td>{{$dat->phone}}</td>
                                                         <td>{{$dat->address}}</td>
-                                                        <td>{{$dat->salary}}</td>
                                                         <td>{{$dat->gender}}</td>
                                                         <td>{{$dat->joining_date}}</td>
                                                         <td><img src="teachers_images/{{$dat->image_name}}" width="80" height="50"></td>
+                                                        <td>{{$dat->salary}}</td>
                                                         <td>
                                                       <a href="edit_teacher/{{$dat->id}}"><i class= "fas fa-edit"></i></a> 
                                                       <a href="delete_teacher/{{$dat->id}}"><i class="fas fa-trash"></i></a> 

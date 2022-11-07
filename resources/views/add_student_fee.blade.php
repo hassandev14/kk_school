@@ -25,41 +25,33 @@
 
                                             <form class="form-horizontal" role="form">
                                             <div class="form-group row">
-                                                @php
-                                                foreach($student_name as $name){
-                                                    @endphp
                                                     <label class="col-sm-2 control-label" for="student_name">Student Name</label>
                                                     <div class="col-sm-10">
-                                                        <input type="text" class="form-control" value="{{$name}}" name="student_id" readonly>                                                    </div>
+                                                        <input type="text" class="form-control" value="{{$data->student_name}}" name="student_id" readonly>                                                    </div>
                                                 </div>
-                                               @php }
-                                               foreach($old_student_fee as $fee){
-                                                @endphp
                                                 <div class="form-group row">
-                                                    <label class="col-sm-2 control-label" for="Name">Current Fee</label>
+                                                    <label class="col-sm-2 control-label" for="Fee">Current Fee</label>
                                                     <div class="col-sm-10">
-                                                        <input type="text" class="form-control" value="{{$fee}}" readonly name="fee">
-                                                    </div>
-                                                </div>
-                                                @php }
-                                                @endphp
-                                                <div class="form-group row">
-                                                    <label class="col-sm-2 control-label" for="Name">New Fee</label>
-                                                    <div class="col-sm-10">
-                                                        <input type="text" class="form-control" value="" name="fee">
+                                                        <input type="text" class="form-control" value="{{$data->fee}}" readonly name="fee">
                                                     </div>
                                                 </div>
                                                 <div class="form-group row">
-                                                <label class="col-sm-2 control-label" for="Address">Apply Date</label>
+                                                    <label class="col-sm-2 control-label" for="Fee">New Fee</label>
+                                                    <div class="col-sm-10">
+                                                        <input type="text" class="form-control" value="" name="fee" required>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group row">
+                                                <label class="col-sm-2 control-label" for="apply_date">Apply Date</label>
                                                 <div class="col-sm-10">
-                                                <input type="text" class="form-control" placeholder="mm/dd/yyyy" id="datepicker-autoclose" name="apply_date">
+                                                <input type="text" class="form-control" placeholder="mm/dd/yyyy" id="datepicker-autoclose" name="apply_date" required>
                                                                 <span class="input-group-addon bg-custom b-0"><i class="mdi mdi-calendar"></i></span>
                                                         </div>
                                                 </div>
                                                 <div class="form-group row  d-flex flex-row-reverse">
                                                     <div class="col-sm-10">
                                                     <input type="submit" value="submit" name="add_recored" class='btn btn-primary '>
-                                                    <input type="hidden" value="{{$id}}" name="id">  
+                                                    <input type="hidden" value="{{$data->id}}" name="id">  
                                                     </div>
                                                 </div>
                                             </form>

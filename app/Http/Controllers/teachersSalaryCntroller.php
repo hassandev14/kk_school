@@ -12,16 +12,14 @@ class teachersSalaryCntroller extends Controller
 {
     public function index(Request $request)
     {
-         $id = $request->route('id');
-         $sql="SELECT MAX(teacher_name) FROM teachers WHERE id = $id";
-         $teacher_name = DB::select($sql);
-
-         $sql="SELECT ts.salary
-         FROM teachers t LEFT JOIN teachers_salary ts ON ts.teacher_id=t.id
-         WHERE ts.id =(SELECT MAX(tss.id) FROM teachers_salary tss WHERE teacher_id=$id)";
-         $old_teacher_salary= DB::select($sql);
-         //dd($id);
-         return view('add_teacher_salary',array('teacher_name'=>$teacher_name,'id'=>$id,'old_teacher_salary'=>$old_teacher_salary));
+         $teacher_id = $request->route('id');
+         $sql="SELECT t.*,IFNULL((SELECT salary FROM teachers_salary tss WHERE tss.teacher_id=t.id ORDER BY tss.id DESC LIMIT 1),0) salary
+         FROM teachers t
+         LEFT JOIN teachers_salary ts ON t.id=ts.teacher_id
+         WHERE t.id=$teacher_id";
+         $data= DB::select($sql);
+         //dd($data);
+         return view('add_teacher_salary',array('data'=>$data[0]));
     }
     public function insert(Request $request)
     { 
@@ -36,9 +34,10 @@ class teachersSalaryCntroller extends Controller
     public function salary_history(Request $request)
     {
         $teacher_id = $request->route('id');
-        $sql="SELECT * FROM teachers_salary ts WHERE teacher_id = $teacher_id";
-        $salary_history = DB::select($sql);
-        return view('teacher_salary_history',['salary_history'=>$salary_history]);
+        $whereData=array("teacher_id"=>$teacher_id);
+        $data = Teacher_salary::with('teachers')->where($whereData)->get();
+       //dd($data);
+        return view('teacher_salary_history',['salary_history'=>$data]);
     }
     public function teacher_salary(Request $request)
     {
