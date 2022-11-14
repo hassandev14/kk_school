@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Student_classes;
 use App\Models\Student;
 use App\Models\My_classes;
+use DB;
 
 
 class studentClassesController extends Controller
@@ -18,11 +19,22 @@ class studentClassesController extends Controller
      //dd($data);
      return view('student_classes',array('data'=> $data));
     }
-    public function add_student_classes()
+    public function add_student_classes(Request $request)
    {
-    $student = Student::all();
-    $my_classes = My_classes::all();
-    return view('add_student_classes',array('student'=>$student,'my_classes'=>$my_classes));
+    $id = $request->id;
+    $student = Db::select("SELECT s.id,s.student_name,sc.fee,sc.student_class_id AS current_class_id ,
+    (SELECT mcc.id  FROM my_classes mcc WHERE id= sc.student_class_id+1) AS new_class_id,
+    (SELECT mcc.class_name  FROM my_classes mcc WHERE id= sc.student_class_id+1) AS new_class_name,
+    (SELECT cf.fee  FROM class_fee cf LEFT JOIN my_classes mcc ON cf.class_id=mcc.id WHERE mcc.id= sc.student_class_id+1 ORDER BY mcc.id LIMIT 1) AS new_class_fee,
+    (SELECT mcc.class_name  FROM my_classes mcc ORDER BY id LIMIT 1) AS initial_class_name,
+    (SELECT mcc.id  FROM my_classes mcc ORDER BY id LIMIT 1) AS initial_class_id,
+    (SELECT cf.fee  FROM class_fee cf LEFT JOIN my_classes mcc ON cf.class_id=mcc.id ORDER BY cf.id DESC LIMIT 1) AS initial_class_fee
+    FROM students s
+    LEFT JOIN student_classes sc ON s.id=sc.student_id
+    LEFT JOIN my_classes mc ON mc.id=sc.student_class_id
+     WHERE s.id=$id ORDER BY sc.id DESC  LIMIT 1");
+     //dd($student);
+    return view('add_student_classes',array('student'=>$student[0]));
    }
    public function edit_student_classes(Request $request)
    {
@@ -34,9 +46,10 @@ class studentClassesController extends Controller
    }
   public function insert(Request $request)
    {
+    //dd($request->all());
     Student_classes::create([
         'student_id'=>$request->student_id,
-        'student_class_id'=>$request->student_class_id,
+        'student_class_id'=>$request->new_class,
         'fee'=>$request->fee
        ]);
        return redirect($this->redirect);

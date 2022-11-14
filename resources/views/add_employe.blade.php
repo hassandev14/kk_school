@@ -36,19 +36,19 @@
                                                 <div class="form-group row">
                                                     <label class="col-sm-2 control-label" for="Employe Name">Employe Name</label>
                                                     <div class="col-sm-10">
-                                                        <input type="text" class="form-control" value="" id="employe_name" name="employe_name">
+                                                        <input type="text" class="form-control" value="" id="employe_name" name="employe_name" required>
                                                     </div>
                                                 </div>
                                                 <div class="form-group row">
                                                     <label class="col-sm-2 control-label">Father Name</label>
                                                     <div class="col-sm-10">
-                                                        <input type="text" id="father_name" name="father_name" class="form-control" >
+                                                        <input type="text" id="father_name" name="father_name" required class="form-control" >
                                                     </div>
                                                 </div>
                                                 <div class="form-group row">
                                                     <label class="col-sm-2 control-label" for="Phone">Phone</label>
                                                     <div class="col-sm-10">
-                                                        <input type="number" class="form-control" id="phone" name="phone">
+                                                        <input type="number" class="form-control" id="phone" name="phone" required>
                                                     </div>
                                                 </div>
                                                 <div class="form-group row">
@@ -60,13 +60,13 @@
                                                 <div class="form-group row">
                                                     <label class="col-sm-2 control-label">Salary</label>
                                                     <div class="col-sm-10">
-                                                        <input type="number" id="salary" name="salary" class="form-control" >
+                                                        <input type="number" id="salary" name="salary" required class="form-control" >
                                                     </div>
                                                 </div>
                                                 <div class="form-group row">
                                                     <label class="col-sm-2 control-label" for="image">image</label>
                                                     <div class="col-sm-10">
-                                                        <input type="file" class="form-control" id="image_name" name="image_name">
+                                                        <input type="file" class="form-control" id="image_name" name="image_name" required>
                                                     </div>
                                                 </div>
                                                 <div class="form-group row d-flex flex-row-reverse">

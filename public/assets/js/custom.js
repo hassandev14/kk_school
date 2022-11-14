@@ -1,3 +1,4 @@
+//////////////////////////////////// this is used for student///////////////////////////////////////////////////////////////////////
 function get_students() {
 	var class_id = $('#class_id').find(":selected").val();
 	request = $.ajax({
@@ -14,6 +15,9 @@ function get_students() {
         console.log(response);
     });
 }
+
+
+//////////////////////////////////// this is used for student Attendence///////////////////////////////////////////////////////////////////////
 function see_attendence()
 {
 
@@ -51,13 +55,15 @@ function get_students_for_fee() {
         console.log(response);
     });	
 }
-function see_students_fee()
+
+//////////////////////////////////// this is used for student Fee///////////////////////////////////////////////////////////////////////
+function see_students_fee_paid()
 {
 
 	var submit_date = $('.hassaan').val();
 	var class_id = $('#class_id').find(":selected").val();
 	request = $.ajax({
-        url: "/see_students_fee",
+        url: "/see_students_fee_paid",
         type: "get",
         data: "class_id="+class_id+'&submit_date='+submit_date
     });

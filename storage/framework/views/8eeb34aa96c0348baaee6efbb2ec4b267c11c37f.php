@@ -1,6 +1,6 @@
-@extends('layouts.default')
 
-@section('content')
+
+<?php $__env->startSection('content'); ?>
 <!-- Start right Content here -->
             <div class="content-page">
                 <!-- Start content -->
@@ -18,20 +18,20 @@
                             <div class="row">
                                 <div class="col-sm-12">
                                     <div class="card">
-                                    @if ($errors->any())
+                                    <?php if($errors->any()): ?>
     <div class="alert alert-danger">
         <ul>
-            @foreach ($errors->all() as $error)
-                <li>{{ $error }}</li>
-            @endforeach
+            <?php $__currentLoopData = $errors->all(); $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $error): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                <li><?php echo e($error); ?></li>
+            <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
         </ul>
     </div>
-@endif
+<?php endif; ?>
                                         <div class="card-body">
-                                            <h4 class="m-t-0 m-b-30"> Add Student Fees</h4>
+                                            <h4 class="m-t-0 m-b-30"> See All Student Fees</h4>
 
-                                            <form action="{{url('student_fee_save_paid')}}" class="form-horizontal" role="form" method="POST">
-                                            @csrf
+                                            <form action="<?php echo e(url('student_fee_update')); ?>" class="form-horizontal" role="form" method="POST">
+                                            <?php echo csrf_field(); ?>
                                             <div class="form-group row">
                                                 <label class="col-sm-2 control-label" for="Address">Select Date</label>
                                                 <div class="col-sm-10">
@@ -44,15 +44,15 @@
                                                     <div class="col-sm-10">
                                                         <select class="form-control" name='class_id' id="class_id" required>
                                                         <option value="" >Select Class</option>
-                                                            @foreach($classes as $cal)
-                                                            <option value="{{$cal->id}}">{{$cal->class_name}}</option>
-                                                            @endforeach
+                                                            <?php $__currentLoopData = $classes; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $cal): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                                            <option value="<?php echo e($cal->id); ?>"><?php echo e($cal->class_name); ?></option>
+                                                            <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                                                         </select>
                                                     </div>
                                                 </div>
                                                 <div class="form-group row d-flex flex-row-reverse">
                                                     <div class="col-sm-10 ">
-                                                    <input type="button" value="Add student fees"  class='btn btn-primary' onClick="get_students_for_fee()"> 
+                                                    <input type="button" value="See student fees"  class='btn btn-primary' onClick="see_students_fee_paid()"> 
                                                     </div>
                                                 </div>
                                                 <div class="form-group row d-flex flex-row-reverse">
@@ -81,4 +81,5 @@
 
             </div>
             <!-- End Right content here -->
-            @stop      
+            <?php $__env->stopSection(); ?>      
+<?php echo $__env->make('layouts.default', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH D:\wamp\www\kk_school\resources\views/students_fee_paid.blade.php ENDPATH**/ ?>

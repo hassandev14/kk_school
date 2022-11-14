@@ -35,7 +35,7 @@
                                             <div class="form-group row">
                                                     <label class="col-sm-2 control-label">Select Teacher</label>
                                                     <div class="col-sm-10">
-                                                        <select class="form-control" name='teacher_id' >
+                                                        <select class="form-control" name='teacher_id' required>
                                                         <option>Select Teacher</option>
                                                             @foreach($teacher as $teach)
                                                             <option value="{{$teach->id}}">{{$teach->teacher_name}}</option>
@@ -46,7 +46,7 @@
                                                 <div class="form-group row">
                                                     <label class="col-sm-2 control-label">Method</label>
                                                     <div class="col-sm-10">
-                                                        <select class="form-control" name='method' >
+                                                        <select class="form-control" name='method' required>
                                                         <option>Select Method</option>
                                                             <option value="cash">Cash</option>
                                                             <option value="cheque">Cheque</option>
@@ -57,14 +57,14 @@
                                                 <div class="form-group row">
                                                 <label class="col-sm-2 control-label" for="Address">Pay Date</label>
                                                 <div class="col-sm-10">
-                                                <input type="text" class="form-control" placeholder="mm/dd/yyyy" id="datepicker-autoclose" name="pay_date">
+                                                <input type="text" class="form-control" placeholder="mm/dd/yyyy" id="datepicker-autoclose" name="pay_date" required>
                                                                 <span class="input-group-addon bg-custom b-0"><i class="mdi mdi-calendar"></i></span>
                                                         </div>
                                                 </div>
                                                 <div class="form-group row">
                                                     <label class="col-sm-2 control-label">Status</label>
                                                     <div class="col-sm-10">
-                                                        <select class="form-control" name='status' >
+                                                        <select class="form-control" name='status' required>
                                                         <option>Select Status</option>
                                                             <option value="paid">Paid</option>
                                                             <option value="unpaid">Unpaid</option>
@@ -74,7 +74,7 @@
                                                 <div class="form-group row">
                                                     <label class="col-sm-2 control-label" for="image">image</label>
                                                     <div class="col-sm-10">
-                                                        <input type="file" class="form-control" id="image_name" name="image_name">
+                                                        <input type="file" class="form-control" id="image_name" name="image_name" required>
                                                     </div>
                                                 </div>
                                                 <div class="form-group row d-flex flex-row-reverse">

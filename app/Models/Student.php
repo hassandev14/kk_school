@@ -7,9 +7,9 @@ use Illuminate\Database\Eloquent\Model;
 
 class Student extends Model
 {
+    use HasFactory;
     protected $fillable = ['student_name','father_name','roll_no','phone','address','image_name','admission_date','gender'];
 
-    
 	public function student_classes()
     {
          return $this->hasMany('App\Models\Student_classes','student_id');

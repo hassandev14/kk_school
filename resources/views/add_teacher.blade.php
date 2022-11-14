@@ -35,19 +35,19 @@
                                                 <div class="form-group row">
                                                     <label class="col-sm-2 control-label" for="teacher_name">Teacher Name</label>
                                                     <div class="col-sm-10">
-                                                        <input type="text" class="form-control" value="" id="teacher_name" name="teacher_name">
+                                                        <input type="text" class="form-control" value="" id="teacher_name" name="teacher_name" required>
                                                     </div>
                                                 </div>
                                                 <div class="form-group row">
                                                     <label class="col-sm-2 control-label">Father Name</label>
                                                     <div class="col-sm-10">
-                                                        <input type="text" id="father_name" name="father_name" class="form-control" >
+                                                        <input type="text" id="father_name" name="father_name" class="form-control" required>
                                                     </div>
                                                 </div>
                                                 <div class="form-group row">
                                                     <label class="col-sm-2 control-label" for="Phone">Phone</label>
                                                     <div class="col-sm-10">
-                                                        <input type="text" class="form-control" id="phone" name="phone">
+                                                        <input type="text" class="form-control" id="phone" name="phone" required>
                                                     </div>
                                                 </div>
                                                 <div class="form-group row">
@@ -59,8 +59,8 @@
                                                 <div class="form-group row">
                                                     <label class="col-sm-2 control-label">Gender</label>
                                                     <div class="col-sm-10">
-                                                        <select class="form-control" name='gender' >
-                                                        <option>Select Gender</option>
+                                                        <select class="form-control" name='gender' required>
+                                                        <option value="">Select Gender</option>
                                                             <option value="male">Men</option>
                                                             <option value="female">female</option>
                                                         </select>
@@ -69,14 +69,14 @@
                                                 <div class="form-group row">
                                                 <label class="col-sm-2 control-label" for="Address">Joining Date</label>
                                                 <div class="col-sm-10">
-                                                <input type="text" class="form-control" placeholder="mm/dd/yyyy" id="datepicker-autoclose" name="joining_date">
+                                                <input type="text" class="form-control" placeholder="mm/dd/yyyy" id="datepicker-autoclose" name="joining_date" required>
                                                                 <span class="input-group-addon bg-custom b-0"><i class="mdi mdi-calendar"></i></span>
                                                         </div>
                                                 </div>
                                                 <div class="form-group row">
                                                     <label class="col-sm-2 control-label" for="image">image</label>
                                                     <div class="col-sm-10">
-                                                        <input type="file" class="form-control" id="image_name" name="image_name">
+                                                        <input type="file" class="form-control" id="image_name" name="image_name" required>
                                                     </div>
                                                 </div>
                                                 <div class="form-group row">

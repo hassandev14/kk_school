@@ -18,13 +18,11 @@ class studentController extends Controller
     public function index()
     {
 
-     //$data = Student::with('student_classes_last')->get();
-	   $data = Student::select('students.*','my_classes.id as class_id','my_classes.class_name',Student::raw('MAX(student_classes.student_class_id) AS student_class_id') )
-    ->leftJoin('student_classes', 'student_classes.student_id', '=', 'students.id')
-	  ->leftJoin('my_classes', 'my_classes.id', '=', 'student_classes.student_class_id')
-    ->groupBy('student_classes.student_id')
-    ->orderByRaw('students.id desc','student_classes.id desc')
-    ->get();
+	   $data = Db::select('SELECT s.*,mc.class_name,mc.id AS class_id,(SELECT fee FROM class_fee cf WHERE cf.class_id=mc.id ORDER BY cf.id DESC LIMIT 1) AS fee
+     FROM students s
+     LEFT JOIN student_classes sc ON sc.student_id=s.id
+     LEFT JOIN my_classes mc ON sc.student_class_id=mc.id');
+    
     
 	//dd($data);
     //($data[0]->student_classes[0]->student_class_id);

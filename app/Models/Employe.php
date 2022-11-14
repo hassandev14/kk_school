@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Employe extends Model
 {
+    use HasFactory;
     protected $fillable = ['employe_name','father_name','salary','phone','address','image_name']; 
    
     public function expenses()

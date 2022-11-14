@@ -41,7 +41,7 @@
                                                         <td>{{$dat->id}}</td>
                                                         <td>{{$dat->class_name}}</td>
                                                        
-                                                        <td>{{$dat->fee}}</td>
+                                                        <td>{{$dat->class_fee}}</td>
                                                         <td><a href = "subject?my_classes_id={{$dat->id}}">{{$dat->total_subjects}}</a></td>
                                                         <td>
                                                       <a href="edit_class/{{$dat->id}}"><i class= "fas fa-edit"></i></a> 

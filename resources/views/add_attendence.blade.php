@@ -36,17 +36,17 @@
                                             <div class="form-group row">
                                                 <label class="col-sm-2 control-label" for="Address">Date</label>
                                                 <div class="col-sm-10">
-                                                <input type="text" class="form-control" placeholder="mm/dd/yyyy" id="datepicker-autoclose" name="today_date">
+                                                <input type="text" class="form-control" placeholder="mm/dd/yyyy" id="datepicker-autoclose" name="today_date" required>
                                                                 <span class="input-group-addon bg-custom b-0"><i class="mdi mdi-calendar"></i></span>
                                                         </div>
                                                 </div>
                                                 <div class="form-group row">
                                                     <label class="col-sm-2 control-label">Class</label>
                                                     <div class="col-sm-10">
-                                                        <select class="form-control" name='class_id' id="class_id" >
-                                                        <option>Select Class</option>
+                                                        <select class="form-control" name='class_id' id="class_id" required>
+                                                        <option value="">Select Class</option>
                                                             @foreach($classes as $cal)
-                                                            <option value="{{$cal->id}}">{{$cal->class_name}}</option>
+                                                            <option value="{{$cal->id}}">{{$cal->class_name}}</option >
                                                             @endforeach
                                                         </select>
                                                     </div>

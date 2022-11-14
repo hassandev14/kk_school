@@ -41,7 +41,7 @@
                                                         <td><?php echo e($dat->id); ?></td>
                                                         <td><?php echo e($dat->class_name); ?></td>
                                                        
-                                                        <td><?php echo e($dat->fee); ?></td>
+                                                        <td><?php echo e($dat->class_fee); ?></td>
                                                         <td><a href = "subject?my_classes_id=<?php echo e($dat->id); ?>"><?php echo e($dat->total_subjects); ?></a></td>
                                                         <td>
                                                       <a href="edit_class/<?php echo e($dat->id); ?>"><i class= "fas fa-edit"></i></a> 

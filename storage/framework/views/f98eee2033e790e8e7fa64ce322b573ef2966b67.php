@@ -27,7 +27,7 @@
                                                 <div class="form-group row">
                                                     <label class="col-sm-2 control-label" for="teacher_name">Class Name</label>
                                                     <div class="col-sm-10">
-                                                        <input type="text" class="form-control" value="" id="class_name" name="class_name">
+                                                        <input type="text" class="form-control" value="" id="class_name" name="class_name" required>
                                                     </div>
                                                 <div class="form-group row  d-flex flex-row-reverse">
                                                     <div class="col-sm-10">

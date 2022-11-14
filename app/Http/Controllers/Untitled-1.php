@@ -56,8 +56,33 @@ class studentsFeePaidController extends Controller
         return $content;
     } 
     }
-   
-    public function add_students_fee_paid (Request $request)
+    public function student_fee_update(Request $request)
+    {
+     // dd($request->all());
+        $id =$request->sf_id;
+        $student_id =$request->student_id;
+        $student_name = $request->student_name;
+        $fee = $request->fee;
+        $newArr=array();
+        $num=0;
+        foreach($student_id  as $std_id){
+            $paid = "paid_".$std_id;
+            $tmep['id']=$std_id;
+            $tmep['fee']=$fee[$num];
+            $tmep['student_name']=$student_name[$num];
+            $tmep['is_paid']=($request->$paid=="1")?"paid":"unpaid";
+            $newArr[]= $tmep;
+            $num++;
+        }       
+        $all_class_fee_data=json_encode($newArr);              
+        Student_fee_paid::where('id',$id)->update([
+            'all_class_fee_data'=>$all_class_fee_data 
+          ]);
+           
+        
+          return redirect('student_fee')->withErrors(['msg' => 'Student Fee updated']);;
+    }
+    public function student_fee_paid_save (Request $request)
     {
     // dd($request->all());
 

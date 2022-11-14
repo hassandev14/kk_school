@@ -110,7 +110,7 @@ Route::get('delete_class/{id}', [myClassController::class,'delete']);
 ///////////////////////////////////////////////////////Student Routning//////////////////////////////////////////////////////
 
 Route::get('student_classes', [studentClassesController::class,'index']);
-Route::get('add_student_classes', [studentClassesController::class,'add_student_classes']);
+Route::get('add_student_classes/{id}', [studentClassesController::class,'add_student_classes']);
 Route::post('add_student_classes', [studentClassesController::class,'insert']);
 Route::get('edit_student_classes/{id}', [studentClassesController::class,'edit_student_classes']);
 Route::post('update_student_classes', [studentClassesController::class,'update']);
@@ -125,11 +125,11 @@ Route::post('attendence_update', [attendenceContoller::class,'attendence_update'
 Route::get('see_attendence', [attendenceContoller::class,'see_attendence']);
 
 ///////////////////////////////////////////////////////Student Fees Routning//////////////////////////////////////////////////////
-Route::get('student_fee_paid', [studentsFeePaidController::class,'index']);
+Route::get('student_fee_paid', [studentsFeePaidController::class,'student_fee_paid']);
 Route::get('see_students_fee_paid', [studentsFeePaidController::class,'see_students_fee_paid']);
 Route::get('add_students_fee_paid', [studentsFeePaidController::class,'add_students_fee_paid']);
-Route::post('student_fee_save_paid', [studentsFeePaidController::class,'student_fee_paid_save']);
-Route::post('student_fee_update_paid', [studentsFeePaidController::class,'student_fee_paid_update']);
+//Route::post('student_fee_save_paid', [studentsFeePaidController::class,'student_fee_paid_save']);
+//Route::post('student_fee_update_paid', [studentsFeePaidController::class,'student_fee_paid_update']);
 
 ///////////////////////////////////////////////////////////////Teacher Salary Routing///////////////////////////////////////////////
 Route::get('teacher_salary_paid', [teacherSalaryPaidController::class,'index']);
@@ -142,7 +142,7 @@ Route::get('delete_teacher_salary_paid/{id}', [teacherSalaryPaidController::clas
 ///////////////////////////////////////////////////////////////Class Fee Routing///////////////////////////////////////////////
 Route::get('add_class_fee/{id}', [class_feeController::class,'index']);
 Route::get('class_fee_history/{id}', [class_feeController::class,'fee_history']);
-Route::post('add_class_fee/{id}', [class_feeController::class,'index']);
+Route::POST('add_class_fee', [class_feeController::class,'insert']);
 Route::get('class_fee_history', [class_feeController::class,'class_fee']);
 
 ///////////////////////////////////////////////////////////////Teacher Salary Routing///////////////////////////////////////////////

@@ -13,10 +13,11 @@ class myClassController extends Controller
     {
      
      
-     $sql="SELECT mc.id,class_name,cf.fee,(SELECT COUNT(*) FROM subjects s WHERE s.my_classes_id=mc.id) AS total_subjects
-     FROM my_classes mc
-     LEFT JOIN class_fee cf ON cf.class_id=mc.id WHERE cf.id =(SELECT MAX(cff.id) FROM class_fee cff WHERE class_id=mc.id)";
+     $sql="SELECT mc.id,class_name,(SELECT COUNT(*) FROM subjects s WHERE s.my_classes_id=mc.id) AS total_subjects,
+     IFNULL((SELECT cf.fee  FROM class_fee cf LEFT JOIN my_classes mcc ON cf.class_id=mcc.id WHERE cf.class_id=mc.id ORDER BY cf.id DESC LIMIT 1),0) AS class_fee
+     FROM my_classes mc";
      $data = DB::select($sql);
+     //dd($data);
      return view('class',array('data'=> $data));
     }
     public function add_class()

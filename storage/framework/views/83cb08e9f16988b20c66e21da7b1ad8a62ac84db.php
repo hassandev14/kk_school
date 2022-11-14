@@ -8,39 +8,43 @@
 
                     <div class="">
                         <div class="page-header-title">
-                            <h4 class="page-title">Student Fee</h4>
+                            <h4 class="page-title">Class Fee</h4>
                         </div>
                     </div>
 
                     <div class="page-content-wrapper ">
                    
                         <div class="container-fluid">
-                        <form action="<?php echo e(url('add_student_fee')); ?>" style="border:1px solid #ccc" enctype="multipart/form-data" method="POST">
+                        <form action="<?php echo e(url('add_class_fee')); ?>" style="border:1px solid #ccc" enctype="multipart/form-data" method="POST">
                         <?php echo csrf_field(); ?>
                             <div class="row">
                                 <div class="col-sm-12">
                                     <div class="card">
                                         <div class="card-body">
-                                            <h4 class="m-t-0 m-b-30">Add Student Fee</h4>
+                                            <h4 class="m-t-0 m-b-30">Add Class Fee</h4>
 
-                                            <form class="form-horizontal" role="form">
+                                            
                                             <div class="form-group row">
-                                                    <label class="col-sm-2 control-label" for="student_name">Student Name</label>
+                                                   <label class="col-sm-2 control-label" for="student_name">Class Name</label>
                                                     <div class="col-sm-10">
-                                                        <input type="text" class="form-control" value="<?php echo e($data->student_name); ?>" name="student_id" readonly>                                                    </div>
+                                                        <input type="text" class="form-control" value="<?php echo e($data->class_name); ?>" id="class_name" name="class_id" readonly>  
+                                                        <input type="text" class="form-control" value="<?php echo e($data->id); ?>" id="class_id" name="class_id">                                                  </div>
                                                 </div>
+                                              
+                                             
                                                 <div class="form-group row">
-                                                    <label class="col-sm-2 control-label" for="Name">Current Fee</label>
+                                                    <label class="col-sm-2 control-label" for="Name">Old Fee</label>
                                                     <div class="col-sm-10">
-                                                        <input type="text" class="form-control" value="<?php echo e($data->fee); ?>" readonly name="fee">
+                                                        <input type="text" class="form-control" value="<?php echo e($data->current_fee); ?>" id="old_fee" name="old_fee" readonly>
                                                     </div>
                                                 </div>
                                                 <div class="form-group row">
                                                     <label class="col-sm-2 control-label" for="Name">New Fee</label>
                                                     <div class="col-sm-10">
-                                                        <input type="text" class="form-control" value="" name="fee" required>
+                                                        <input type="text" class="form-control" value="" id="fee" name="fee" required>
                                                     </div>
                                                 </div>
+                                               
                                                 <div class="form-group row">
                                                 <label class="col-sm-2 control-label" for="Address">Apply Date</label>
                                                 <div class="col-sm-10">
@@ -51,10 +55,10 @@
                                                 <div class="form-group row  d-flex flex-row-reverse">
                                                     <div class="col-sm-10">
                                                     <input type="submit" value="submit" name="add_recored" class='btn btn-primary '>
-                                                    <input type="hidden" value="<?php echo e($data->id); ?>" name="id">  
+                                                    
                                                     </div>
                                                 </div>
-                                            </form>
+                                           
                                         </div> <!-- card-body -->
                                     </div> <!-- card -->
                                 </div> <!-- col -->
@@ -76,4 +80,4 @@
             </div>
             <!-- End Right content here -->
             <?php $__env->stopSection(); ?>      
-<?php echo $__env->make('layouts.default', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH D:\wamp\www\kk_school\resources\views/add_student_fee.blade.php ENDPATH**/ ?>
+<?php echo $__env->make('layouts.default', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH D:\wamp\www\kk_school\resources\views/add_class_fee.blade.php ENDPATH**/ ?>

@@ -34,66 +34,66 @@
                             <li class="has_sub">
                                 <a href="javascript:void(0);" class="waves-effect"><i class="mdi mdi-album"></i> <span> Teachers </span> <span class="float-right"><i class="mdi mdi-plus"></i></span></a>
                                 <ul class="list-unstyled">
-                                    <li><a href="teachers">See Teachers</a></li>
-                                    <li><a href="add_teacher">Add Teachers</a></li>
-                                    <li><a href="teacher_salary_paid">See Teacher Salary Paid</a></li>
-                                    <li><a href="add_teacher_salary_paid">Add Teacher Salary Paid</a></li>
+                                    <li><a href="{{url('teachers')}}">See Teachers</a></li>
+                                    <li><a href="{{url('add_teacher')}}">Add Teachers</a></li>
+                                    <li><a href="{{url('teacher_salary_paid')}}">See Teacher Salary Paid</a></li>
+                                    <li><a href="{{url('add_teacher_salary_paid')}}">Add Teacher Salary Paid</a></li>
                                 </ul>
                             </li> 
                             <li class="has_sub">
                                 <a href="javascript:void(0);" class="waves-effect"><i class="mdi mdi-album"></i> <span> Students </span> <span class="float-right"><i class="mdi mdi-plus"></i></span></a>
                                 <ul class="list-unstyled">
-                                    <li><a href="students">See Students</a></li>
-                                    <li><a href="add_student">Add Student</a></li>
-                                    <li><a href="student_fee_paid">See Students Fess Paid</a></li>
-                                    <li><a href="add_students_fee_paid">Add Student Fee Paid</a></li>
-                                    <li><a href="attendence">See Attendence</a></li>
-                                    <li><a href="add_attendence">Add Attendence</a></li>
+                                    <li><a href="{{url('students')}}">See Students</a></li>
+                                    <li><a href="{{url('add_student')}}">Add Student</a></li>
+                                    <li><a href="{{url('student_fee_paid')}}">See Students Fess Paid</a></li>
+                                    <li><a href="{{url('add_students_fee_paid')}}">Add Student Fee Paid</a></li>
+                                    <li><a href="{{url('attendence')}}">See Attendence</a></li>
+                                    <li><a href="{{url('add_attendence')}}">Add Attendence</a></li>
                                 </ul>
                             </li> 
                             <li class="has_sub">
                                 <a href="javascript:void(0);" class="waves-effect"><i class="mdi mdi-album"></i> <span> Exams </span> <span class="float-right"><i class="mdi mdi-plus"></i></span></a>
                                 <ul class="list-unstyled">
-                                    <li><a href="exams">See Exams</a></li>
-                                    <li><a href="add_exam">Add Exams</a></li>
+                                    <li><a href="{{url('exams')}}">See Exams</a></li>
+                                    <li><a href="{{url('add_exam')}}">Add Exams</a></li>
                                 </ul>
                             </li> 
                             <li class="has_sub">
                                 <a href="javascript:void(0);" class="waves-effect"><i class="mdi mdi-album"></i> <span> Category </span> <span class="float-right"><i class="mdi mdi-plus"></i></span></a>
                                 <ul class="list-unstyled">
-                                    <li><a href="category">See Category</a></li>
-                                    <li><a href="add_category">Add Category</a></li>
+                                    <li><a href="{{url('category')}}">See Category</a></li>
+                                    <li><a href="{{url('add_category')}}">Add Category</a></li>
                                 </ul>
                             </li> 
                             <li class="has_sub">
                                 <a href="javascript:void(0);" class="waves-effect"><i class="mdi mdi-album"></i> <span> Expense </span> <span class="float-right"><i class="mdi mdi-plus"></i></span></a>
                                 <ul class="list-unstyled">
-                                    <li><a href="expense">See Expense</a></li>
-                                    <li><a href="add_expense">Add Expense</a></li>
+                                    <li><a href="{{url('expense')}}">See Expense</a></li>
+                                    <li><a href="{{url('add_expense')}}">Add Expense</a></li>
                                 </ul>
                             </li> 
                             <li class="has_sub">
                                 <a href="javascript:void(0);" class="waves-effect"><i class="mdi mdi-album"></i> <span> Employe </span> <span class="float-right"><i class="mdi mdi-plus"></i></span></a>
                                 <ul class="list-unstyled">
-                                    <li><a href="employe">See Employe</a></li>
-                                    <li><a href="add_employe">Add Employe</a></li>
+                                    <li><a href="{{url('employe')}}">See Employe</a></li>
+                                    <li><a href="{{url('add_employe')}}">Add Employe</a></li>
                                 </ul>
                             </li> 
                             <li class="has_sub">
                                 <a href="javascript:void(0);" class="waves-effect"><i class="mdi mdi-album"></i> <span> Subject </span> <span class="float-right"><i class="mdi mdi-plus"></i></span></a>
                                 <ul class="list-unstyled">
-                                    <li><a href="subject">See Subject</a></li>
-                                    <li><a href="add_subject">Add Subject</a></li>
+                                    <li><a href="{{url('subject')}}">See Subject</a></li>
+                                    <li><a href="{{url('add_subject')}}">Add Subject</a></li>
                                 </ul>
                             </li> 
                             <li class="has_sub">
                                 <a href="javascript:void(0);" class="waves-effect"><i class="mdi mdi-album"></i> <span> Class </span> <span class="float-right"><i class="mdi mdi-plus"></i></span></a>
                                 <ul class="list-unstyled">
-                                    <li><a href="our_class">See Class</a></li>
-                                    <li><a href="add_class">Add Class</a></li>
-                                    <li><a href="class_fee_history">See Class Fee</a></li>
-                                    <li><a href="student_classes">See Student Class</a></li>
-                                    <li><a href="add_student_classes">Add Student Class</a></li>
+                                    <li><a href="{{url('our_class')}}">See Class</a></li>
+                                    <li><a href="{{url('add_class')}}">Add Class</a></li>
+                                    <li><a href="{{url('class_fee_history')}}">See Class Fee</a></li>
+                                    <li><a href="{{url('student_classes')}}">See Student Class</a></li>
+                                    <li><a href="{{url('add_student_classes')}}">Add Student Class</a></li>
                                 </ul>
                             </li> 
                                 </ul>

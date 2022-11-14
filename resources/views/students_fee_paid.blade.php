@@ -30,20 +30,20 @@
                                         <div class="card-body">
                                             <h4 class="m-t-0 m-b-30"> See All Student Fees</h4>
 
-                                            <form action="{{url('student_fee_update')}}" class="form-horizontal" role="form" method="POST">
+                                            <form action="{{url('add_students_fee_paid')}}" class="form-horizontal" role="form" method="POST">
                                             @csrf
                                             <div class="form-group row">
                                                 <label class="col-sm-2 control-label" for="Address">Select Date</label>
                                                 <div class="col-sm-10">
-                                                <input type="text" class="form-control hassaan" placeholder="mm/dd/yyyy" id="datepicker-autoclose" name="submit_date">
+                                                <input type="text" class="form-control hassaan" placeholder="mm/dd/yyyy" id="datepicker-autoclose" name="submit_date" required>
                                                                 <span class="input-group-addon bg-custom b-0"><i class="mdi mdi-calendar"></i></span>
                                                         </div>
                                                 </div>
                                                 <div class="form-group row">
                                                     <label class="col-sm-2 control-label">Class</label>
                                                     <div class="col-sm-10">
-                                                        <select class="form-control" name='class_id' id="class_id" >
-                                                        <option>Select Class</option>
+                                                        <select class="form-control" name='class_id' id="class_id" required>
+                                                        <option value="" >Select Class</option>
                                                             @foreach($classes as $cal)
                                                             <option value="{{$cal->id}}">{{$cal->class_name}}</option>
                                                             @endforeach
@@ -52,7 +52,7 @@
                                                 </div>
                                                 <div class="form-group row d-flex flex-row-reverse">
                                                     <div class="col-sm-10 ">
-                                                    <input type="button" value="See student fees"  class='btn btn-primary' onClick="see_students_fee()"> 
+                                                    <input type="button" value="See student fees"  class='btn btn-primary' onClick="see_students_fee_paid()"> 
                                                     </div>
                                                 </div>
                                                 <div class="form-group row d-flex flex-row-reverse">

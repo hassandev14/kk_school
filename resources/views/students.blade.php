@@ -34,6 +34,7 @@
                                                         <th>Gender</th>
                                                         <th>Admission Date</th>
                                                         <th>Class</th>
+                                                        <th>Fee</th>
                                                         <th>Image</th>
                                                         <th>Action</th>
                                                         <th>More</th>
@@ -43,7 +44,7 @@
 
                                                     <tbody>
                                                         @foreach($data as $dat)
-                                                     @php $current_class = $dat->student_classes->keys()->last() @endphp
+                                                     
                                                     <tr>
                                                         <td>{{$dat->roll_no}}</td>
                                                         <td>{{$dat->student_name}}</td>
@@ -53,17 +54,18 @@
                                                         <td>{{$dat->gender}}</td>
                                                         <td>{{$dat->admission_date}}</td>
                                                         <td><a href = "subject?my_classes_id={{$dat->class_id}}">{{$dat->class_name}}</a></td>
+                                                        <td>{{$dat->fee}}</td>
                                                         <td><img src="students_images/{{$dat->image_name}}" width="80" height="50"></td>
                                                         <td>
                                                       <a href="edit_student/{{$dat->id}}"><i class= "fas fa-edit"></i></a> 
                                                       <a href="delete_student/{{$dat->id}}"><i class="fas fa-trash"></i></a> 
                                                      @if($dat->class_id)
-                                                      <a href="subject?my_classes_id={{$dat->student_class_id}}">See Subjects</a>
+                                                      <a href="subject?my_classes_id={{$dat->class_id}}">See Subjects</a>
                                                       @endif
                                                     </td>
                                                     <td>
-                                                    <a href="add_student_fee/{{$dat->id}}"><i></i>Add Student Fee</a><br>
-                                                      <a href="student_fee_history/{{$dat->id}}"><i></i>See Student Fee History</a> 
+                                                    <a href="{{url('add_student_classes')}}/{{$dat->id}}"><i></i>Add Student Class</a><br>
+                                                      <a href="student_fee_history/{{$dat->id}}"><i></i>See Student Class History</a> 
                                                     </td>
                                                     </tr>
                                                     @endforeach
