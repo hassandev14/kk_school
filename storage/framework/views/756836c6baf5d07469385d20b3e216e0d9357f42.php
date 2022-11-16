@@ -32,7 +32,7 @@
                             </li>
 
                             <li class="has_sub">
-                                <a href="javascript:void(0);" class="waves-effect"><i class="mdi mdi-album"></i> <span> Teachers </span> <span class="float-right"><i class="mdi mdi-plus"></i></span></a>
+                                <a href="javascript:void(0);" class="waves-effect"><i class="fas fa-chalkboard-teacher"></i> <span> Teachers </span> <span class="float-right"><i class="mdi mdi-plus"></i></span></a>
                                 <ul class="list-unstyled">
                                     <li><a href="<?php echo e(url('teachers')); ?>">See Teachers</a></li>
                                     <li><a href="<?php echo e(url('add_teacher')); ?>">Add Teachers</a></li>
@@ -41,7 +41,7 @@
                                 </ul>
                             </li> 
                             <li class="has_sub">
-                                <a href="javascript:void(0);" class="waves-effect"><i class="mdi mdi-album"></i> <span> Students </span> <span class="float-right"><i class="mdi mdi-plus"></i></span></a>
+                                <a href="javascript:void(0);" class="waves-effect"><i class="fas fa-child"></i> <span> Students </span> <span class="float-right"><i class="mdi mdi-plus"></i></span></a>
                                 <ul class="list-unstyled">
                                     <li><a href="<?php echo e(url('students')); ?>">See Students</a></li>
                                     <li><a href="<?php echo e(url('add_student')); ?>">Add Student</a></li>
@@ -51,13 +51,13 @@
                                     <li><a href="<?php echo e(url('add_attendence')); ?>">Add Attendence</a></li>
                                 </ul>
                             </li> 
-                            <li class="has_sub">
-                                <a href="javascript:void(0);" class="waves-effect"><i class="mdi mdi-album"></i> <span> Exams </span> <span class="float-right"><i class="mdi mdi-plus"></i></span></a>
+                            <!-- <li class="has_sub">
+                                <a href="javascript:void(0);" class="waves-effect"><i class="ion ion-ios-document"></i> <span> Exams </span> <span class="float-right"><i class="mdi mdi-plus"></i></span></a>
                                 <ul class="list-unstyled">
                                     <li><a href="<?php echo e(url('exams')); ?>">See Exams</a></li>
                                     <li><a href="<?php echo e(url('add_exam')); ?>">Add Exams</a></li>
                                 </ul>
-                            </li> 
+                            </li>  -->
                             <li class="has_sub">
                                 <a href="javascript:void(0);" class="waves-effect"><i class="mdi mdi-album"></i> <span> Category </span> <span class="float-right"><i class="mdi mdi-plus"></i></span></a>
                                 <ul class="list-unstyled">
@@ -66,28 +66,28 @@
                                 </ul>
                             </li> 
                             <li class="has_sub">
-                                <a href="javascript:void(0);" class="waves-effect"><i class="mdi mdi-album"></i> <span> Expense </span> <span class="float-right"><i class="mdi mdi-plus"></i></span></a>
+                                <a href="javascript:void(0);" class="waves-effect"><i class="fa fa-dollar-sign"></i> <span> Expense </span> <span class="float-right"><i class="mdi mdi-plus"></i></span></a>
                                 <ul class="list-unstyled">
                                     <li><a href="<?php echo e(url('expense')); ?>">See Expense</a></li>
                                     <li><a href="<?php echo e(url('add_expense')); ?>">Add Expense</a></li>
                                 </ul>
                             </li> 
                             <li class="has_sub">
-                                <a href="javascript:void(0);" class="waves-effect"><i class="mdi mdi-album"></i> <span> Employe </span> <span class="float-right"><i class="mdi mdi-plus"></i></span></a>
+                                <a href="javascript:void(0);" class="waves-effect"><i class="ion ion-ios-man"></i> <span> Employe </span> <span class="float-right"><i class="mdi mdi-plus"></i></span></a>
                                 <ul class="list-unstyled">
                                     <li><a href="<?php echo e(url('employe')); ?>">See Employe</a></li>
                                     <li><a href="<?php echo e(url('add_employe')); ?>">Add Employe</a></li>
                                 </ul>
                             </li> 
                             <li class="has_sub">
-                                <a href="javascript:void(0);" class="waves-effect"><i class="mdi mdi-album"></i> <span> Subject </span> <span class="float-right"><i class="mdi mdi-plus"></i></span></a>
+                                <a href="javascript:void(0);" class="waves-effect"><i class="fa fa-book"></i> <span> Subject </span> <span class="float-right"><i class="mdi mdi-plus"></i></span></a>
                                 <ul class="list-unstyled">
                                     <li><a href="<?php echo e(url('subject')); ?>">See Subject</a></li>
                                     <li><a href="<?php echo e(url('add_subject')); ?>">Add Subject</a></li>
                                 </ul>
                             </li> 
                             <li class="has_sub">
-                                <a href="javascript:void(0);" class="waves-effect"><i class="mdi mdi-album"></i> <span> Class </span> <span class="float-right"><i class="mdi mdi-plus"></i></span></a>
+                                <a href="javascript:void(0);" class="waves-effect"><i class="fas fa-school"></i> <span> Class </span> <span class="float-right"><i class="mdi mdi-plus"></i></span></a>
                                 <ul class="list-unstyled">
                                     <li><a href="<?php echo e(url('our_class')); ?>">See Class</a></li>
                                     <li><a href="<?php echo e(url('add_class')); ?>">Add Class</a></li>

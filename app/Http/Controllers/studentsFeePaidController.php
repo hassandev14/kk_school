@@ -3,9 +3,11 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Input;
 use App\Models\Student;
 use App\Models\My_classes;
 use App\Models\Student_fee_paid;
+use App\Http\Controllers\studentController;
 
 class studentsFeePaidController extends Controller
 {
@@ -18,10 +20,14 @@ class studentsFeePaidController extends Controller
 
  public function see_students_fee_paid(Request $request)
     {
+        //dd('dd');
         $content ="";
         $submit_date =$request->submit_date;
         $class_id = $request->class_id;
-        $where=array("submit_date"=>$submit_date,"class_id"=>$class_id);
+        $month = Date("M",\strtotime($submit_date));
+        $year = Date("Y",\strtotime($submit_date));
+        
+        $where=array("month"=>$month,"year"=>$year,"class_id"=>$class_id);
         $student_fee = Student_fee_paid::where($where)->first();
        if($student_fee){
         $all_class_fee_data = $student_fee->all_class_fee_data;
@@ -52,34 +58,25 @@ class studentsFeePaidController extends Controller
       return $content;
     }else{
 
-        $content.="No Student fee found"; 
+        $object = new studentController();
+        $content.= $object->get_students_for_fee($request); 
+        //dd($content);
         return $content;
     } 
     }
    
     public function add_students_fee_paid (Request $request)
     {
-    // dd($request->all());
-
+       // dd($request->student_id);
+        $id =$request->sf_id;
         $submit_date =$request->submit_date;
-        $class_id = $request->class_id;
-        $fee = $request->fee;
         $student_id =$request->student_id;
         $student_name = $request->student_name;
-        $month = date("M",strtotime($submit_date));
-        $year = date("Y",strtotime($submit_date));
-     $where_data = array(
-        'submit_date' => $submit_date,
-        'class_id' => $class_id
-        );
-       
-      
-        if(!Student_fee_paid::where($where_data)->exists())
-        {
-            //dd('fdfdfd');
-        $paid = "paid_";
-        $num=0;
+        $fee = $request->fee;
         $newArr=array();
+        $num=0;
+        $month = Date("M",\strtotime($submit_date));
+        $year = Date("Y",\strtotime($submit_date));
         foreach($student_id  as $std_id){
             $paid = "paid_".$std_id;
             $tmep['id']=$std_id;
@@ -89,8 +86,17 @@ class studentsFeePaidController extends Controller
             $newArr[]= $tmep;
             $num++;
         }       
-        $all_class_fee_data=json_encode($newArr);        
-        $inseted = Student_fee_paid::create([
+        $all_class_fee_data=json_encode($newArr);   
+    if (Student_fee_paid::where('class_id', $request->class_id)->exists()) {
+       
+                   
+        Student_fee_paid::where('id',$id)->update([
+            'all_class_fee_data'=>$all_class_fee_data 
+          ]);
+          return Redirect('student_fee_paid')->withErrors(['msg' => 'Record Updated']);
+     }else{
+               
+         Student_fee_paid::create([
             'submit_date'=>$request->submit_date,
             'class_id'=>$request->class_id,
             'fee'=>$request->fee[0],
@@ -98,13 +104,7 @@ class studentsFeePaidController extends Controller
             'month'=>$month,
             'all_class_fee_data'=>$all_class_fee_data  
            ]);
-          return redirect('student_fee_paid');
-        }else{
-
-            return Redirect('add_students_fee_paid')->withErrors(['msg' => 'Already Student fee saved']);
-
-
-        }
     }
-    
+      return Redirect('student_fee_paid')->withErrors(['msg' => 'Student Fee for Class added']);
+        }
 }

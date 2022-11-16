@@ -52,7 +52,7 @@
                                                 </div>
                                                 <div class="form-group row d-flex flex-row-reverse">
                                                     <div class="col-sm-10 ">
-                                                    <input type="button" value="See student fees"  class='btn btn-primary' onClick="see_students_fee_paid()"> 
+                                                    <input type="button" value="See student fees"  class='btn btn-primary' onClick="see_students_fee_paid()" name="submit_date"> 
                                                     </div>
                                                 </div>
                                                 <div class="form-group row d-flex flex-row-reverse">

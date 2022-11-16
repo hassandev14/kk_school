@@ -127,9 +127,9 @@ Route::get('see_attendence', [attendenceContoller::class,'see_attendence']);
 ///////////////////////////////////////////////////////Student Fees Routning//////////////////////////////////////////////////////
 Route::get('student_fee_paid', [studentsFeePaidController::class,'student_fee_paid']);
 Route::get('see_students_fee_paid', [studentsFeePaidController::class,'see_students_fee_paid']);
+Route::post('student_fee_save_paid', [studentsFeePaidController::class,'student_fee_paid_save']);
 Route::get('add_students_fee_paid', [studentsFeePaidController::class,'add_students_fee_paid']);
-//Route::post('student_fee_save_paid', [studentsFeePaidController::class,'student_fee_paid_save']);
-//Route::post('student_fee_update_paid', [studentsFeePaidController::class,'student_fee_paid_update']);
+Route::post('add_students_fee_paid', [studentsFeePaidController::class,'add_students_fee_paid']);
 
 ///////////////////////////////////////////////////////////////Teacher Salary Routing///////////////////////////////////////////////
 Route::get('teacher_salary_paid', [teacherSalaryPaidController::class,'index']);
