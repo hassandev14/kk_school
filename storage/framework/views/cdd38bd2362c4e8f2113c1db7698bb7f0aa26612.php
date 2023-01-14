@@ -65,7 +65,7 @@
                                                     </td>
                                                     <td>
                                                     <a href="<?php echo e(url('add_student_classes')); ?>/<?php echo e($dat->id); ?>"><i></i>Add Student Class</a><br>
-                                                      <a href="student_fee_history/<?php echo e($dat->id); ?>"><i></i>See Student Class History</a> 
+                                                      <a href="student_class_history/<?php echo e($dat->id); ?>"><i></i>See Student Class History</a> 
                                                     </td>
                                                     </tr>
                                                     <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>

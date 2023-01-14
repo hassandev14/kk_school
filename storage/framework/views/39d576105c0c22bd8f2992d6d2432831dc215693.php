@@ -7,7 +7,7 @@
 
                     <div class="">
                         <div class="page-header-title">
-                            <h4 class="page-title">Class Data</h4>
+                            <h4 class="page-title">Teachers Salary Data</h4>
                         </div>
                     </div>
 
@@ -17,19 +17,29 @@
 <?php endif; ?>
                         <div class="container-fluid">
                         <div class="row">
+                        <div class="form-group row">
+                        <label class="col-sm-2 control-label" for="Address">Select Date</label>
+                        <div class="col-sm-10">
+                        <input type="text" class="form-control" placeholder="mm/dd/yyyy" id="datepicker-autoclose" name="pay_date">
+                                        <span class="input-group-addon bg-custom b-0"><i class="mdi mdi-calendar"></i></span>
+                                </div>
+                        </div>
                                 <div class="col-lg-12">
                                     <div class="card">
                                         <div class="card-body">
-                                            <h4 class="m-b-30 m-t-0">Class</h4>
+                                            <h4 class="m-b-30 m-t-0">Teachers Salary</h4>
 
                                             <div class="table-responsive">
                                                 <table id="datatable-buttons" class="table table-striped table-bordered dt-responsive nowrap" cellspacing="0" width="100%">
                                                     <thead>
                                                     <tr>
-                                                        <th>id</th>
-                                                        <th>Class Name</th>
-                                                        <th>Fee</th>
-                                                        <th>Total Subject</th>
+                                                        <th>Teacher Name</th>
+                                                        <th>Monnth</th>
+                                                        <th>Year</th>
+                                                        <th>Method</th>
+                                                        <th>Pay Date</th>
+                                                        <th>status</th>
+                                                        <th>Image</th>
                                                         <th>Action</th>
                                                     </tr>
                                                     </thead>
@@ -38,17 +48,16 @@
                                                     <tbody>
                                                         <?php $__currentLoopData = $data; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $dat): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                                                     <tr>
-                                                        <td><?php echo e($dat->id); ?></td>
-                                                        <td><?php echo e($dat->class_name); ?></td>
-                                                       
-                                                        <td><?php echo e($dat->class_fee); ?></td>
-                                                        <td><a href = "subject?my_classes_id=<?php echo e($dat->id); ?>"><?php echo e($dat->total_subjects); ?></a></td>
+                                                        <td><?php echo e($teacher[0]->teacher_name); ?></td>
+                                                        <td><?php echo e($dat->month); ?></td>
+                                                        <td><?php echo e($dat->year); ?></td>
+                                                        <td><?php echo e($dat->method); ?></td>
+                                                        <td><?php echo e($dat->pay_date); ?></td>
+                                                        <td><?php echo e($dat->status); ?></td>
+                                                        <td><img src="teacher_salary_images/<?php echo e($dat->image_name); ?>" width="80" height="50"></td>
                                                         <td>
-                                                      <a href="edit_class/<?php echo e($dat->id); ?>"><i class= "fas fa-edit"></i></a> 
-                                                      <a href="delete_class/<?php echo e($dat->id); ?>"><i class="fas fa-trash"></i></a> 
-                                                      <a href="add_class_fee/<?php echo e($dat->id); ?>"><i></i>Add Class Fee</a><br>
-                                                      <a href="class_fee_history/<?php echo e($dat->id); ?>"><i></i>See Class Fee History</a> <br>
-                                                      <a href="add_exam/<?php echo e($dat->id); ?>"><i></i>Add Exam Shedule</a> 
+                                                      <a href="edit_teacher_salary_paid/<?php echo e($dat->id); ?>"><i class= "fas fa-edit"></i></a> 
+                                                      <a href="delete_teacher_salary_paid/<?php echo e($dat->id); ?>"><i class="fas fa-trash"></i></a> 
                                                     </td>
                                                     </tr>
                                                     <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
@@ -78,4 +87,4 @@
 <?php $__env->stopSection(); ?>
 
 
-<?php echo $__env->make('layouts.default', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH D:\wamp\www\kk_school\resources\views/class.blade.php ENDPATH**/ ?>
+<?php echo $__env->make('layouts.default', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH D:\wamp\www\kk_school\resources\views/teacher_salary_paid.blade.php ENDPATH**/ ?>

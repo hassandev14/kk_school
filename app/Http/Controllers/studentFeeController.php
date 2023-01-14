@@ -29,16 +29,6 @@ class studentFeeController extends Controller
         ]);
         return redirect('students');
     }
-    public function student_fee_history(Request $request)
-    {
-        $student_id = $request->route('id');
-        $whereData=array("student_id"=>$student_id);
-        $data = Student_fee::with('students')->where($whereData)->get();
-        return view('student_fee_history',['data'=>$data]);
-    }
-    public function all_student_fee(Request $request)
-    {
-        $student_history = Student_fee::all();
-        return view('student_fee_history' ,['student_history'=>$student_history]);
-    }
+    
+   
 }

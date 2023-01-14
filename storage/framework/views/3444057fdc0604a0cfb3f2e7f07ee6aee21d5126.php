@@ -1,69 +1,57 @@
-@extends('layouts.default')
 
-@section('content')
+
+<?php $__env->startSection('content'); ?>
 <div class="content-page">
                 <!-- Start content -->
                 <div class="content">
 
                     <div class="">
                         <div class="page-header-title">
-                            <h4 class="page-title">Teachers Data</h4>
-                            <a href="delete_all_record"><i class= "btn btn-primary">Delete All Record</i></a>
+                            <h4 class="page-title">Employe Data</h4>
                         </div>
                     </div>
 
                     <div class="page-content-wrapper ">
- @if($errors->any())
-<h4>{{$errors->first()}}</h4>
-@endif
+ <?php if($errors->any()): ?>
+<h4><?php echo e($errors->first()); ?></h4>
+<?php endif; ?>
                         <div class="container-fluid">
                         <div class="row">
                                 <div class="col-lg-12">
                                     <div class="card">
                                         <div class="card-body">
-                                            <h4 class="m-b-30 m-t-0">All Teachers</h4>
+                                            <h4 class="m-b-30 m-t-0">Employe</h4>
 
                                             <div class="table-responsive">
                                                 <table id="datatable-buttons" class="table table-striped table-bordered dt-responsive nowrap" cellspacing="0" width="100%">
                                                     <thead>
                                                     <tr>
-                                                        <th>Teacher Id</th>
-                                                        <th>Teacher Name</th>
+                                                        <th>Employe Name</th>
                                                         <th>Father name</th>
                                                         <th>Phone</th>
                                                         <th>Address</th>
-                                                        <th>Gender</th>
-                                                        <th>joining Date</th>
-                                                        <th>Image</th>
                                                         <th>Salary</th>
+                                                        <th>Image</th>
                                                         <th>Action</th>
-                                                        <th>More</th>
                                                     </tr>
                                                     </thead>
 
 
                                                     <tbody>
-                                                        @foreach($data as $dat)
+                                                        <?php $__currentLoopData = $data; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $dat): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                                                     <tr>
-                                                        <td>{{$dat->id}}</td>
-                                                        <td>{{$dat->teacher_name}}</td>
-                                                        <td>{{$dat->father_name}}</td>
-                                                        <td>{{$dat->phone}}</td>
-                                                        <td>{{$dat->address}}</td>
-                                                        <td>{{$dat->gender}}</td>
-                                                        <td>{{$dat->joining_date}}</td>
-                                                        <td><img src="teachers_images/{{$dat->image_name}}" width="80" height="50"></td>
-                                                        <td>{{$dat->salary}}</td>
+                                                        <td><?php echo e($dat->employe_name); ?></td>
+                                                        <td><?php echo e($dat->father_name); ?></td>
+                                                        <td><?php echo e($dat->phone); ?></td>
+                                                        <td><?php echo e($dat->address); ?></td>
+                                                        <td><?php echo e($dat->salary); ?></td>
+                                                        <td><img src="teachers_images/<?php echo e($dat->image_name); ?>" width="80" height="50"></td>
                                                         <td>
-                                                      <a href="edit_teacher/{{$dat->id}}"><i class= "fas fa-edit"></i></a> 
-                                                      <a href="delete_teacher/{{$dat->id}}"><i class="fas fa-trash"></i></a> 
-                                                    </td>
-                                                    <td>
-                                                    <a href="add_teacher_salary/{{$dat->id}}"><i></i>Add Teacher Salary</a><br>
-                                                    <a href="teacher_salary_history/{{$dat->id}}"><i></i>See Teacher Salary History</a> 
+                                                      <a href="edit_employe/<?php echo e($dat->id); ?>"><i class= "fas fa-edit"></i></a> 
+                                                      <a href="delete_employe/<?php echo e($dat->id); ?>"><i class="fas fa-trash"></i></a> 
                                                     </td>
                                                     </tr>
-                                                    @endforeach
+                                                    <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                                                     </tbody>
                                                 </table>
                                             </div>
@@ -87,5 +75,7 @@
 
             </div>
             <!-- End Right content here -->
-@stop
+<?php $__env->stopSection(); ?>
 
+
+<?php echo $__env->make('layouts.default', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH D:\wamp\www\kk_school\resources\views/employe.blade.php ENDPATH**/ ?>

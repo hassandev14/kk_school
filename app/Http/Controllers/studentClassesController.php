@@ -71,4 +71,17 @@ class studentClassesController extends Controller
     $expense->delete();
     return redirect($this->redirect);
    }
+   public function student_class_history(Request $request)
+    {
+      //  dd('inffff');
+        $student_id = $request->route('id');
+        $whereData=array("student_id"=>$student_id);
+        $data = Student_classes::with('student')->where($whereData)->get();
+        return view('student_classes',['data'=>$data]);
+    }
+    public function all_student_class(Request $request)
+    {
+        $student_history = Student_fee::all();
+        return view('student_classes' ,['student_history'=>$student_history]);
+    }
 }

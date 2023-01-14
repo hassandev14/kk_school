@@ -58,78 +58,43 @@ class attendenceContoller extends Controller
     {
         $data = Attendence::with('classess')->get();
         $classes = My_classes::all();
-        return view('add_attendence',array('data'=> $data,'classes'=>$classes));
+        return view('attendence',array('data'=> $data,'classes'=>$classes));
     }
     public function attendence_save(Request $request)
     {
-     // dd($request->all());
+      //dd($request->all());
+     $id =$request->class_id;
+     $today_date =$request->today_date;
+     $student_id =$request->student_id;
+     $student_name = $request->student_name;
+     $newArr=array();
+     $num=0;
+     foreach($student_id  as $std_id){
+         $present = "pres_".$std_id;
 
-        $today_date =$request->today_date;
-        $class_id = $request->class_id;
-     $where_data = array(
-        'today_date' => $today_date,
-        'class_id' => $class_id
-        );
-       
-       // dd($admin);
-        if(!Attendence::where($where_data)->exists())
-        {
-
-        
-        $student_id =$request->student_id;
-        $student_name = $request->student_name;
-        $today_attendence = "pres_";
-        $num=0;
-        $newArr=array();
-        foreach($student_id  as $std_id){
-            $pres = "pres_".$std_id;
-            $tmep['id']=$std_id;
-            $tmep['student_name']=$student_name[$num];
-          //  echo $request->$today_attendence.$std_id."==1";
-            $tmep['today_attendence']=($request->$pres=="1")?"Present":"Absent";
-            $newArr[]= $tmep;
-            $num++;
-        }       
-        $today_attendence=json_encode($newArr);        
-        $inseted = Attendence::create([
-            'today_date'=>$request->today_date,
-            'class_id'=>$request->class_id,
-            'today_attendence'=>$today_attendence  
-           ]);
-          return redirect('add_attendence');
-        }else{
-
-            return Redirect('attendence')->withErrors(['msg' => 'Already attendence saved']);
-
-
-        }
-    }
-
-    public function attendence_update(Request $request)
-    {
-     // dd($request->all());
-        $id =$request->at_id;
-        $student_id =$request->student_id;
-        $student_name = $request->student_name;
-        $newArr=array();
-        $num=0;
-        foreach($student_id  as $std_id){
-            $pres = "pres_".$std_id;
-            $tmep['id']=$std_id;
-            $tmep['student_name']=$student_name[$num];
-            $tmep['today_attendence']=($request->$pres=="1")?"Present":"Absent";
-            $newArr[]= $tmep;
-            $num++;
-        }       
-       
-        $today_attendence=json_encode($newArr);
-        //dd($today_attendence);  
-        Attendence::where('id',$id)->update([
+         $tmep['id']=$std_id;
+         $tmep['student_name']=$student_name[$num];
+         $tmep['today_attendence']=($request->$present=="1")?"present":"absent";
+         $newArr[]= $tmep;
+         $num++;
+     }     
+       //dd( $newArr);
+     $today_attendence=json_encode($newArr);
+     if (Attendence::where('class_id', $request->class_id,'today_date',$request->today_date)->exists()) {
+                   
+        Attendence::where('class_id',$id)->update([
             'today_attendence'=>$today_attendence 
           ]);
-           
-        
-          return redirect('attendence')->withErrors(['msg' => 'Attendence updated']);;
+         // dd($today_attendence);
+          return Redirect('attendence')->withErrors(['msg' => 'Record Updated Succesfully!']);
+     }else{              
+             Attendence::create([
+            'submit_date'=>$request->submit_date,
+            'class_id'=>$request->class_id,
+            'today_date'=>$today_date,
+            'today_attendence'=>$today_attendence  
+           ]);
     }
-
+    return Redirect('attendence')->withErrors(['msg' => 'Record Added Succesfully!']);
+    }
 }

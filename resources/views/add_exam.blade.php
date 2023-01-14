@@ -1,6 +1,6 @@
+@extends('layouts.default')
 
-
-<?php $__env->startSection('content'); ?>
+@section('content')
 <!-- Start right Content here -->
             <div class="content-page">
                 <!-- Start content -->
@@ -8,36 +8,47 @@
 
                     <div class="">
                         <div class="page-header-title">
-                            <h4 class="page-title">Subject </h4>
+                            <h4 class="page-title">Exams Shedule </h4>
                         </div>
                     </div>
 
                     <div class="page-content-wrapper ">
                    
                         <div class="container-fluid">
-                        <form action="<?php echo e(url('add_subject')); ?>" style="border:1px solid #ccc" enctype="multipart/form-data" method="POST">
-                        <?php echo csrf_field(); ?>
+                        <form action="{{url('add_exam')}}" style="border:1px solid #ccc" enctype="multipart/form-data" method="POST">
+                        @csrf
                             <div class="row">
                                 <div class="col-sm-12">
                                     <div class="card">
                                         <div class="card-body">
-                                            <h4 class="m-t-0 m-b-30">Add Subject</h4>
+                                            <h4 class="m-t-0 m-b-30">Add Exams Shedule</h4>
 
                                             <form class="form-horizontal" role="form">
                                                 <div class="form-group row">
-                                                    <label class="col-sm-2 control-label" for="Name">Subject Name</label>
+                                                    <label class="col-sm-2 control-label" for="Name">Class Name</label>
                                                     <div class="col-sm-10">
-                                                        <input type="text" class="form-control" value="" id="subject_name" name="subject_name" required>
+                                                    <input type="text" class="form-control" value="{{$data->class_name}}"readonly>  
+                                                    <input type="hidden" class="form-control" value="{{$data->id}}" id="class_id" name="class_id"> 
                                                     </div>
                                                 </div>
                                                 <div class="form-group row">
-                                                    <label class="col-sm-2 control-label">Class Id</label>
+                                                <label class="col-sm-2 control-label" for="Address">Start To End Date</label>
+                                                <div class="col-sm-10">
+                                                <div class="input-daterange input-group" id="date-range">
+                                                                <input type="text" class="form-control" name="start_date" />
+                                                                <span class="input-group-addon bg-primary text-white b-0">to</span>
+                                                                <input type="text" class="form-control" name="end_date" />
+                                                            </div>
+                                                        </div>
+                                                </div>
+                                                <div class="form-group row">
+                                                    <label class="col-sm-2 control-label">Exam Timing</label>
                                                     <div class="col-sm-10">
-                                                        <select class="form-control" name='my_classes_id' required>
-                                                        <option value="">Select Class</option>
-                                                            <?php $__currentLoopData = $class; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $cal): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                                                            <option value="<?php echo e($cal->id); ?>"><?php echo e($cal->class_name); ?></option>
-                                                            <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                                                        <select class="form-control" name='timing' required>
+                                                        <option>Select Exam Timimg</option>
+                                                            <option value="1_hour">1 Hour</option>
+                                                            <option value="2_hour">2 Hour</option>
+                                                            <option value="3_hour">3 Hour</option>
                                                         </select>
                                                     </div>
                                                 </div>
@@ -64,5 +75,4 @@
 
             </div>
             <!-- End Right content here -->
-            <?php $__env->stopSection(); ?>      
-<?php echo $__env->make('layouts.default', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH D:\wamp\www\kk_school\resources\views/add_subject.blade.php ENDPATH**/ ?>
+            @stop      

@@ -69,8 +69,9 @@
 </select>
                                             <input type="submit" value="Filter" class='btn btn-primary'>
                                         </div>
+                                        <h2 style="text-align:center">Data for : {{$for}}</h2>
                                 </form>
-                                   <h1 style="text-align:center">Data for : {{$for}}</h1>      
+              
                                 <div class="row">
                                 <div class="col-sm-6 col-lg-3">
                                     <div class="card text-center">

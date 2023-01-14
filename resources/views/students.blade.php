@@ -65,7 +65,7 @@
                                                     </td>
                                                     <td>
                                                     <a href="{{url('add_student_classes')}}/{{$dat->id}}"><i></i>Add Student Class</a><br>
-                                                      <a href="student_fee_history/{{$dat->id}}"><i></i>See Student Class History</a> 
+                                                      <a href="student_class_history/{{$dat->id}}"><i></i>See Student Class History</a> 
                                                     </td>
                                                     </tr>
                                                     @endforeach

@@ -67,7 +67,6 @@ class studentsFeePaidController extends Controller
    
     public function add_students_fee_paid (Request $request)
     {
-       // dd($request->student_id);
         $id =$request->sf_id;
         $submit_date =$request->submit_date;
         $student_id =$request->student_id;

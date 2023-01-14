@@ -116,11 +116,13 @@ class studentController extends Controller
    {
       $class_id = $request->class_id;
       $all_classes = My_classes::where(array("id"=>$class_id))->get();
-          //$data = Student::with('student_classes_last')->get();
-	$data = DB::select("SELECT  st.id,st.student_name, sc.student_class_id   FROM students st  LEFT JOIN student_classes sc ON sc.student_id=st.id   WHERE sc.student_class_id=( SELECT MAX(scc.student_class_id) FROM student_classes scc WHERE student_id=st.id)
-  AND sc.student_class_id=$class_id");
-  $content ='<table class="table table-striped table-bordered dt-responsive nowrap">';
-  $content.='<tr><th>Student Name </th><th>Action</th></tr>';
+      $data = DB::select("SELECT  st.id,st.student_name, sc.student_class_id  
+      FROM students st
+      LEFT JOIN student_classes sc ON sc.student_id=st.id   
+      WHERE  sc.student_class_id=$class_id
+      AND sc.student_class_id=( SELECT MAX(scc.student_class_id) FROM student_classes scc WHERE scc.student_id=st.id)");
+      $content ='<table class="table table-striped table-bordered dt-responsive nowrap">';
+      $content.='<tr><th>Student Name </th><th>Action</th></tr>';
       //dd($data);
       foreach($data as $dat)
       { 

@@ -8,7 +8,7 @@
 
                     <div class="">
                         <div class="page-header-title">
-                            <h4 class="page-title">Attendence </h4>
+                            <h4 class="page-title">Student Marks</h4>
                         </div>
                     </div>
 
@@ -28,9 +28,9 @@
     </div>
 @endif
                                         <div class="card-body">
-                                            <h4 class="m-t-0 m-b-30">Add Attendence</h4>
+                                            <h4 class="m-t-0 m-b-30">Add Exam Marks</h4>
 
-                                            <form action="{{url('attendence_save')}}" class="form-horizontal" role="form" method="POST">
+                                            <form action="{{url('add_exam_marks')}}" class="form-horizontal" role="form" method="POST">
                                             @csrf
                                             <div class="form-group row">
                                                 <label class="col-sm-2 control-label" for="Address">Date</label>
@@ -39,17 +39,7 @@
                                                                 <span class="input-group-addon bg-custom b-0"><i class="mdi mdi-calendar"></i></span>
                                                         </div>
                                                 </div>
-                                                <div class="form-group row">
-                                                    <label class="col-sm-2 control-label">Class</label>
-                                                    <div class="col-sm-10">
-                                                        <select class="form-control" name='class_id' id="class_id" required>
-                                                        <option value="">Select Class</option>
-                                                            @foreach($classes as $cal)
-                                                            <option value="{{$cal->id}}">{{$cal->class_name}}</option >
-                                                            @endforeach
-                                                        </select>
-                                                    </div>
-                                                </div>
+                                                
                                                 <div class="form-group row d-flex flex-row-reverse">
                                                     <div class="col-sm-10 ">
                                                     <input type="button" value="Get Student"  class='btn btn-primary' onClick="get_students()"> 

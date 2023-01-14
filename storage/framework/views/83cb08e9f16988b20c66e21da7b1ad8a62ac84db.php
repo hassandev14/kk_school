@@ -28,7 +28,7 @@
                                                    <label class="col-sm-2 control-label" for="student_name">Class Name</label>
                                                     <div class="col-sm-10">
                                                         <input type="text" class="form-control" value="<?php echo e($data->class_name); ?>" id="class_name" name="class_id" readonly>  
-                                                        <input type="text" class="form-control" value="<?php echo e($data->id); ?>" id="class_id" name="class_id">                                                  </div>
+                                                        <input type="hidden" class="form-control" value="<?php echo e($data->id); ?>" id="class_id" name="class_id">                                                  </div>
                                                 </div>
                                               
                                              

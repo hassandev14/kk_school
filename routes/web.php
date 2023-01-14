@@ -17,6 +17,7 @@ use App\Http\Controllers\teacherSalaryPaidController;
 use App\Http\Controllers\class_feeController;
 use App\Http\Controllers\teachersSalaryCntroller;
 use App\Http\Controllers\studentFeeController;
+use App\Http\Controllers\examController;
 
 /*
 |--------------------------------------------------------------------------
@@ -51,6 +52,7 @@ Route::group(['middleware'=>'LoginMiddleware'],function(){
     Route::get('edit_teacher/{id}', [teacherController::class,'edit_teacher']);
     Route::post('update_teacher', [teacherController::class,'update']);
     Route::get('delete_teacher/{id}', [teacherController::class,'delete']);
+    Route::get('delete_all_record', [teacherController::class,'delete_all']);
 
 ///////////////////////////////////////Students Routing ////////////////////////////////////////////////////////////
 Route::get('students', [studentController::class,'index']);
@@ -115,14 +117,15 @@ Route::post('add_student_classes', [studentClassesController::class,'insert']);
 Route::get('edit_student_classes/{id}', [studentClassesController::class,'edit_student_classes']);
 Route::post('update_student_classes', [studentClassesController::class,'update']);
 Route::get('delete_student_classes/{id}', [studentClassesController::class,'delete']);
+Route::get('student_class_history/{id}', [studentClassesController::class,'student_class_history']);
+Route::get('student_class_history', [studentClassesController::class,'all_student_class']);
 
 ///////////////////////////////////////////////////////Attendence Routning//////////////////////////////////////////////////////
 
 Route::get('attendence', [attendenceContoller::class,'index']);
 Route::get('add_attendence', [attendenceContoller::class,'add_attendence']);
-Route::post('attendence_save', [attendenceContoller::class,'attendence_save']);
-Route::post('attendence_update', [attendenceContoller::class,'attendence_update']);
 Route::get('see_attendence', [attendenceContoller::class,'see_attendence']);
+Route::post('attendence_save', [attendenceContoller::class,'attendence_save']);
 
 ///////////////////////////////////////////////////////Student Fees Routning//////////////////////////////////////////////////////
 Route::get('student_fee_paid', [studentsFeePaidController::class,'student_fee_paid']);
@@ -153,7 +156,12 @@ Route::get('teacher_salary_history', [teachersSalaryCntroller::class,'teacher_sa
 
 ///////////////////////////////////////////////////////////////Teacher Salary Routing///////////////////////////////////////////////
 Route::get('add_student_fee/{id}', [studentFeeController::class,'index']);
-Route::get('student_fee_history/{id}', [studentFeeController::class,'student_fee_history']);
 Route::post('add_student_fee', [studentFeeController::class,'insert']);
-Route::get('student_fee_history', [studentFeeController::class,'all_student_fee']);
+
+
+///////////////////////////////////////////////////////////////Exam Routing///////////////////////////////////////////////
+Route::get('exams', [examController::class,'index']);
+Route::post('add_exam', [examController::class,'insert']);
+Route::get('add_exam/{id}', [examController::class,'add_exam']);
+Route::get('add_exam_marks', [examController::class,'add_exam_marks']);
 });

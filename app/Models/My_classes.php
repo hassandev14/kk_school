@@ -23,4 +23,8 @@ class My_classes extends Model
     {
         return $this->hasMany('App\Models\Attendence');
     }
+    public function exam()
+    {
+         return $this->hasMany('App\Models\Student_classes');
+    }
 }

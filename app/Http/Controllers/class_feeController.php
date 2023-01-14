@@ -11,9 +11,7 @@ class class_feeController extends Controller
 {
     public function index(Request $request)
     {
-    // $class_name = Route::current()->parameters();
-       $id = $request->id;
-        
+         $id = $request->id;
          $sql="SELECT mc.id,mc.class_name,(SELECT fee FROM class_fee cff  WHERE cff.class_id=mc.id order by cff.id desc LIMIT 1 ) current_fee
          FROM my_classes mc LEFT JOIN class_fee cf ON cf.class_id=mc.id WHERE mc.id=$id GROUP BY mc.id";
          $data = DB::select($sql);

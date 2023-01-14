@@ -1,6 +1,6 @@
-@extends('layouts.default')
 
-@section('content')
+
+<?php $__env->startSection('content'); ?>
 <div class="content-page">
                 <!-- Start content -->
                 <div class="content">
@@ -13,9 +13,9 @@
                     </div>
 
                     <div class="page-content-wrapper ">
- @if($errors->any())
-<h4>{{$errors->first()}}</h4>
-@endif
+ <?php if($errors->any()): ?>
+<h4><?php echo e($errors->first()); ?></h4>
+<?php endif; ?>
                         <div class="container-fluid">
                         <div class="row">
                                 <div class="col-lg-12">
@@ -43,27 +43,27 @@
 
 
                                                     <tbody>
-                                                        @foreach($data as $dat)
+                                                        <?php $__currentLoopData = $data; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $dat): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                                                     <tr>
-                                                        <td>{{$dat->id}}</td>
-                                                        <td>{{$dat->teacher_name}}</td>
-                                                        <td>{{$dat->father_name}}</td>
-                                                        <td>{{$dat->phone}}</td>
-                                                        <td>{{$dat->address}}</td>
-                                                        <td>{{$dat->gender}}</td>
-                                                        <td>{{$dat->joining_date}}</td>
-                                                        <td><img src="teachers_images/{{$dat->image_name}}" width="80" height="50"></td>
-                                                        <td>{{$dat->salary}}</td>
+                                                        <td><?php echo e($dat->id); ?></td>
+                                                        <td><?php echo e($dat->teacher_name); ?></td>
+                                                        <td><?php echo e($dat->father_name); ?></td>
+                                                        <td><?php echo e($dat->phone); ?></td>
+                                                        <td><?php echo e($dat->address); ?></td>
+                                                        <td><?php echo e($dat->gender); ?></td>
+                                                        <td><?php echo e($dat->joining_date); ?></td>
+                                                        <td><img src="teachers_images/<?php echo e($dat->image_name); ?>" width="80" height="50"></td>
+                                                        <td><?php echo e($dat->salary); ?></td>
                                                         <td>
-                                                      <a href="edit_teacher/{{$dat->id}}"><i class= "fas fa-edit"></i></a> 
-                                                      <a href="delete_teacher/{{$dat->id}}"><i class="fas fa-trash"></i></a> 
+                                                      <a href="edit_teacher/<?php echo e($dat->id); ?>"><i class= "fas fa-edit"></i></a> 
+                                                      <a href="delete_teacher/<?php echo e($dat->id); ?>"><i class="fas fa-trash"></i></a> 
                                                     </td>
                                                     <td>
-                                                    <a href="add_teacher_salary/{{$dat->id}}"><i></i>Add Teacher Salary</a><br>
-                                                    <a href="teacher_salary_history/{{$dat->id}}"><i></i>See Teacher Salary History</a> 
+                                                    <a href="add_teacher_salary/<?php echo e($dat->id); ?>"><i></i>Add Teacher Salary</a><br>
+                                                    <a href="teacher_salary_history/<?php echo e($dat->id); ?>"><i></i>See Teacher Salary History</a> 
                                                     </td>
                                                     </tr>
-                                                    @endforeach
+                                                    <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                                                     </tbody>
                                                 </table>
                                             </div>
@@ -87,5 +87,7 @@
 
             </div>
             <!-- End Right content here -->
-@stop
+<?php $__env->stopSection(); ?>
 
+
+<?php echo $__env->make('layouts.default', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH D:\wamp\www\kk_school\resources\views/teacher.blade.php ENDPATH**/ ?>

@@ -105,4 +105,10 @@ class teacherController extends Controller
     $teacher->delete();
     return redirect($this->redirect_page);
    }
+   public function delete_all(Request $request)
+   {
+     $teacher = Teacher::all();
+     $teacher = DB::statement("delete from teachers");
+     return redirect($this->redirect_page);
+   }
 }

@@ -46,9 +46,7 @@
                                     <li><a href="{{url('students')}}">See Students</a></li>
                                     <li><a href="{{url('add_student')}}">Add Student</a></li>
                                     <li><a href="{{url('student_fee_paid')}}">See Students Fess Paid</a></li>
-                                    <li><a href="{{url('add_students_fee_paid')}}">Add Student Fee Paid</a></li>
                                     <li><a href="{{url('attendence')}}">See Attendence</a></li>
-                                    <li><a href="{{url('add_attendence')}}">Add Attendence</a></li>
                                 </ul>
                             </li> 
                             <!-- <li class="has_sub">
